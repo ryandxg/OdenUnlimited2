@@ -233,10 +233,10 @@ section .main_btn:hover i{
 }
 
 .menu .menu_box{
-    width: 95%;
+    width: 100%;
     margin: 0 auto;
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); /*used initially 1fr 1fr 1fr 1fr*/
     grid-gap: 15px;
 }
 
@@ -450,7 +450,7 @@ section .main_btn:hover i{
 
 .review{
     width: 100%;
-    height: 100vh;
+    /* height: 100vh; */
     padding: 70px 0;
 }
 
@@ -478,9 +478,10 @@ section .main_btn:hover i{
 }
 
 .review .review_box{
-    width: 95%;
+    width: 100%;
     margin: 70px auto;
     display: flex;
+    flex-wrap: wrap;
 }
 
 .review .review_box .review_card{
@@ -564,7 +565,7 @@ section .main_btn:hover i{
 
 .order{
     width: 100%;
-    height: 100vh;
+    /* height: 100vh; */
     padding: 70px 0;
     background-image: url(image/bg2.jpg);
     background-size: cover;
@@ -651,7 +652,7 @@ section .main_btn:hover i{
 
 footer{
     width: 100%;
-    padding: 30px 0 0 20px;
+    padding: 30px 0 30px 20px;
     background: #37371f;
 }
 
@@ -672,7 +673,7 @@ footer .footer_main .footer_tag{
 
 footer .footer_main .footer_tag h2{
     color: #000;
-    margin-bottom: 25px;
+    /* margin-bottom: 25px; */
     font-size: 30px;
 }
 
@@ -784,5 +785,64 @@ footer .end span{
     }
     .about .about_btn{
         display: none;
+    }
+
+
+    .menu .menu_box{
+        width: 100%;
+        margin: 0 auto;
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+        grid-gap: 15px;
+    }
+
+     /*review section*/
+     .review h1{
+        font-size: 45px;
+    }
+    .review h1 span{
+        margin-left: 10px;
+        color: #90323d;
+        font-family: mv boli;
+    }
+
+
+    /*order section*/
+    .order .order_main{    
+        flex-direction: column;
+    }
+    .order .order_main .order_image img{
+        display: none;
+    }
+    .order .order_main form{
+        display: flex;
+        flex-direction: column;
+    }
+
+
+     /*review section*/
+     .review .review_box{
+        padding: 0 7vw;
+        width: 100%;
+        margin: 70px auto;
+        display: flex;
+        flex-wrap: wrap;
+    }
+    .review .review_box .review_card{
+        width: 100%;
+        height: 100%;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.5);
+        border-radius: 8px;
+        padding: 8px 20px;
+        margin: 0 8px;
+        margin-bottom: 3vh;
+    }
+    /*footer section*/
+    footer .footer_main{
+        display: flex;
+        flex-direction: column;
+    }
+    footer .footer_main .footer_tag{
+        text-align: start;
     }
 }

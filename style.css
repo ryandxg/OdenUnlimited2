@@ -14,8 +14,9 @@ section{
     height: 100vh;
 }
 
-section nav{
+header nav{
     display: flex;
+    height: 70px;  /*height of nav*/
     justify-content: space-around;
     align-items: center;
     position: fixed;
@@ -26,22 +27,22 @@ section nav{
     z-index: 1000;
 }
 
-section nav .logo img{
+header nav .logo img{
     width: 100px;
     cursor: pointer;
     margin: 7px 0;
 }
 
-section nav ul{
+header nav ul{
     list-style: none;
 }
 
-section nav ul li{
+header nav ul li{
     display: inline-block;
     margin: 0 15px;
 }
 
-section nav ul li a{
+header nav ul li a{
     text-decoration: none;
     color: #000;
     font-weight: 500;
@@ -49,7 +50,7 @@ section nav ul li a{
     transition: 0.1s;
 }
 
-section nav ul li a::after{
+header nav ul li a::after{
     content: '';
     width: 0;
     height: 2px;
@@ -58,15 +59,15 @@ section nav ul li a::after{
     transition: 0.2s linear;
 }
 
-section nav ul li a:hover::after{
+header nav ul li a:hover::after{
     width: 100%;
 }
 
-section nav ul li a:hover{
+header nav ul li a:hover{
     color: #000f;
 }
 
-section nav .icon i{
+header nav .icon i{
     font-size: 18px;
     color: #000;
     margin: 0 5px;
@@ -78,16 +79,18 @@ section nav .icon i{
 section .main{
     display: flex;
     align-items: center;
-    justify-content: space-around;
+    justify-content: space-between;
+    margin-left: 7vw;
+    gap: 5rem;
     position: relative;
-    top: 130px;
+    top: 15vh;
 }
 
 section .main .men_text h1{
     font-size: 60px;
     position: relative;
-    top: -90px;
-    left: 20px;
+    top: -6vh;
+    /* left: 20px;  */
 }
 
 section .main .men_text h1 span{
@@ -101,23 +104,24 @@ section .main .men_text h1 span{
 section .main .main_image img{
     width: 700px;
     position: relative;
-    left: 70px;
+    /* left: 70px; */
 }
 
 section p{
-    width: 650px;
+    /* width: 650px; */
     text-align: justify;
     position: relative;
-    left: 123px;
-    bottom: 120px;
+    /* left: 123px;
+    bottom: 120px; */
+    top: -4vh;
     line-height: 22px;
 }
 
 section .main_btn{
     background: #90323d;
     position: relative;
-    left: 123px;
-    bottom: 30px;
+    /* left: 123px;
+    bottom: 30px; */
     width: 150px;
     cursor: pointer;
     padding: 12px 25px;
@@ -144,14 +148,15 @@ section .main_btn:hover i{
 
 .about{
     width: 100%;
-    height: 100vh;
-    padding: 70px 0;
+    /* height: 100vh; */
+    padding: 70px 7vw;
+    /* margin-right: 7vw; */
 }
 
 .about .about_main{
     display: flex;
     align-items: center;
-    justify-content: space-around;
+    justify-content: space-between;
 }
 
 .about .about_main .image img{
@@ -169,18 +174,18 @@ section .main_btn:hover i{
 .about .about_main .about_text h1{
     font-size: 55px;
     position: relative;
-    bottom: 50px;
+    bottom: 40px;
 }
 
 .about .about_main .about_text h3{
     font-size: 30px;
-    margin: 0 0 50px 0;
+    margin: 0 0 40px 0;
 }
 
 .about .about_main .about_text p{
-    width: 650px;
+    /* width: 650px; */
     text-align: justify;
-    margin-right: 30px;
+    /* margin-right: 30px; */
     line-height: 22px;
 }
 
@@ -708,4 +713,76 @@ footer .end span{
 ::-webkit-scrollbar-thumb{
     background: #90323d;
     border-radius: 15px;
+}
+
+
+@media (max-width: 35rem) {
+    /*header*/
+    header nav{
+    display: flex;
+    height: 40px;  /*height of nav*/
+    }
+    
+
+
+    /*main section*/
+    section .main{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-between;
+        margin-left: 7vw;
+        margin-right: 7vw;
+        gap: 5rem;
+        position: relative;
+        top: 15vh;
+    }
+    section .main .main_image img{
+        width: 100%;
+        position: absolute;
+        top: 5vh;
+        left:0;
+        opacity: 0.4;
+        /* left: 70px; */
+    }
+    section .main .men_text h1{
+        font-size: 40px;
+        top: 0;
+    }
+    section p{
+        padding: 3vh 0;
+        top: 0;
+    }
+
+    /*About*/
+
+    .about{
+        width: 100%;
+        /* height: 100vh; */
+        padding: 0 7vw;
+        /* margin-right: 7vw; */
+    }
+    .about .about_main{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-between;
+    }
+    .about .about_main .image img{
+        width: 100%;
+        position: relative;
+        top: 0;
+    }
+    .about .about_main .about_text h1{
+        font-size: 55px;
+        position: relative;
+        bottom: 100px;
+    }
+    .about .about_main .about_text h3{
+    font-size: 30px;
+    margin: -15vh 0 20px 0;
+    }
+    .about .about_btn{
+        display: none;
+    }
 }

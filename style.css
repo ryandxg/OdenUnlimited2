@@ -821,6 +821,7 @@ footer .end span{
 		right: 0;
 		background-color:rgba(0, 0, 0, 0.4);/*#37371f*/
         backdrop-filter: blur(10px);
+        -webkit-backdrop-filter: blur(10px);
         box-shadow: 0 0 10px rgba(0, 0, 0, 1);
 		overflow-x: hidden;
 		transition: 0.5s;

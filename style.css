@@ -812,7 +812,8 @@ footer .end span{
 		display: block;
 		margin-left: 2.3rem;
 	}
-    .sidenav {
+    .sidenav:before {
+        content: '';
 		height: 100%;
 		width: 0;
 		position: fixed;

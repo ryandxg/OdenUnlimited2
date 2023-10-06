@@ -800,7 +800,7 @@ footer .end span{
         gap: 10px;
         margin-top:30px;
         cursor: pointer;
-        color: white;
+        color: black;
     }
     .icons-in-hamburger i:hover{
         color: #90323d;
@@ -827,6 +827,9 @@ footer .end span{
 		transition: 0.5s;
 		padding-top: 60px;
 	}
+    .sidenav{
+        background-color: rgba(255, 255, 255, 0.8);
+    }
     .header-nav-mobile{
         display: flex;
         flex-direction: row;

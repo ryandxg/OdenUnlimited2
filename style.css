@@ -8,7 +8,9 @@
 html{
     scroll-behavior: smooth;
 }
-
+body{
+    overflow-x: hidden;
+}
 section{
     width: 100%;
     height: 100vh;
@@ -44,7 +46,7 @@ header nav ul li{
 
 header nav ul li a{
     text-decoration: none;
-    color: #000;
+    color: #fff;
     font-weight: 500;
     font-size: 17px;
     transition: 0.1s;
@@ -64,12 +66,12 @@ header nav ul li a:hover::after{
 }
 
 header nav ul li a:hover{
-    color: #000f;
+    color: #fff;
 }
 
 header nav .icon i{
     font-size: 18px;
-    color: #000;
+    color: #fff;
     margin: 0 5px;
     cursor: pointer;
     transition: 0.3s;
@@ -127,6 +129,9 @@ section .main_btn{
     width: 150px;
     cursor: pointer;
     padding: 12px 25px;
+}
+section .main_btn:hover{
+    border-radius: 20px;
 }
 
 section .main_btn a{
@@ -202,6 +207,9 @@ section .main_btn:hover i{
     position: relative;
     left: 55%;
     bottom: 30px;
+}
+.about .about_btn:hover{
+    border-radius: 20px;
 }
 
 
@@ -343,6 +351,9 @@ section .main_btn:hover i{
     margin: 0 80px;
     transition: 0.3s;
 }
+.menu .menu_box .menu_card .menu_info .menu_btn:hover{
+    border-radius: 20px;
+}
 
 
 
@@ -434,7 +445,7 @@ section .main_btn:hover i{
 .gallary .gallary_image_box .gallary_image .gallary_btn{
     position: absolute;
     margin-top: 180px;
-    color: #000;
+    color: #fff;
     background: #90323d;
     padding: 7px 25px;
     text-decoration: none;
@@ -443,7 +454,9 @@ section .main_btn:hover i{
     z-index: 5;
     transition: 0.3s;
 }
-
+.gallary .gallary_image_box .gallary_image .gallary_btn:hover{
+    border-radius: 20px;
+}
 .gallary .gallary_image_box .gallary_image:hover .gallary_btn{
     opacity: 1;
     transform: translateY(0);
@@ -648,6 +661,9 @@ section .main_btn:hover i{
     margin-top: 20px;
     text-decoration: none;
 }
+.order .order_main form .order_btn:hover {
+    border-radius: 20px;
+}
 
 
 
@@ -662,7 +678,7 @@ footer ul li{
 
 footer ul li a{
     text-decoration: none;
-    color: #000;
+    color: #fff;
     font-weight: 500;
     font-size: 17px;
     transition: 0.1s;
@@ -682,7 +698,7 @@ footer ul li a:hover::after{
 }
 
 footer ul li a:hover{
-    color: #000f;
+    color: #fff;
 }
 footer{
     width: 100%;
@@ -706,18 +722,20 @@ footer .footer_main .footer_tag{
 }
 
 footer .footer_main .footer_tag h2{
-    color: #000;
+    color: #fff;
     /* margin-bottom: 25px; */
     font-size: 30px;
 }
 
 footer .footer_main .footer_tag p{
     margin: 10px 0;
+    color: #fff;
 }
 
 footer .footer_main .footer_tag i{
     margin: 0 5px;
     cursor: pointer;
+    color: #fff;
 }
 
 footer .footer_main .footer_tag i:hover{
@@ -750,9 +768,85 @@ footer .end span{
     border-radius: 15px;
 }
 
+#open-menu{
+	display: none;
+  }
+#close-menu{
+    display: none;
+}
+/* .close-menu{
+    display: none;
+} */
+.scroll{
+	overflow-y: hidden;
+ }
+ .icons-in-hamburger{
+    display:none;
+ }
+
 
 @media (max-width: 35rem) {
     /*header*/
+    #open-menu{
+		display: block;
+        margin-top: 2.8125rem;
+	}
+    .close-menu{
+        display: block;
+    }
+    .icons-in-hamburger{
+        display: flex;
+        justify-content: center;
+        gap: 10px;
+        margin-top:30px;
+        cursor: pointer;
+        color: white;
+    }
+    .icons-in-hamburger i:hover{
+        color: #90323d;
+    }
+    #close-menu{
+		position: absolute;
+		top: 0.6rem;
+		right: 20px;
+		display: block;
+		margin-left: 2.3rem;
+	}
+    .sidenav {
+		height: 100%;
+		width: 0;
+		position: fixed;
+		z-index: 5;
+		top: 0;
+		right: 0;
+		background-color:rgba(0, 0, 0, 0.4);/*#37371f*/
+        backdrop-filter: blur(10px);
+        box-shadow: 0 0 10px rgba(0, 0, 0, 1);
+		overflow-x: hidden;
+		transition: 0.5s;
+		padding-top: 60px;
+	}
+    .header-nav-mobile{
+        display: flex;
+        flex-direction: row;
+        width: 100%;
+        padding: 0;
+        justify-content: space-between;
+        padding: 0 3vw;
+    }
+    header nav ul{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    header nav ul li{
+        margin: 10px 0;
+    }
+    header nav ul li a{
+        color: #000;
+        font-weight: 500;
+        font-size: 30px;
+    }
     header nav{
     display: flex;
     height: 40px;  /*height of nav*/
@@ -775,10 +869,10 @@ footer .end span{
     section .main .main_image img{
         width: 100%;
         position: absolute;
-        top: 5vh;
+        top: 3rem;
         left:0;
         opacity: 0.4;
-        /* left: 70px; */
+        
     }
     section .main .men_text h1{
         font-size: 40px;
@@ -815,7 +909,7 @@ footer .end span{
     }
     .about .about_main .about_text h3{
     font-size: 30px;
-    margin: -15vh 0 20px 0;
+    margin: -13vh 0 20px 0;
     }
     .about .about_btn{
         display: none;

@@ -7,30 +7,55 @@
     <title>Oden Unlimited</title>
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <!-- jquery plugin -->
+    <script src="https://code.jquery.com/jquery-1.12.4.min.js" 
+    integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ=" crossorigin="anonymous"></script>
+    
 </head>
-<body>
+<body id="body">
 
     <header>
         <nav>
-            <div class="logo">
-                <img src="image/ODEN 1.png">
+            <div class="header-nav-mobile">
+                <div class="logo">
+                    <img src="image/ODEN 1.png">
+                </div>
+
+                <i id="open-menu"  class="fa-solid fa-bars" 
+                style="font-size:30px;cursor:pointer;color: white;">
+                </i>
             </div>
+            
 
-            <ul>
-                <li><a href="#Home">Home</a></li>
-                <li><a href="#About">About</a></li>
-                <li><a href="#Menu">Menu</a></li>
-                <li><a href="#Gallery">Gallery</a></li>
-                <li><a href="#Review">Review</a></li>
-                <li><a href="#Order">Order</a></li>
-            </ul>
+            <div id="mySidenav" class="sidenav close-menu">
+                <i id="close-menu" class="fa-solid fa-xmark" 
+                style="font-size:30px;cursor:pointer;
+                color: white;">
+                </i>
+            
+                <ul>
+                    <li><a href="#Home">Home</a></li>
+                    <li><a href="#About">About</a></li>
+                    <li><a href="#Menu">Menu</a></li>
+                    <li><a href="#Gallery">Gallery</a></li>
+                    <li><a href="#Review">Review</a></li>
+                    <li><a href="#Order">Order</a></li>
+                </ul>
 
-            <div class="icon">
-                <i class="fa-solid fa-magnifying-glass"></i>
-                <i class="fa-solid fa-heart"></i>
-                <i class="fa-solid fa-cart-shopping"></i>
+                <div class="icons-in-hamburger">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                    <i class="fa-solid fa-heart"></i>
+                    <i class="fa-solid fa-cart-shopping"></i>
+                </div>
             </div>
-
+            <div id="mySidenav" class="sidenav ">
+                <div class="icon">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                    <i class="fa-solid fa-heart"></i>
+                    <i class="fa-solid fa-cart-shopping"></i>
+                </div>
+            </div>
         </nav>
     </header>
     <section id="Home">
@@ -746,7 +771,7 @@
             </div>
 
             <div class="footer_tag">
-                <h2>Quick Link</h2>
+                <!-- <h2>Quick Link</h2> -->
                 <p>Home</p>
                 <p>About</p>
                 <p>Menu</p>
@@ -770,7 +795,7 @@
             </div>
 
             <div class="footer_tag">
-                <h2>Follow us on</h2>
+                <!-- <h2>Follow us on</h2> -->
                 <i class="fa-brands fa-facebook-f"></i>
                 <i class="fa-brands fa-instagram"></i>
             </div>
@@ -783,6 +808,6 @@
 
 
 
-    
+    <script src="script.js"></script>    
 </body>
 </html>

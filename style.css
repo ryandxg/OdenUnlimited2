@@ -817,7 +817,8 @@ footer .end span{
 		width: 0;
 		position: fixed;
 		z-index: 5;
-		top: 0;
+		/* top: 0; */
+        bottom: -1px;
 		right: 0;
 		background-color:rgba(0, 0, 0, 0.4);/*#37371f*/
         backdrop-filter: blur(10px);

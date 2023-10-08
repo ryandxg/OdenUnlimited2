@@ -38,7 +38,7 @@ nav ul li{
 
 nav ul li a{
     text-decoration: none;
-    color: #000;
+    color: #fff;
     font-weight: 500;
     font-size: 17px;
     transition: 0.1s;
@@ -63,7 +63,7 @@ nav ul li a:hover::after{
 
  nav .icon i{
     font-size: 18px;
-    color: #000;
+    color: #fff;
     margin: 0 5px;
     cursor: pointer;
     transition: 0.3s;
@@ -269,11 +269,55 @@ footer .footer_main .footer_tag{
 }
 
 footer .footer_main .footer_tag h2{
-    color: #000;
+    color: #fff;
     margin-bottom: 25px;
     font-size: 30px;
 }
+footer .footer_main .footer_tag h2{
+    color: #fff;
+    /* margin-bottom: 25px; */
+    font-size: 30px;
+}
 
+footer .footer_main .footer_tag p{
+    margin: 10px 0;
+    color: #fff;
+}
+
+footer .footer_main .footer_tag i{
+    margin: 0 5px;
+    cursor: pointer;
+    color: #fff;
+}
+footer ul li{
+    display: inline-block;
+    margin: 0 15px;
+}
+
+footer ul li a{
+    text-decoration: none;
+    color: #fff;
+    font-weight: 500;
+    font-size: 17px;
+    transition: 0.1s;
+}
+
+footer ul li a::after{
+    content: '';
+    width: 0;
+    height: 2px;
+    background: #90323d;
+    display: block;
+    transition: 0.2s linear;
+}
+
+footer ul li a:hover::after{
+    width: 100%;
+}
+
+footer ul li a:hover{
+    color: #fff;
+}
 footer .footer_main .footer_tag p{
     margin: 10px 0;
 }

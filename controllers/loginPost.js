@@ -10,7 +10,9 @@ function loginPost(req, res) {
 
       if (user) {
         res.redirect("/");
-        console.log(email);
+        // console.log(email);
+      } else {
+        res.status(500).send('Error occured logging user.');
       }
     } catch(err) {
         console.error(err);

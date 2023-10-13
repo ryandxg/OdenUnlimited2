@@ -5,14 +5,6 @@ const bodyParser = require("body-parser");
 const app = express();
 const port = 3000;
 
-//importantation from controllers
-const loginPage = require ('./controllers/loginPage.js');
-const loginPost = require ('./controllers/loginPost.js');
-
-
-//importantation from models
-const homePage = require ('./models/homePage.js');
-
 //setting static files
 app.use(
     express.static(path.join(__dirname, "public"), {
@@ -80,19 +72,27 @@ res.setHeader("Content-Type", contentType);
 res.sendFile(path.join(__dirname, "public/images", imageName));
 });
 
-    
+//importantation from controllers
+const signupPost = require ('./controllers/signupPost.js');
+const loginPost = require ('./controllers/loginPost.js');
 
+
+//importantation from models 
+const homePage = require ('./models/homePage.js');
+const contactPage = require ('./models/contactPage.js');
+const signupPage = require ('./models/signupPage.js');
+const loginPage = require ('./models/loginPage.js');
+
+//methods
 app.get("/", homePage);
 
-app.get("/contact", (req, res) => {
-  res.sendFile(path.join(__dirname, "views", "contact.html"));
-});
-app.get("/signup", (req, res) => {
-    res.sendFile(path.join(__dirname, "views", "signup.html"));
-});
+app.get("/contact", contactPage);
 
+app.get("/signup", signupPage);
 
 app.get("/login", loginPage);
+
+app.post("/signup", signupPost);
 
 app.post("/login", loginPost);
 

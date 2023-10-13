@@ -9,8 +9,9 @@ body{
 }
 
 
-nav{
+header nav{
     display: flex;
+    height: 70px;  /*height of nav*/
     justify-content: space-around;
     align-items: center;
     position: fixed;
@@ -21,22 +22,22 @@ nav{
     z-index: 1000;
 }
 
- nav .logo img{
+header nav .logo img{
     width: 100px;
     cursor: pointer;
     margin: 7px 0;
 }
 
- nav ul{
+header nav ul{
     list-style: none;
 }
 
-nav ul li{
+header nav ul li{
     display: inline-block;
     margin: 0 15px;
 }
 
-nav ul li a{
+header nav ul li a{
     text-decoration: none;
     color: #fff;
     font-weight: 500;
@@ -44,7 +45,7 @@ nav ul li a{
     transition: 0.1s;
 }
 
- nav ul li a::after{
+header nav ul li a::after{
     content: '';
     width: 0;
     height: 2px;
@@ -53,21 +54,38 @@ nav ul li a{
     transition: 0.2s linear;
 }
 
-nav ul li a:hover::after{
+header nav ul li a:hover::after{
     width: 100%;
 }
 
- nav ul li a:hover{
-    color: #000f;
-}
-
- nav .icon i{
+header nav .icon i{
     font-size: 18px;
     color: #fff;
     margin: 0 5px;
     cursor: pointer;
     transition: 0.3s;
 }
+.icons-login{
+    display: flex;
+}
+.signup-login_btn{
+    display: flex;
+    margin: 0 10px;
+}
+.signup-login_btn a{
+    color: white;
+    text-decoration: none;
+}
+.signup-login_btn a:hover {
+    color: #90323d;
+}
+.signup-divider{
+    background: white;
+    width: 1px;
+    margin: 0 5px;
+}
+
+
 .contactUs{
     position: relative;
     width: 100%;

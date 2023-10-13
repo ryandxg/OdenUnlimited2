@@ -6,19 +6,48 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link
-            href="https://fonts.googleapis.com/css2?family=Mulishy&display=swap"
-            rel="stylesheet"
-            type='text/css'
-        >
+        
         <link rel="stylesheet" type="text/css" href="/public/css/signup.css">
+
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+        <!-- jquery plugin -->
+        <script src="https://code.jquery.com/jquery-1.12.4.min.js" 
+        integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ=" crossorigin="anonymous"></script>
     </head>
     <body>
+        <header>
+            <nav>
+                <div class="header-nav-mobile">
+                    <div class="logo">
+                        <img href="/" src="/public/images/ODEN 1.png">
+                    </div>
+    
+                    <i id="open-menu"  class="fa-solid fa-bars" 
+                    style="font-size:30px;cursor:pointer;color: white;">
+                    </i>
+                </div>
+                
+    
+                <div id="mySidenav" class="sidenav close-menu">
+                    <i id="close-menu" class="fa-solid fa-xmark" 
+                    style="font-size:30px;cursor:pointer;
+                    color: black;">
+                    </i>
+                
+                    <ul>
+                        <li><a href="/">Home</a></li>
+                        <li><a href="/contact">Contact</a></li>
+                        <li><a href="/signup">Signup</a></li>
+                        <li><a href="/login">Login</a></li>
+                    </ul>
+                </div>
+            </nav>
+        </header>
+
+
         <div class="form-wrapper">
             <div class="form-side">
-                <a href="#" title="Logo">
-                    <img src="assets/ofin.png" class='logo' alt="Ofin">
-                </a>
                 <form class="my-form">
                     <div class="form-welcome-row">
                         <h1>Create your account</h1>
@@ -37,13 +66,71 @@
                         <div class="divider-line"></div> Or <div class="divider-line"></div>
                     </div>
                     <div class="text-field">
+                        <label for="fname">First Name:
+                            <input
+                                id="fname"
+                                type="fname"
+                                name="fname"
+                                placeholder="First Name*"
+                                required
+                            >
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" 
+                                viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" 
+                                fill="none" stroke-linecap="round" stroke-linejoin="round">
+                                <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+                                <path d="M5 13a2 2 0 0 1 2 -2h10a2 2 0 0 1 2 2v6a2 2 0 0 1 -2 2h-10a2 2 0 0 1 -2 -2v-6z"></path>
+                                <path d="M11 16a1 1 0 1 0 2 0a1 1 0 0 0 -2 0"></path>
+                                <path d="M8 11v-4a4 4 0 1 1 8 0v4"></path>
+                            </svg>
+                        </label>
+                    </div>
+                    <div class="text-field">
+                        <label for="lname">Last Name:
+                            <input
+                                id="lname"
+                                type="lname"
+                                name="lname"
+                                placeholder="Last Name*"
+                                required
+                            >
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" 
+                                viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" 
+                                fill="none" stroke-linecap="round" stroke-linejoin="round">
+                                <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+                                <path d="M5 13a2 2 0 0 1 2 -2h10a2 2 0 0 1 2 2v6a2 2 0 0 1 -2 2h-10a2 2 0 0 1 -2 -2v-6z"></path>
+                                <path d="M11 16a1 1 0 1 0 2 0a1 1 0 0 0 -2 0"></path>
+                                <path d="M8 11v-4a4 4 0 1 1 8 0v4"></path>
+                            </svg>
+                        </label>
+                    </div>
+                    <div class="text-field">
+                        <label for="number">Mobile Number:
+                            <input
+                                id="number"
+                                class="no-spinner"
+                                type="number"
+                                name="number"
+                                placeholder="Mobile Number*"
+                                required
+                            >
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" 
+                                viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" 
+                                fill="none" stroke-linecap="round" stroke-linejoin="round">
+                                <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+                                <path d="M5 13a2 2 0 0 1 2 -2h10a2 2 0 0 1 2 2v6a2 2 0 0 1 -2 2h-10a2 2 0 0 1 -2 -2v-6z"></path>
+                                <path d="M11 16a1 1 0 1 0 2 0a1 1 0 0 0 -2 0"></path>
+                                <path d="M8 11v-4a4 4 0 1 1 8 0v4"></path>
+                            </svg>
+                        </label>
+                    </div>
+                    <div class="text-field">
                         <label for="email">Email:
                             <input
                                 type="email"
                                 id="email"
                                 name="email"
                                 autocomplete="off"
-                                placeholder="Your Email"
+                                placeholder="Your Email*"
                                 required
                             >
                             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" 
@@ -62,7 +149,7 @@
                                 id="password"
                                 type="password"
                                 name="password"
-                                placeholder="Your Password"
+                                placeholder="Your Password*"
                                 title="Minimum 6 characters at 
                                     least 1 Alphabet and 1 Number"
                                 pattern="^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{6,}$"
@@ -78,14 +165,33 @@
                             </svg>
                         </label>
                     </div>
+                    <div class="text-field">
+                        <label for="address">Address:
+                            <input
+                                id="address"
+                                type="address"
+                                name="address"
+                                placeholder="Your Address*"
+                                required
+                            >
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" 
+                                viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" 
+                                fill="none" stroke-linecap="round" stroke-linejoin="round">
+                                <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+                                <path d="M5 13a2 2 0 0 1 2 -2h10a2 2 0 0 1 2 2v6a2 2 0 0 1 -2 2h-10a2 2 0 0 1 -2 -2v-6z"></path>
+                                <path d="M11 16a1 1 0 1 0 2 0a1 1 0 0 0 -2 0"></path>
+                                <path d="M8 11v-4a4 4 0 1 1 8 0v4"></path>
+                            </svg>
+                        </label>
+                    </div>
                     <button type="submit" class="my-form__button">
-                        Login
+                        Signup
                     </button>
                     <div class="my-form__actions">
                         <a href="#" title="Reset Password">
                             Reset Password
                         </a>
-                        <a href="#" title="Create Account">
+                        <a href="./login" title="Create Account">
                             Already have an account?
                         </a>
                     </div>

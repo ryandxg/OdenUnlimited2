@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Oden Unlimited</title>
-    <link rel="stylesheet" href="/public/css/contact.css" />
+    <link rel="stylesheet" type="text/css" href="/public/css/contact.css" />
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
@@ -16,50 +16,49 @@
   <body>
     <header>
       <nav>
-        <div class="header-nav-mobile">
-          <div class="logo">
-            <img href="/" src="/public/images/ODEN 1.png" />
+          <div class="header-nav-mobile">
+              <div class="logo">
+                  <img href="/" src="/public/images/ODEN 1.png">
+              </div>
+
+              <i id="open-menu"  class="fa-solid fa-bars" 
+              style="font-size:30px;cursor:pointer;color: white;">
+              </i>
           </div>
+          
 
-          <i
-            id="open-menu"
-            class="fa-solid fa-bars"
-            style="font-size: 30px; cursor: pointer; color: white"
-          >
-          </i>
-        </div>
+          <div id="mySidenav" class="sidenav close-menu">
+              <i id="close-menu" class="fa-solid fa-xmark" 
+              style="font-size:30px;cursor:pointer;
+              color: black;">
+              </i>
+          
+              <ul>
+                  <li><a href="/">Home</a></li>
+                  <li><a href="#About">About</a></li>
+                  <li><a href="#Menu">Menu</a></li>
+                  <li><a href="#Gallery">Gallery</a></li>
+                  <li><a href="#Review">Review</a></li>
+                  <li><a href="#Order">Order</a></li>
+                  <li><a href="/contact">Contact</a></li>
+              </ul>
 
-        <div id="mySidenav" class="sidenav close-menu">
-          <i
-            id="close-menu"
-            class="fa-solid fa-xmark"
-            style="font-size: 30px; cursor: pointer; color: black"
-          >
-          </i>
-
-          <ul>
-            <li><a href="/">Home</a></li>
-            <li><a href="#About">About</a></li>
-            <li><a href="#Menu">Menu</a></li>
-            <li><a href="#Gallery">Gallery</a></li>
-            <li><a href="#Review">Review</a></li>
-            <li><a href="#Order">Order</a></li>
-            <li><a href="contact.html">Contact</a></li>
-          </ul>
-
-          <div class="icons-in-hamburger">
-            <i class="fa-solid fa-magnifying-glass"></i>
-            <i class="fa-solid fa-heart"></i>
-            <i class="fa-solid fa-cart-shopping"></i>
+              <div class="icons-in-hamburger">
+                  <i class="fa-solid fa-magnifying-glass"></i>
+                  <i class="fa-solid fa-cart-shopping"></i>
+              </div>
           </div>
-        </div>
-        <div id="mySidenav" class="sidenav">
-          <div class="icon">
-            <i class="fa-solid fa-magnifying-glass"></i>
-            <i class="fa-solid fa-heart"></i>
-            <i class="fa-solid fa-cart-shopping"></i>
+          <div id="mySidenav" class="sidenav icons-login">
+              <div class="icon">
+                  <i class="fa-solid fa-magnifying-glass"></i>
+                  <i class="fa-solid fa-cart-shopping"></i>
+              </div>
+              <div class="signup-login_btn">
+                  <a href="/signup">Signup</a>
+                  <div class="signup-divider"></div>
+                  <a href="/login">Login</a>
+              </div>
           </div>
-        </div>
       </nav>
     </header>
 
@@ -160,6 +159,6 @@
       src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"
     ></script>
 
-    <script src="/public/js/script.js"></script>
+    <script type="application/javascript" src="/public/js/script.js"></script>
   </body>
 </html>

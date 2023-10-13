@@ -65,16 +65,37 @@ header nav ul li a:hover::after{
     width: 100%;
 }
 
-header nav ul li a:hover{
-    color: #fff;
-}
-
 header nav .icon i{
     font-size: 18px;
     color: #fff;
     margin: 0 5px;
     cursor: pointer;
     transition: 0.3s;
+}
+.icons-login{
+    display: flex;
+}
+.signup-login_btn{
+    display: flex;
+    margin: 0 10px;
+}
+.signup-login_btn a{
+    color: white;
+    text-decoration: none;
+}
+.signup-login_btn a:hover {
+    color: #90323d;
+}
+.signup-divider{
+    background: white;
+    width: 1px;
+    margin: 0 5px;
+}
+.signup-mobile{
+    display: none;
+}
+.login-mobile{
+    display: none;
 }
 
 
@@ -913,6 +934,12 @@ footer .end span{
     header nav{
     display: flex;
     height: 60px;  /*height of nav*/
+    }
+    .signup-mobile{
+        display: flex;
+    }
+    .login-mobile{
+        display: flex;
     }
     
 

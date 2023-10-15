@@ -28,7 +28,7 @@ logoutButton.addEventListener('click', () => {
 // Example of setting userLoggedIn to true when a user logs in
 // userLoggedIn = true; // Set this when the user logs in
 
-// Initial update of the UI
+
 updateUI();
 
 

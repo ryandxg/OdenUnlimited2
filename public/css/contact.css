@@ -281,6 +281,8 @@ footer .logo img{
     width: 100px;
     cursor: pointer;
     margin: 7px 0;
+    height: 300px;
+    width: 300px;
 }
 
 footer .footer_main .footer_tag{

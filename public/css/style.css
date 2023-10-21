@@ -375,52 +375,12 @@ section .main_btn:hover i{
 .menu .menu_box .menu_card .menu_info .menu_btn:hover{
     border-radius: 20px;
 }
-
-/* list part */
-.list ul{
-    position: absolute;
-    width: 100%;
-    margin: 100px auto 0;
-    padding: 10px;
-    box-sizing: border-box;
-    background: rgba(0, 0, 0, .1);
-    box-shadow: inset 0 0 15px rgba(0, 0, 0, .2);
-    border-radius: 5px;
-    overflow: hidden;
-    display: none;
+.newbtn{
+    color: #90323d;
+    text-align: center;
+    margin: 10px 0 10px 0;
 }
-.list ul li{
-    display: flex;
-    background: rgba(225, 225, 225, .1);
-    padding: 10px 20px;
-    color: #000;
-    margin: 25px 0;
-    transition: .5s;
-}
-.list ul li:nth-child(1){
-    background: rgba(225, 225, 225, .6);
-}
-.list ul li:nth-child(2){
-    background: rgba(225, 225, 225, .4);
-}
-.list ul li:nth-child(3){
-    background: rgba(225, 225, 225, .2);
-}
-.list ul li span:nth-child(1){
-    width: 35%;
-}
-.list ul li span:nth-child(2){
-    width: 55%;
-}
-.list ul li span:nth-child(3){
-    width: 75%;
-    align-items: center;
-}
-.list ul li:hover{
-    transform: scale(1.06);
-    background: #37371f;
-}
-.list .menu_btn{
+.newbtn .new_btn{
     display: flex;
     align-items: center;
     justify-content: center;
@@ -431,8 +391,8 @@ section .main_btn:hover i{
     margin: 0 80px;
     transition: 0.3s;
 }
-.list .menu_btn:hover{
-    border-radius: 20px;
+.newbtn .new_btn:hover{
+    border-radius: 500px;
 }
 
 
@@ -657,6 +617,62 @@ section .main_btn:hover i{
     margin-top: 5px;
 }
 
+/* Form */
+.formBox{
+    position: relative;
+    width: 100%;
+    }
+    .formBox .row50{
+    display: flex;
+    gap: 20px;
+    }
+    .inputbox{
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 10px;
+    width: 50%;
+   
+    }
+    .row100 .inputbox{
+    width: 50%;
+    }
+    .inputbox span{
+        color: #37371f;
+        margin-top: 10px;
+        margin-bottom: 5px;
+        font-weight: 500;
+    }
+    .inputbox input{
+        padding: 10px;
+        font-size: 1.1em;
+        outline: none;
+        border: 1px solid #000;
+        border-radius: 50px;
+    }
+    .inputbox textarea{
+        padding: 10px;
+        font-size: 1.1em;
+        outline: none;
+        border: 1px solid #000;   
+        resize: none;
+        min-height: 220px;
+        margin-bottom: 10px;
+        border-radius: 40px;
+    }
+    .inputbox input[type="submit"]{
+        background: #90323d;
+        color: #000;
+        border: none;
+        font-size: 1.1em;
+        max-width: 120px;
+        font-weight: 500;
+        cursor: pointer;
+        padding: 14px 15px;
+    }
+    .inputbox ::placeholder{
+        color: #90323d;
+    }
+
 
 
 /*Order*/
@@ -795,6 +811,8 @@ footer .logo img{
     width: 100px;
     cursor: pointer;
     margin: 7px 0;
+    height: 300px;
+    width: 300px;
 }
 
 footer .footer_main .footer_tag{

@@ -25,6 +25,10 @@ app.get("/public/css/style.css", (req, res) => {
 res.setHeader("Content-Type", "text/css");
 res.sendFile(path.join(__dirname, "public/css/style.css"));
 });
+app.get("/public/css/pricelist.css", (req, res) => {
+  res.setHeader("Content-Type", "text/css");
+  res.sendFile(path.join(__dirname, "public/css/pricelist.css"));
+  });
 app.get("/public/css/contact.css", (req, res) => {
 res.setHeader("Content-Type", "text/css");
 res.sendFile(path.join(__dirname, "public/css/contact.css"));
@@ -82,11 +86,14 @@ const homePage = require ('./models/homePage.js');
 const contactPage = require ('./models/contactPage.js');
 const signupPage = require ('./models/signupPage.js');
 const loginPage = require ('./models/loginPage.js');
+const pricelistPage = require ('./models/pricelistPage.js');
 
 //methods
 app.get("/", homePage);
 
 app.get("/contact", contactPage);
+
+app.get("/pricelist", pricelistPage);
 
 app.get("/signup", signupPage);
 

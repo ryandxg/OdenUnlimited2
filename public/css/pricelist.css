@@ -128,8 +128,9 @@ header nav .icon i{
     align-items: center;
 }
 .list ul li:hover{
-    transform: scale(1.06);
+    /* transform: scale(1.06); */
     background: #37371f;
+    color: white;
 }
 .list .menu_btn{
     display: flex;

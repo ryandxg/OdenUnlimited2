@@ -72,31 +72,7 @@ header nav .icon i{
     cursor: pointer;
     transition: 0.3s;
 }
-.icons-login{
-    display: flex;
-}
-.signup-login_btn{
-    display: flex;
-    margin: 0 10px;
-}
-.signup-login_btn a{
-    color: white;
-    text-decoration: none;
-}
-.signup-login_btn a:hover {
-    color: #90323d;
-}
-.signup-divider{
-    background: white;
-    width: 1px;
-    margin: 0 5px;
-}
-.signup-mobile{
-    display: none;
-}
-.login-mobile{
-    display: none;
-}
+
 
 
 section .main{

@@ -2,6 +2,15 @@ const express = require("express");
 const path = require("path");
 const bodyParser = require("body-parser");
 
+//importantation from controllers
+// const contactPost = require ('./controllers/contactPost.js');
+
+
+//importantation from models 
+const homePage = require ('./models/homePage.js');
+const contactPage = require ('./models/contactPage.js');
+const pricelistPage = require ('./models/pricelistPage.js');
+
 const app = express();
 const port = 3000;
 
@@ -33,14 +42,6 @@ app.get("/public/css/contact.css", (req, res) => {
 res.setHeader("Content-Type", "text/css");
 res.sendFile(path.join(__dirname, "public/css/contact.css"));
 });
-app.get("/public/css/signup.css", (req, res) => {
-res.setHeader("Content-Type", "text/css");
-res.sendFile(path.join(__dirname, "public/css/signup.css"));
-});
-app.get("/public/css/login.css", (req, res) => {
-res.setHeader("Content-Type", "text/css");
-res.sendFile(path.join(__dirname, "public/css/login.css"));
-});
 app.get("/public/js/script.js", (req, res) => {
 res.setHeader("Content-Type", "application/javascript");
 res.sendFile(path.join(__dirname, "public/js/script.js"));
@@ -48,10 +49,6 @@ res.sendFile(path.join(__dirname, "public/js/script.js"));
 app.get("/public/js/signup.js", (req, res) => {
 res.setHeader("Content-Type", "application/javascript");
 res.sendFile(path.join(__dirname, "public/js/signup.js"));
-});
-app.get("/public/js/login.js", (req, res) => {
-res.setHeader("Content-Type", "application/javascript");
-res.sendFile(path.join(__dirname, "public/js/login.js"));
 });
 app.get("/public/images/:imageName", (req, res) => {
 // Get the image file name from the request parameters
@@ -76,17 +73,6 @@ res.setHeader("Content-Type", contentType);
 res.sendFile(path.join(__dirname, "public/images", imageName));
 });
 
-//importantation from controllers
-const signupPost = require ('./controllers/signupPost.js');
-const loginPost = require ('./controllers/loginPost.js');
-
-
-//importantation from models 
-const homePage = require ('./models/homePage.js');
-const contactPage = require ('./models/contactPage.js');
-const signupPage = require ('./models/signupPage.js');
-const loginPage = require ('./models/loginPage.js');
-const pricelistPage = require ('./models/pricelistPage.js');
 
 //methods
 app.get("/", homePage);
@@ -94,15 +80,6 @@ app.get("/", homePage);
 app.get("/contact", contactPage);
 
 app.get("/pricelist", pricelistPage);
-
-app.get("/signup", signupPage);
-
-app.get("/login", loginPage);
-
-app.post("/signup", signupPost);
-
-app.post("/login", loginPost);
-
 
 
 app.listen(port, () => {

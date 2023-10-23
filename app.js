@@ -46,10 +46,6 @@ app.get("/public/js/script.js", (req, res) => {
 res.setHeader("Content-Type", "application/javascript");
 res.sendFile(path.join(__dirname, "public/js/script.js"));
 });
-app.get("/public/js/signup.js", (req, res) => {
-res.setHeader("Content-Type", "application/javascript");
-res.sendFile(path.join(__dirname, "public/js/signup.js"));
-});
 app.get("/public/images/:imageName", (req, res) => {
 // Get the image file name from the request parameters
 const imageName = req.params.imageName;

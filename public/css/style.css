@@ -223,7 +223,6 @@ section .main_btn:hover i{
 .menu h1{
     font-size: 55px;
     display: flex;
-    align-items: center;
     justify-content: center;
     margin-bottom: 30px;
 }
@@ -682,7 +681,7 @@ section .main_btn:hover i{
     padding:0 7vw;
 }
 .write-review h1{
-    font-size: 55px;
+    font-size: 45px;
     padding-bottom: 30px;
     display: flex;
     align-items: center;
@@ -765,7 +764,16 @@ section .main_btn:hover i{
 
 /*Footer*/
 footer{
+    width: 100%;
+    padding: 30px 0 30px 20px;
+    background: #37371f;
     margin-top: 5vw;
+}
+footer ul {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    align-items: center ;
 }
 footer ul li{
     display: inline-block;
@@ -796,33 +804,31 @@ footer ul li a:hover::after{
 footer ul li a:hover{
     color: #fff;
 }
-footer{
-    width: 100%;
-    padding: 30px 0 30px 20px;
-    background: #37371f;
-}
 
 footer .footer_main{
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
 }
-
+footer .logo{
+    display: flex;
+    justify-content: center;
+}
 footer .logo img{
     width: 100px;
     cursor: pointer;
     margin: 7px 0;
-    height: 300px;
-    width: 300px;
+    height: 150px; /*changed the footer size*/
+    width: 150px;
 }
 
 footer .footer_main .footer_tag{
     text-align: center;
 }
 
-footer .footer_main .footer_tag h2{
+footer .footer_main .footer_tag h3{
     color: #fff;
     /* margin-bottom: 25px; */
-    font-size: 30px;
+    font-size: 20px;
 }
 
 footer .footer_main .footer_tag p{
@@ -830,13 +836,15 @@ footer .footer_main .footer_tag p{
     color: #fff;
 }
 
-footer .footer_main .footer_tag i{
+footer .socials a{
     margin: 0 5px;
     cursor: pointer;
     color: #fff;
+    text-decoration: none;
+    font-size: 25px;
 }
 
-footer .footer_main .footer_tag i:hover{
+footer .socials a:hover{
     color: #90323d;
 }
 
@@ -1022,13 +1030,15 @@ footer .end span{
     .about .about_btn{
         display: none;
     }
+
     /*menu section*/
+
     .menu .menu_box{
         width: 100%;
-        margin: 0 auto;
-        display: grid;
-        grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-        grid-gap: 15px;
+        margin: 0 ;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
     }
 
     /*gallery section*/ 
@@ -1062,6 +1072,10 @@ footer .end span{
 
 
     /*order section*/
+    .order h1{
+        font-size: 45px;
+    }
+    
     .order .order_main{    
         flex-direction: column;
     }
@@ -1072,7 +1086,9 @@ footer .end span{
         display: flex;
         flex-direction: column;
     }
-
+    .order .order_main form .input input{
+        width: 350px;
+    }
 
      /*review section*/
      .review .review_box{
@@ -1090,6 +1106,19 @@ footer .end span{
         padding: 8px 20px;
         margin: 0 8px;
         margin-bottom: 3vh;
+    }
+
+    .formBox .row50{
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+    }
+    .inputbox{
+        display: flex;
+        flex-direction: column;
+        margin-bottom: 10px;
+        width: 100%;
+       
     }
     /*footer section*/
     footer .footer_main{

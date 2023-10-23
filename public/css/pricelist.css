@@ -15,6 +15,7 @@ header nav{
     background: #37371f;
     box-shadow: 0 0 10px rgba(0,0,0,0.5);
     z-index: 1000;
+    /* max-width: 1700px; */
 }
 
 header nav .logo img{
@@ -60,31 +61,18 @@ header nav .icon i{
     cursor: pointer;
     transition: 0.3s;
 }
-.icons-login{
-    display: flex;
-}
-.signup-login_btn{
-    display: flex;
-    margin: 0 10px;
-}
-.signup-login_btn a{
-    color: white;
-    text-decoration: none;
-}
-.signup-login_btn a:hover {
-    color: #90323d;
-}
-.signup-divider{
-    background: white;
-    width: 1px;
-    margin: 0 5px;
-}
-.signup-mobile{
+#open-menu{
+	display: none;
+  }
+#close-menu{
     display: none;
 }
-.login-mobile{
-    display: none;
-}
+.scroll{
+	overflow-y: hidden;
+ }
+ .icons-in-hamburger{
+    display:none;
+ }
 
 
 /* List part */
@@ -145,4 +133,83 @@ header nav .icon i{
 }
 .list .menu_btn:hover{
     border-radius: 20px;
+}
+
+
+@media (max-width: 35rem) {
+    /*header*/
+    #open-menu{
+		display: block;
+        margin-top: 2.8125rem;
+	}
+    .close-menu{
+        display: block;
+    }
+    .icons-in-hamburger{
+        display: flex;
+        justify-content: center;
+        gap: 10px;
+        margin-top:30px;
+        cursor: pointer;
+        color: black;
+    }
+    .icons-in-hamburger i:hover{
+        color: #90323d;
+    }
+    #close-menu{
+		position: absolute;
+		top: 0.6rem;
+		right: 20px;
+		display: block;
+		margin-left: 2.3rem;
+	}
+    .sidenav{
+		height: 100%;
+		width: 0;
+		position: fixed;
+		z-index: 5;
+		top: 0;
+		right: 0;
+		background-color:rgba(0, 0, 0, 0.8);/*#37371f*/
+        backdrop-filter: blur(10px);
+        -webkit-backdrop-filter: blur(20px);
+        box-shadow: 0 0 10px rgba(0, 0, 0, 1);
+		overflow-x: hidden;
+		transition: 0.5s;
+		padding-top: 60px;
+	}
+    .sidenav{
+        background-color: rgba(255, 255, 255, 1);
+    }
+    .header-nav-mobile{
+        display: flex;
+        flex-direction: row;
+        width: 100%;
+        padding: 0;
+        justify-content: space-between;
+        padding: 0 3vw;
+    }
+    header nav ul{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    header nav ul li{
+        margin: 10px 0;
+    }
+    header nav ul li a{
+        color: #000;
+        font-weight: 500;
+        font-size: 30px;
+    }
+    header nav{
+    display: flex;
+    height: 60px;  /*height of nav*/
+    }
+    .signup-mobile{
+        display: flex;
+    }
+    .login-mobile{
+        display: flex;
+    }
 }

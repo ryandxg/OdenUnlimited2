@@ -6,15 +6,16 @@
 }
 
 html{
-    scroll-behavior: smooth;
-    max-width: 1700px;
+    scroll-behavior: smooth; 
 }
 body{
     overflow-x: hidden;
+    max-width: 1700px;
+    margin: auto;
 }
 section{
     width: 100%;
-    height: 100vh;
+    height: 100%;
 }
 
 header nav{
@@ -28,6 +29,7 @@ header nav{
     background: #37371f;
     box-shadow: 0 0 10px rgba(0,0,0,0.5);
     z-index: 1000;
+    /* max-width: 1700px; */
 }
 
 header nav .logo img{
@@ -153,10 +155,8 @@ section .main_btn:hover i{
 
 .about{
     width: 100%;
-    /* height: 100vh; */
-    padding: 70px 0;
+    padding: 7vw 0;
     padding-right: 7vw;
-    /* margin-right: 7vw; */
 }
 
 .about .about_main{
@@ -171,16 +171,17 @@ section .main_btn:hover i{
     top: 60px;
 }
 
-.about .about_main .about_text h1 span{
+.about h1 span{
     color: #90323d;
     margin-right: 15px;
     font-family: mv boli;
 }
 
-.about .about_main .about_text h1{
+.about h1{
+    text-align: center;
     font-size: 55px;
     position: relative;
-    bottom: 40px;
+    top: 40px;
 }
 
 .about .about_main .about_text h3{
@@ -216,7 +217,7 @@ section .main_btn:hover i{
 
 .menu{
     width: 100%;
-    padding: 70px 0;
+    padding-bottom: 7vw;
 }
 
 .menu h1{
@@ -376,7 +377,7 @@ section .main_btn:hover i{
 
 .gallary{
     width: 100%;
-    padding: 70px 0;
+    padding-bottom: 7vw;
 }
 
 .gallary h1{
@@ -482,8 +483,7 @@ section .main_btn:hover i{
 
 .order{
     width: 100%;
-    /* height: 100vh; */
-    padding: 70px 0;
+    padding-bottom: 7vw;
     background-image: url(image/bg2.jpg);
     background-size: cover;
     background-position: center;
@@ -569,7 +569,6 @@ section .main_btn:hover i{
 
 .review{
     width: 100%;
-    padding: 70px 0;
 }
 
 .review h1{
@@ -765,7 +764,9 @@ section .main_btn:hover i{
 
 
 /*Footer*/
-
+footer{
+    margin-top: 5vw;
+}
 footer ul li{
     display: inline-block;
     margin: 0 15px;

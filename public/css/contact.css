@@ -5,6 +5,8 @@
     font-family: sans-serif;
 }
 body{
+    max-width: 1700px;
+    margin: auto;
     background: linear-gradient(90deg,#37371f 0%,#37371f 30%, #90323d 30%, #90323d 100%);
 }
 

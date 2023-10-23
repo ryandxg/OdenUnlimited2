@@ -403,11 +403,12 @@ section .main_btn:hover i{
 }
 
 .gallary .gallary_image_box{
-    width: 95%;
+    width: 100%;
     margin: 10px auto;
+    padding: 0 7vw;
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
-    grid-gap: 10px;
+    grid-gap: 30px;
 }
 
 .gallary .gallary_image_box .gallary_image{
@@ -477,13 +478,97 @@ section .main_btn:hover i{
     transform: translateY(0);
 }
 
+/*Order*/
+
+.order{
+    width: 100%;
+    /* height: 100vh; */
+    padding: 70px 0;
+    background-image: url(image/bg2.jpg);
+    background-size: cover;
+    background-position: center;
+}
+
+.order h1{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #000;
+    font-size: 55px;
+}
+
+.order h1 span{
+    color: #90323d;
+    margin-right: 15px;
+    font-family: mv boli;
+}
+
+.order h1 span::after{
+    content: '';
+    width: 100%;
+    height: 2px;
+    background: #90323d;
+    display: block;
+    position: relative;
+    bottom: 15px;
+}
+
+.order .order_main{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.order .order_main .order_image img{
+    width: 500px;
+}
+
+.order .order_main form{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 0 10px;
+}
+
+.order .order_main form .input p{
+    line-height: 25px;
+}
+
+.order .order_main form .input{
+    margin: 5px;
+}
+
+.order .order_main form .input input{
+    width: 300px;
+    height: 35px;
+    padding: 0 10px;
+    border: 2px solid #cccccc;
+    background: #eeeeee;
+    outline: none;
+    border-radius: 3px;
+}
+
+.order .order_main form .input input:focus{
+    border: 2px solid #90323d;
+}
+
+.order .order_main form .order_btn{
+    padding: 10px 0;
+    background: #90323d;
+    color: white;
+    width: 40%;
+    text-align: center;
+    margin-top: 20px;
+    text-decoration: none;
+}
+.order .order_main form .order_btn:hover {
+    border-radius: 20px;
+}
 
 
 /*Review*/
 
 .review{
     width: 100%;
-    /* height: 100vh; */
     padding: 70px 0;
 }
 
@@ -593,151 +678,90 @@ section .main_btn:hover i{
 }
 
 /* Form */
+.write-review{
+    width: 100%;
+    padding:0 7vw;
+}
+.write-review h1{
+    font-size: 55px;
+    padding-bottom: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.write-review h1 span{
+    margin-left: 15px;
+    color: #90323d;
+    font-family: mv boli;
+}
+
+.write-review h1 span::after{
+    content: '';
+    width: 100%;
+    height: 2px;
+    background: #90323d;
+    position: relative;
+    bottom: 15px;
+    display: block;
+}
 .formBox{
     position: relative;
     width: 100%;
-    }
-    .formBox .row50{
+}
+.formBox .row50{
     display: flex;
     gap: 20px;
-    }
-    .inputbox{
+}
+.inputbox{
     display: flex;
     flex-direction: column;
     margin-bottom: 10px;
     width: 50%;
    
-    }
-    .row100 .inputbox{
+}
+.row100 .inputbox{
     width: 50%;
-    }
-    .inputbox span{
-        color: #37371f;
-        margin-top: 10px;
-        margin-bottom: 5px;
-        font-weight: 500;
-    }
-    .inputbox input{
-        padding: 10px;
-        font-size: 1.1em;
-        outline: none;
-        border: 1px solid #000;
-        border-radius: 50px;
-    }
-    .inputbox textarea{
-        padding: 10px;
-        font-size: 1.1em;
-        outline: none;
-        border: 1px solid #000;   
-        resize: none;
-        min-height: 220px;
-        margin-bottom: 10px;
-        border-radius: 40px;
-    }
-    .inputbox input[type="submit"]{
-        background: #90323d;
-        color: #000;
-        border: none;
-        font-size: 1.1em;
-        max-width: 120px;
-        font-weight: 500;
-        cursor: pointer;
-        padding: 14px 15px;
-    }
-    .inputbox ::placeholder{
-        color: #90323d;
-    }
-
-
-
-/*Order*/
-
-.order{
-    width: 100%;
-    /* height: 100vh; */
-    padding: 70px 0;
-    background-image: url(image/bg2.jpg);
-    background-size: cover;
-    background-position: center;
 }
-
-.order h1{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: #000;
-    font-size: 55px;
+.inputbox span{
+    color: #37371f;
+    margin-top: 10px;
+    margin-bottom: 5px;
+    font-weight: 500;
 }
-
-.order h1 span{
-    color: #90323d;
-    margin-right: 15px;
-    font-family: mv boli;
-}
-
-.order h1 span::after{
-    content: '';
-    width: 100%;
-    height: 2px;
-    background: #90323d;
-    display: block;
-    position: relative;
-    bottom: 15px;
-}
-
-.order .order_main{
-    display: flex;
-    align-items: center;
-    justify-content: space-around;
-}
-
-.order .order_main .order_image img{
-    width: 500px;
-}
-
-.order .order_main form{
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    grid-gap: 0 10px;
-}
-
-.order .order_main form .input p{
-    line-height: 25px;
-}
-
-.order .order_main form .input{
-    margin: 5px;
-}
-
-.order .order_main form .input input{
-    width: 300px;
-    height: 35px;
-    padding: 0 10px;
-    border: 2px solid #cccccc;
-    background: #eeeeee;
+.inputbox input{
+    padding: 10px;
+    font-size: 1.1em;
     outline: none;
-    border-radius: 3px;
+    border: 1px solid #000;
+    border-radius: 5px;
 }
-
-.order .order_main form .input input:focus{
-    border: 2px solid #90323d;
+.inputbox textarea{
+    padding: 10px;
+    font-size: 1.1em;
+    outline: none;
+    border: 1px solid #000;   
+    resize: none;
+    min-height: 220px;
+    margin-bottom: 10px;
+    border-radius: 5px;
 }
-
-.order .order_main form .order_btn{
-    padding: 10px 0;
+.inputbox input[type="submit"]{
     background: #90323d;
-    color: white;
-    width: 40%;
-    text-align: center;
-    margin-top: 20px;
-    text-decoration: none;
+    color: #ffff;
+    border: none;
+    font-size: 1.1em;
+    max-width: 100px;
+    font-weight: 500;
+    cursor: pointer;
+    padding: 14px 15px;
 }
-.order .order_main form .order_btn:hover {
+.inputbox .sendBtn:hover {
     border-radius: 20px;
 }
-
-
-
+.inputbox ::placeholder{
+    color: #90323d;
+}
 
 
 /*Footer*/
@@ -1006,7 +1030,10 @@ footer .end span{
         grid-gap: 15px;
     }
 
-    /*gallery section*/
+    /*gallery section*/ 
+    .gallary .gallary_image_box{
+        grid-gap: 10px;
+    }
     .gallary .gallary_image_box .gallary_image h3{
         position: absolute;
         font-size: 20px;

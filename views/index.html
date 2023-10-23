@@ -58,7 +58,6 @@
         </nav>
     </header>
 
-
     <section id="Home">
 
         <div class="main">
@@ -94,7 +93,6 @@
     </section>
 
     <!--About-->
-
     <div class="about" id="About">
         <div class="about_main">
 
@@ -129,7 +127,6 @@
     </div>
 
     <!--Menu-->
-
     <div class="menu" id="Menu">
         <h1>Our<span>Menu</span></h1>
 
@@ -247,10 +244,7 @@
         </div>
     </div>  
          
-           
-
     <!--Gallery-->
-
     <div class="gallary" id="Gallery">
         <h1>Our<span>Gallery</span></h1>
 
@@ -262,7 +256,6 @@
                 <p>
                     Lorem ipsum dolor sit amet consectetur, adipisicing elit. Commodi sint eveniet laboriosam 
                 </p>
-                <a href="#" class="gallary_btn">Order Now</a>
             </div>
 
             <div class="gallary_image">
@@ -272,7 +265,6 @@
                 <p>
                     Lorem ipsum dolor sit amet consectetur, adipisicing elit. Commodi sint eveniet laboriosam 
                 </p>
-                <a href="#" class="gallary_btn">Order Now</a>
             </div>
 
             <div class="gallary_image">
@@ -282,7 +274,6 @@
                 <p>
                     Lorem ipsum dolor sit amet consectetur, adipisicing elit. Commodi sint eveniet laboriosam 
                 </p>
-                <a href="#" class="gallary_btn">Order Now</a>
             </div>
 
             <div class="gallary_image">
@@ -292,7 +283,6 @@
                 <p>
                     Lorem ipsum dolor sit amet consectetur, adipisicing elit. Commodi sint eveniet laboriosam 
                 </p>
-                <a href="#" class="gallary_btn">Order Now</a>
             </div>
 
             <div class="gallary_image">
@@ -302,7 +292,6 @@
                 <p>
                     Lorem ipsum dolor sit amet consectetur, adipisicing elit. Commodi sint eveniet laboriosam 
                 </p>
-                <a href="#" class="gallary_btn">Order Now</a>
             </div>
 
             <div class="gallary_image">
@@ -312,17 +301,67 @@
                 <p>
                     Lorem ipsum dolor sit amet consectetur, adipisicing elit. Commodi sint eveniet laboriosam 
                 </p>
-                <a href="#" class="gallary_btn">Order Now</a>
             </div>
 
         </div>
 
     </div>
 
-    <!--Review-->
+    <!--Order-->
+    <div class="order" id="Order">
+        <h1><span>Book a</span>Reservation</h1>
 
-    <div class="review" id="Review">
-        <h1>Customer<span>Review</span></h1>
+        <div class="order_main">
+
+            <div class="order_image">
+                <img loading="lazy" src="/public/images/order_image.png">
+            </div>
+
+            <form action="#">
+
+                <div class="input">
+                    <p>Your name</p>
+                    <input type="text" placeholder="Input your name" required>
+                </div>
+
+                <div class="input">
+                    <p>Number of people</p>
+                    <input type="number" placeholder="Table of" required>
+                </div>
+
+                <div class="input">
+                    <p>Time</p>
+                    <input type="text" onfocus="(this.type='time')" onblur="(this.type='text')" placeholder="Time of Arrival" required>
+                </div>
+
+                <div class="input">
+                    <p>Date</p>
+                    <input type="text" onfocus="(this.type='date')" onblur="(this.type='text')" placeholder="Scheduled Date" required>
+                </div>
+
+                <div class="input">
+                    <p>Phone number</p>
+                    <input type="tel" placeholder="Input Mobile">
+                </div>
+
+                <div class="input">
+                    <p>Email</p>
+                    <input type="email" placeholder="Input Email." required>
+                </div>
+
+                
+
+                <a href="#" class="order_btn">Book Now</a>
+
+            </form>
+
+        </div>
+
+    </div>
+
+    <!--Review-->
+    <div class="write-review" id="Review">
+        <h1>Leave a<span>Review</span></h1>
 
         <!-- <div class="review_box">
             <div class="review_card">
@@ -476,95 +515,34 @@
         </div> -->
 
         <div class="contact form">
-            <h3>Write a review</h3>
             <form>
               <div class="formBox">
                 <div class="row50">
                   <div class="inputbox">
-                    <span>First Name</span>
-                    <input type="text" placeholder="First Name" />
+                    <span>Name</span>
+                    <input type="text" placeholder="Name" />
                   </div>
                   <div class="inputbox">
-                    <span>Last Name</span>
-                    <input type="text" placeholder="Last Name" />
+                    <span>Email</span>
+                    <input type="email" placeholder="Enter your mail" />
                   </div>
                 </div>
   
-                
-  
-                <div class="row100">
                   <div class="inputbox">
                     <span>Review</span>
                     <textarea placeholder="Write your review here.."></textarea>
                   </div>
-                </div>
   
-                <div class="row100">
                   <div class="inputbox">
-                    <input type="submit" value="Send" />
+                    <input class="sendBtn" type="submit" value="Send"/>
                   </div>
-                </div>
               </div>
             </form>
           </div>
 
     </div>
 
-    <!--Order-->
-
-    <div class="order" id="Order">
-        <h1><span>Book a</span>Reservation</h1>
-
-        <div class="order_main">
-
-            <div class="order_image">
-                <img loading="lazy" src="/public/images/order_image.png">
-            </div>
-
-            <form action="#">
-
-                <div class="input">
-                    <p>Number of people</p>
-                    <input type="number" placeholder="Table of" required>
-                </div>
-
-                <div class="input">
-                    <p>Time</p>
-                    <input type="text" onfocus="(this.type='time')" onblur="(this.type='text')" placeholder="Time of Arrival" required>
-                </div>
-
-                <div class="input">
-                    <p>Date</p>
-                    <input type="text" onfocus="(this.type='date')" onblur="(this.type='text')" placeholder="Scheduled Date" required>
-                </div>
-
-                <div class="input">
-                    <p>Your name</p>
-                    <input type="text" placeholder="Input your name" required>
-                </div>
-
-                <div class="input">
-                    <p>Phone number</p>
-                    <input type="tel" placeholder="Input Mobile">
-                </div>
-
-                <div class="input">
-                    <p>Email</p>
-                    <input type="email" placeholder="Input Email." required>
-                </div>
-
-                
-
-                <a href="#" class="order_btn">Book Now</a>
-
-            </form>
-
-        </div>
-
-    </div>
-
     <!--Footer-->
-
     <footer>
         <div class="footer_main">
 

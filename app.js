@@ -3,7 +3,8 @@ const path = require("path");
 const bodyParser = require("body-parser");
 
 //importantation from controllers
-// const contactPost = require ('./controllers/contactPost.js');
+const contactPost = require ('./controllers/contactPost.js');
+const reviewPost = require ('./controllers/reviewPost.js');
 
 
 //importantation from models 
@@ -77,6 +78,8 @@ app.get("/contact", contactPage);
 
 app.get("/pricelist", pricelistPage);
 
+app.post("/submitReview", reviewPost);
+app.post("/contact", contactPost);
 
 app.listen(port, () => {
   console.log(`Server is running on port ${port}`);

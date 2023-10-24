@@ -516,26 +516,26 @@
         </div> -->
 
         <div class="contact form">
-            <form>
+            <form action="/submitReview" method="post">
               <div class="formBox">
                 <div class="row50">
                   <div class="inputbox">
                     <span>Name</span>
-                    <input type="text" placeholder="Name" />
+                    <input type="text" name="name" placeholder="Name" />
                   </div>
                   <div class="inputbox">
                     <span>Email</span>
-                    <input type="email" placeholder="Enter your Email" />
+                    <input type="email" name="email" placeholder="Enter your Email" />
                   </div>
                 </div>
   
                   <div class="inputbox">
                     <span>Review</span>
-                    <textarea placeholder="Write your review here.."></textarea>
+                    <textarea name="message" placeholder="Write your review here.."></textarea>
                   </div>
   
                   <div class="inputbox">
-                    <input class="sendBtn" type="submit" value="Send"/>
+                    <input id="sendBtn" class="sendBtn" type="submit" value="Send"/>
                   </div>
               </div>
             </form>
@@ -586,6 +586,10 @@
       
 
     </footer>
+
+    <div id="notification" style="display: none;" class="notification">
+        Review Submitted
+    </div>
 
     <script type="application/javascript" src="/public/js/script.js"></script>    
 </body>

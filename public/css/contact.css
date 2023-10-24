@@ -10,6 +10,18 @@ body{
     background: linear-gradient(90deg,#37371f 0%,#37371f 30%, #90323d 30%, #90323d 100%);
 }
 
+.notification {  
+    background-color: #4CAF50;
+    color: #ffffff;
+    text-align: center;
+    padding: 10px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    display: none;
+    z-index: 9999;
+}
 
 header nav{
     display: flex;
@@ -158,13 +170,17 @@ width: 100%;
 }
 .inputbox input[type="submit"]{
     background: #90323d;
-    color: #000;
+    color: #fff;
     border: none;
     font-size: 1.1em;
-    max-width: 120px;
+    max-width: 80px;
     font-weight: 500;
     cursor: pointer;
-    padding: 14px 15px;
+    padding: 5px;
+    border-radius: 5px;
+}
+.inputbox input[type="submit"]:hover{
+    border-radius: 20px;
 }
 .inputbox ::placeholder{
     color: #90323d;

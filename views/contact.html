@@ -66,40 +66,40 @@
         <!-- Form -->
         <div class="contact form">
           <h3>Send a Message</h3>
-          <form>
+          <form action="/contact" method="post">
             <div class="formBox">
               <div class="row50">
                 <div class="inputbox">
                   <span>First Name</span>
-                  <input type="text" placeholder="First Name" />
+                  <input type="text" name="fname" placeholder="First Name" />
                 </div>
                 <div class="inputbox">
                   <span>Last Name</span>
-                  <input type="text" placeholder="Last Name" />
+                  <input type="text" name="lname" placeholder="Last Name" />
                 </div>
               </div>
 
               <div class="row50">
                 <div class="inputbox">
                   <span>Email</span>
-                  <input type="text" placeholder="Enter Email" />
+                  <input type="text" name="email" placeholder="Enter Email" />
                 </div>
                 <div class="inputbox">
                   <span>Mobile</span>
-                  <input type="text" placeholder="Number" />
+                  <input type="text" name="phoneNumber" placeholder="Number" />
                 </div>
               </div>
 
               <div class="row100">
                 <div class="inputbox">
                   <span>Message</span>
-                  <textarea placeholder="Write your message here.."></textarea>
+                  <textarea name="message" placeholder="Write your message here.."></textarea>
                 </div>
               </div>
 
               <div class="row100">
-                <div class="inputbox">
-                  <input type="submit" value="Send" />
+                <div class="inputbox sendbtn">
+                  <input id="sendBtn" type="submit" value="Send" />
                 </div>
               </div>
             </div>
@@ -143,6 +143,10 @@
           ></iframe>
         </div>
       </div>
+    </div>
+
+    <div id="notification" style="display: none;" class="notification">
+      Message sent
     </div>
 
     <script

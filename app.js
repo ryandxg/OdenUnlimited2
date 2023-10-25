@@ -47,12 +47,14 @@ app.use(bodyParser.urlencoded({ extended: true}));
 const contactPost = require ('./controllers/contactPost.js');
 const reservationPost = require ('./controllers/reservationPost.js');
 const reviewPost = require ('./controllers/reviewPost.js');
+const addPricelist = require ("./controllers/addPricelist.js");
 
 
 //importantation from models 
 const homePage = require ('./models/homePage.js');
 const contactPage = require ('./models/contactPage.js');
 const pricelistPage = require ('./models/pricelistPage.js');
+const addPricelistPage = require ("./models/addPricelistPage.js")
 
 
 //MIME
@@ -102,6 +104,8 @@ app.get("/", homePage);
 app.get("/contact", contactPage);
 
 app.get("/pricelist", pricelistPage);
+
+app.get("/addPricelist", addPricelistPage);
 
 app.post("/submitReservation", reservationPost);
 app.post("/submitReview", reviewPost);

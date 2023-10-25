@@ -8,7 +8,8 @@ function contactPost (req,res) {
         console.log("phoneNumber:", phoneNumber);
         console.log("message:", message);
 
-        res.redirect("/contact")
+        res.status(200).json({ message: "Review Submitted" });
+        // res.redirect("/contact")
     } catch (error) {
         console.log(error);
     }

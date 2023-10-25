@@ -2,15 +2,7 @@ const express = require("express");
 const path = require("path");
 const bodyParser = require("body-parser");
 
-//importantation from controllers
-const contactPost = require ('./controllers/contactPost.js');
-const reviewPost = require ('./controllers/reviewPost.js');
 
-
-//importantation from models 
-const homePage = require ('./models/homePage.js');
-const contactPage = require ('./models/contactPage.js');
-const pricelistPage = require ('./models/pricelistPage.js');
 
 const app = express();
 const port = 3000;
@@ -27,9 +19,18 @@ app.use(
   ));
 
 //use bodyparser
+app.use(express.json());
 app.use(bodyParser.urlencoded({ extended: true}));
 
+//importantation from controllers
+const contactPost = require ('./controllers/contactPost.js');
+const reviewPost = require ('./controllers/reviewPost.js');
 
+
+//importantation from models 
+const homePage = require ('./models/homePage.js');
+const contactPage = require ('./models/contactPage.js');
+const pricelistPage = require ('./models/pricelistPage.js');
 //MIME
 app.get("/public/css/style.css", (req, res) => {
 res.setHeader("Content-Type", "text/css");
@@ -85,7 +86,3 @@ app.listen(port, () => {
   console.log(`Server is running on port ${port}`);
 });
 
-
-// app.listen(3000, function(){
-//     console.log("server running on port 3000");
-// })

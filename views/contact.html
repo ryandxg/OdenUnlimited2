@@ -12,6 +12,9 @@
       crossorigin="anonymous"
       referrerpolicy="no-referrer"
     />
+    <!-- jquery plugin -->
+    <script src="https://code.jquery.com/jquery-1.12.4.min.js" 
+    integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ=" crossorigin="anonymous"></script>
   </head>
   <body>
     <header>
@@ -66,34 +69,34 @@
         <!-- Form -->
         <div class="contact form">
           <h3>Send a Message</h3>
-          <form action="/contact" method="post">
+          <form id="myForm" action="/contact" method="post">
             <div class="formBox">
               <div class="row50">
                 <div class="inputbox">
                   <span>First Name</span>
-                  <input type="text" name="fname" placeholder="First Name" />
+                  <input id="fname" type="text" name="fname" placeholder="First Name"  required/>
                 </div>
                 <div class="inputbox">
                   <span>Last Name</span>
-                  <input type="text" name="lname" placeholder="Last Name" />
+                  <input id="lname" type="text" name="lname" placeholder="Last Name"  required/>
                 </div>
               </div>
 
               <div class="row50">
                 <div class="inputbox">
                   <span>Email</span>
-                  <input type="text" name="email" placeholder="Enter Email" />
+                  <input id="email" type="text" name="email" placeholder="Enter Email"  required/>
                 </div>
                 <div class="inputbox">
                   <span>Mobile</span>
-                  <input type="text" name="phoneNumber" placeholder="Number" />
+                  <input id="phoneNumber" type="text" name="phoneNumber" placeholder="Number"  required/>
                 </div>
               </div>
 
               <div class="row100">
                 <div class="inputbox">
                   <span>Message</span>
-                  <textarea name="message" placeholder="Write your message here.."></textarea>
+                  <textarea id="message" name="message" placeholder="Write your message here.." required></textarea>
                 </div>
               </div>
 
@@ -149,6 +152,48 @@
       Message sent
     </div>
 
+    <script type="application/javascript" src="/public/js/script.js"></script>
+    <script>
+      document.getElementById("myForm").addEventListener("submit", async function (event) {
+        event.preventDefault();
+        
+        // Create a JavaScript object with form field values
+        const formData = {
+          fname: document.getElementById("fname").value,
+          lname: document.getElementById("lname").value,
+          email: document.getElementById("email").value,
+          phoneNumber: document.getElementById("phoneNumber").value,
+          message: document.getElementById("message").value,
+        };
+  
+        // Serialize the JavaScript object to JSON
+        const jsonData = JSON.stringify(formData);
+  
+        try {
+          // Send the JSON data to the server
+          const response = await fetch('/contact', {
+            method: 'POST',
+            body: jsonData,
+            headers: {
+              'Content-Type': 'application/json',
+            },
+          });
+  
+          if (response.ok) {        
+            // showNotification();
+            window.location.reload();
+            await showNotification();
+            // const data = await response.json();
+            // alert(data.message);
+          } else {
+            console.log('Error:', response.status);
+          }
+        } catch (error) {
+          console.error('Network error:', error);
+        }
+      });
+    </script>
+
     <script
       type="module"
       src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"
@@ -158,6 +203,6 @@
       src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"
     ></script>
 
-    <script type="application/javascript" src="/public/js/script.js"></script>
+    <!-- <script type="application/javascript" src="/public/js/script.js"></script> -->
   </body>
 </html>

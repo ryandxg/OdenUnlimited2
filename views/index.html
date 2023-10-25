@@ -322,32 +322,32 @@
 
                 <div class="input">
                     <p>Your name</p>
-                    <input type="text" placeholder="Input your name" required>
+                    <input id="name" name="name" type="text" placeholder="Input your name" required>
                 </div>
 
                 <div class="input">
                     <p>Number of people</p>
-                    <input type="number" placeholder="Table of" required>
+                    <input id="numberOfPeople" name="numberOfPeople" type="number" placeholder="Table of" required>
                 </div>
 
                 <div class="input">
                     <p>Time</p>
-                    <input type="text" onfocus="(this.type='time')" onblur="(this.type='text')" placeholder="Time of Arrival" required>
+                    <input id="time" name="time" type="text" onfocus="(this.type='time')" onblur="(this.type='text')" placeholder="Time of Arrival" required>
                 </div>
 
                 <div class="input">
                     <p>Date</p>
-                    <input type="text" onfocus="(this.type='date')" onblur="(this.type='text')" placeholder="Scheduled Date" required>
+                    <input id="date" name="date" type="text" onfocus="(this.type='date')" onblur="(this.type='text')" placeholder="Scheduled Date" required>
                 </div>
 
                 <div class="input">
                     <p>Phone number</p>
-                    <input type="tel" placeholder="Input Mobile">
+                    <input id="phoneNumber" name="phoneNumber" type="tel" placeholder="Input Mobile">
                 </div>
 
                 <div class="input">
                     <p>Email</p>
-                    <input type="email" placeholder="Input Email." required>
+                    <input id="email" name="email" type="email" placeholder="Input Email." required>
                 </div>
 
                 
@@ -516,22 +516,22 @@
         </div> -->
 
         <div class="contact form">
-            <form action="/submitReview" method="post">
+            <form id="myForm" action="/submitReview" method="post">
               <div class="formBox">
                 <div class="row50">
                   <div class="inputbox">
                     <span>Name</span>
-                    <input type="text" name="name" placeholder="Name" />
+                    <input id="name" type="text" name="name" placeholder="Name" />
                   </div>
                   <div class="inputbox">
                     <span>Email</span>
-                    <input type="email" name="email" placeholder="Enter your Email" />
+                    <input id="email" type="email" name="email" placeholder="Enter your Email" />
                   </div>
                 </div>
   
                   <div class="inputbox">
                     <span>Review</span>
-                    <textarea name="message" placeholder="Write your review here.."></textarea>
+                    <textarea id="message" name="message" placeholder="Write your review here.."></textarea>
                   </div>
   
                   <div class="inputbox">
@@ -592,5 +592,54 @@
     </div>
 
     <script type="application/javascript" src="/public/js/script.js"></script>    
+    <script>
+        document.getElementById("myForm").addEventListener("submit", async function (event) {
+        event.preventDefault();
+                // Create JSON objects for the data from each form
+        const reservation = {
+        fname: document.querySelector("#fname1").value,
+        lname: document.querySelector("#lname1").value,
+        email: document.querySelector("#email1").value,
+        // ... other fields for form 1 ...
+        };
+
+        const review = {
+        fname: document.querySelector("#name").value,
+        lname: document.querySelector("#email").value,
+        email: document.querySelector("#message").value,
+        // ... other fields for form 2 ...
+        };
+
+        try{
+        // Combine the JSON objects into a single object
+        const jsonData = {
+        form1Data: reservation,
+        form2Data: review,
+        };
+
+        // Serialize the combined data to JSON
+        const jsonString = JSON.stringify(jsonData);
+
+        // Send the JSON data to the server
+        const response = await fetch('/index', {
+        method: 'POST',
+        body: jsonString,
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        });
+        if (response.ok) {
+            showNotification()
+            // const data = await response.json();
+            // alert(data.message);
+          } else {
+            console.log('Error:', response.status);
+          }
+        } catch (error) {
+          console.error('Network error:', error);
+        }
+      });
+
+    </script>
 </body>
 </html>

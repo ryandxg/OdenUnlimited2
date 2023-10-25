@@ -1,11 +1,32 @@
 const express = require("express");
 const path = require("path");
 const bodyParser = require("body-parser");
+const mongoose = require('mongoose');
 // const format = require('date-fns/format');
 
 
 const app = express();
 const port = 3000;
+
+
+// Define the connection URL for your local MongoDB
+const dbURL = 'mongodb://127.0.0.1:27017/odenDB'; // Replace 'your-database-name' with your database name
+
+// Connect to the MongoDB database
+mongoose.connect(dbURL, {
+  useNewUrlParser: true,
+  useUnifiedTopology: true,
+});
+
+const db = mongoose.connection;
+
+// Handle MongoDB connection events
+db.on('error', console.error.bind(console, 'MongoDB connection error:'));
+db.once('open', () => {
+  console.log('Connected to the MongoDB database');
+});
+
+
 
 //setting static files
 app.use(

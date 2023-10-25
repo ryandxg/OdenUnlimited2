@@ -6,11 +6,6 @@ const reviewSchema = new mongoose.Schema({
   message: String,
 });
 
-
 const Review = mongoose.model('Review', reviewSchema);
-// const reviews = [
-//     { email: "peter@gmail.com", password: "Password1" },
-//     { email: "ryan@gmail.com", password: "Password1" }
-// ];
 
 module.exports = Review;

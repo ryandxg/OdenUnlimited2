@@ -45,7 +45,7 @@ app.use(bodyParser.urlencoded({ extended: true}));
 
 //importantation from controllers
 const contactPost = require ('./controllers/contactPost.js');
-const reservations = require ('./controllers/reservations.js');
+const reservationPost = require ('./controllers/reservationPost.js');
 const reviewPost = require ('./controllers/reviewPost.js');
 
 
@@ -103,7 +103,7 @@ app.get("/contact", contactPage);
 
 app.get("/pricelist", pricelistPage);
 
-app.post("/submitReservation", reservations);
+app.post("/submitReservation", reservationPost);
 app.post("/submitReview", reviewPost);
 app.post("/contact", contactPost);
 

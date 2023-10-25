@@ -18,9 +18,14 @@ closeMenu.addEventListener("click", () => {
 function showNotification() {
     const notification = document.getElementById("notification");
     notification.style.display = "block"; // Display the notification bar
-    setTimeout(() => {
-        notification.style.display = "none"; // Hide the notification bar after a few seconds (adjust the time as needed)
-    }, 3000); console.log("Notification shown"); // 3000 milliseconds (3 seconds) in this example
+    setTimeout(function() {
+        notification.style.display = "none";
+
+        // Reload the page after 5 seconds
+        setTimeout(function() {
+          window.location.reload();
+        }, 5);
+      }, 3000); console.log("Notification shown"); // 3000 milliseconds (3 seconds) in this example
 }
 
 

@@ -318,41 +318,41 @@
                 <img loading="lazy" src="/public/images/order_image.png">
             </div>
 
-            <form action="#">
+            <form id="myForm1" action="/submitReservation" class="myForm" method="post">
 
                 <div class="input">
                     <p>Your name</p>
-                    <input id="name" name="name" type="text" placeholder="Input your name" required>
+                    <input id="reservationName" name="name" type="text" placeholder="Input your name" required>
                 </div>
 
                 <div class="input">
                     <p>Number of people</p>
-                    <input id="numberOfPeople" name="numberOfPeople" type="number" placeholder="Table of" required>
+                    <input id="reservationNumberOfPeople" name="numberOfPeople" type="number" min=1 oninput="validity.valid||(value='');" placeholder="Table of" required>
                 </div>
 
                 <div class="input">
                     <p>Time</p>
-                    <input id="time" name="time" type="text" onfocus="(this.type='time')" onblur="(this.type='text')" placeholder="Time of Arrival" required>
+                    <input id="reservationTime" name="time" type="text" onfocus="(this.type='time')" onblur="(this.type='text')" placeholder="Time of Arrival" required>
                 </div>
 
                 <div class="input">
                     <p>Date</p>
-                    <input id="date" name="date" type="text" onfocus="(this.type='date')" onblur="(this.type='text')" placeholder="Scheduled Date" required>
+                    <input id="reservationDate" name="date" type="text" onfocus="(this.type='date')" onblur="(this.type='text')" placeholder="Scheduled Date" required>
                 </div>
 
                 <div class="input">
                     <p>Phone number</p>
-                    <input id="phoneNumber" name="phoneNumber" type="tel" placeholder="Input Mobile">
+                    <input id="reservationPhoneNumber" name="phoneNumber" type="tel" placeholder="Input Mobile">
                 </div>
 
                 <div class="input">
                     <p>Email</p>
-                    <input id="email" name="email" type="email" placeholder="Input Email." required>
+                    <input id="reservationEmail" name="email" type="email" placeholder="Input Email." required>
                 </div>
 
                 
 
-                <a href="#" class="order_btn">Book Now</a>
+                <input type="submit" class="order_btn"></input>
 
             </form>
 
@@ -516,7 +516,7 @@
         </div> -->
 
         <div class="contact form">
-            <form id="myForm" action="/submitReview" method="post">
+            <form id="myForm2" class="myForm" action="/submitReview" method="post">
               <div class="formBox">
                 <div class="row50">
                   <div class="inputbox">
@@ -587,59 +587,153 @@
 
     </footer>
 
-    <div id="notification" style="display: none;" class="notification">
-        Review Submitted
-    </div>
+    <div id="notification" style="display: none;" class="notification"></div>
 
     <script type="application/javascript" src="/public/js/script.js"></script>    
     <script>
-        document.getElementById("myForm").addEventListener("submit", async function (event) {
+        // Handle form 1 submission
+        document.getElementById("myForm1").addEventListener("submit", async function (event) {
         event.preventDefault();
-                // Create JSON objects for the data from each form
-        const reservation = {
-        fname: document.querySelector("#fname1").value,
-        lname: document.querySelector("#lname1").value,
-        email: document.querySelector("#email1").value,
-        // ... other fields for form 1 ...
+
+        const formData = {
+            reservationName: document.getElementById("reservationName").value,
+            reservationNumberOfPeople: document.getElementById("reservationNumberOfPeople").value,
+            reservationTime: document.getElementById("reservationTime").value,
+            reservationDate: document.getElementById("reservationDate").value,
+            reservationPhoneNumber: document.getElementById("reservationPhoneNumber").value,
+            reservationEmail: document.getElementById("reservationEmail").value,
+            // Serialize form 1 data
+            // ...
         };
+       
 
-        const review = {
-        fname: document.querySelector("#name").value,
-        lname: document.querySelector("#email").value,
-        email: document.querySelector("#message").value,
-        // ... other fields for form 2 ...
-        };
 
-        try{
-        // Combine the JSON objects into a single object
-        const jsonData = {
-        form1Data: reservation,
-        form2Data: review,
-        };
+        const jsonString = JSON.stringify(formData);
 
-        // Serialize the combined data to JSON
-        const jsonString = JSON.stringify(jsonData);
+        try {
+            const response = await fetch("/submitReservation", {
+            method: 'POST',
+            body: jsonString,
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            });
 
-        // Send the JSON data to the server
-        const response = await fetch('/index', {
-        method: 'POST',
-        body: jsonString,
-        headers: {
-            'Content-Type': 'application/json',
-        },
-        });
-        if (response.ok) {
-            showNotification()
-            // const data = await response.json();
-            // alert(data.message);
-          } else {
-            console.log('Error:', response.status);
-          }
+            if (response.ok) {
+                // window.location.reload();
+                const notification = document.getElementById("notification");
+                notification.textContent = "Reservation submitted!";
+                await showNotification();
+            // Handle success for form 1
+            } else {
+                console.log('Error:', response.status);
+            // Handle error for form 1
+            }
         } catch (error) {
-          console.error('Network error:', error);
+            console.error('Network error:', error);
+            // Handle network error for form 1
         }
-      });
+        });
 
+        // Handle form 2 submission
+        document.getElementById("myForm2").addEventListener("submit", async function (event) {
+        event.preventDefault();
+
+        const formData = {
+            name: document.getElementById("name").value,
+            email: document.getElementById("email").value,
+            message: document.getElementById("message").value,
+            // Serialize form 2 data
+            // ...
+        };
+
+        const jsonString = JSON.stringify(formData);
+
+        try {
+            const response = await fetch("/submitReview", {
+            method: 'POST',
+            body: jsonString,
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            });
+
+            if (response.ok) {
+                // window.location.reload();
+                const notification = document.getElementById("notification");
+                notification.textContent = "Review submitted!";
+                await showNotification();
+            // Handle success for form 2
+            } else {
+                console.log('Error:', response.status);
+            // Handle error for form 2
+            }
+        } catch (error) {
+            console.error('Network error:', error);
+            // Handle network error for form 2
+        }
+        });
+
+
+
+
+//         const form1 = document.getElementById("myForm1");
+// const form2 = document.getElementById("myForm2");
+//         const forms = document.querySelectorAll(".my-form");
+
+// // Add an event listener to each form
+// forms.forEach((form) => {
+//         document.getElementById("myForm").addEventListener("submit", async function (event) {
+//         event.preventDefault();
+//                 // Create JSON objects for the data from each form
+//         const reservation = {
+//         reservationName: document.getElementById("reservationName").value,
+//         noOfPeople: document.getElementById("reservationNumberOfPeople").value,
+//         time: document.getElementById("reservationTime").value,
+//         date: document.getElementById("reservationDate").value,
+//         phoneNumber: document.getElementById("reservationPhoneNumber").value,
+//         email: document.getElementById("reservationEmail").value,
+//         // ... other fields for form 1 ...
+//         };
+
+//         const review = {
+//         name: document.getElementById("name").value,
+//         email: document.getElementById("email").value,
+//         message: document.getElementById("message").value,
+//         // ... other fields for form 2 ...
+//         };
+
+        
+//         // Combine the JSON objects into a single object
+//         const jsonData = {
+//         reservation: reservation,
+//         review: review,
+//         };
+
+//         // Serialize the combined data to JSON
+//         const jsonString = JSON.stringify(jsonData);
+//         try{
+//         // Send the JSON data to the server
+//         const response = await fetch('/submitReview', {
+//         method: 'POST',
+//         body: jsonString,
+//         headers: {
+//             'Content-Type': 'application/json',
+//         },
+//         });
+//         if (response.ok) {
+//             showNotification()
+//             window.location.reload();
+//             // const data = await response.json();
+//             // alert(data.message);
+//           } else {
+//             console.log('Error:', response.status);
+//           }
+//         } catch (error) {
+//           console.error('Network error:', error);
+//         }
+//       });
+// });
     </script>
 </body>
 </html>

@@ -180,11 +180,7 @@
           });
   
           if (response.ok) {        
-            // showNotification();
-            window.location.reload();
-            await showNotification();
-            // const data = await response.json();
-            // alert(data.message);
+            showNotification(); //show totification and reload page
           } else {
             console.log('Error:', response.status);
           }

@@ -1,7 +1,7 @@
 const express = require("express");
 const path = require("path");
 const bodyParser = require("body-parser");
-
+// const format = require('date-fns/format');
 
 
 const app = express();
@@ -24,6 +24,7 @@ app.use(bodyParser.urlencoded({ extended: true}));
 
 //importantation from controllers
 const contactPost = require ('./controllers/contactPost.js');
+const reservations = require ('./controllers/reservations.js');
 const reviewPost = require ('./controllers/reviewPost.js');
 
 
@@ -31,6 +32,8 @@ const reviewPost = require ('./controllers/reviewPost.js');
 const homePage = require ('./models/homePage.js');
 const contactPage = require ('./models/contactPage.js');
 const pricelistPage = require ('./models/pricelistPage.js');
+
+
 //MIME
 app.get("/public/css/style.css", (req, res) => {
 res.setHeader("Content-Type", "text/css");
@@ -79,6 +82,7 @@ app.get("/contact", contactPage);
 
 app.get("/pricelist", pricelistPage);
 
+app.post("/submitReservation", reservations);
 app.post("/submitReview", reviewPost);
 app.post("/contact", contactPost);
 

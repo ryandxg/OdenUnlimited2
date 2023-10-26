@@ -430,10 +430,21 @@ section .main_btn:hover i{
     bottom: 15px;
 }
 .background {
-    background-color: var(--background);
     display: grid;
     place-items: center;
-    /* height: 100vh; */
+}
+#viewGalleryBtn {
+    color: white;
+    text-decoration: none;
+    background: #90323d;
+    margin-top: 30px;
+    text-align: center;
+    width: 120px;
+    padding: 10px 5px;
+    border-radius: 7px;
+}
+#viewGalleryBtn:hover{
+    border-radius: 20px;
 }
 
 .gallery {
@@ -450,7 +461,6 @@ section .main_btn:hover i{
     border-radius: 16px;
     height: 360px;
     overflow: hidden;
-    background-color: var(--background);
     transition: 0.4s ease-in-out;
     box-shadow: 0 5px 12px rgba(0, 0, 0, 0.5);
     flex: 0.25;

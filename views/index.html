@@ -651,67 +651,6 @@
             // Handle network error for form 2
         }
         });
-
-
-
-
-//         const form1 = document.getElementById("myForm1");
-// const form2 = document.getElementById("myForm2");
-//         const forms = document.querySelectorAll(".my-form");
-
-// // Add an event listener to each form
-// forms.forEach((form) => {
-//         document.getElementById("myForm").addEventListener("submit", async function (event) {
-//         event.preventDefault();
-//                 // Create JSON objects for the data from each form
-//         const reservation = {
-//         reservationName: document.getElementById("reservationName").value,
-//         noOfPeople: document.getElementById("reservationNumberOfPeople").value,
-//         time: document.getElementById("reservationTime").value,
-//         date: document.getElementById("reservationDate").value,
-//         phoneNumber: document.getElementById("reservationPhoneNumber").value,
-//         email: document.getElementById("reservationEmail").value,
-//         // ... other fields for form 1 ...
-//         };
-
-//         const review = {
-//         name: document.getElementById("name").value,
-//         email: document.getElementById("email").value,
-//         message: document.getElementById("message").value,
-//         // ... other fields for form 2 ...
-//         };
-
-        
-//         // Combine the JSON objects into a single object
-//         const jsonData = {
-//         reservation: reservation,
-//         review: review,
-//         };
-
-//         // Serialize the combined data to JSON
-//         const jsonString = JSON.stringify(jsonData);
-//         try{
-//         // Send the JSON data to the server
-//         const response = await fetch('/submitReview', {
-//         method: 'POST',
-//         body: jsonString,
-//         headers: {
-//             'Content-Type': 'application/json',
-//         },
-//         });
-//         if (response.ok) {
-//             showNotification()
-//             window.location.reload();
-//             // const data = await response.json();
-//             // alert(data.message);
-//           } else {
-//             console.log('Error:', response.status);
-//           }
-//         } catch (error) {
-//           console.error('Network error:', error);
-//         }
-//       });
-// });
     </script>
 </body>
 </html>

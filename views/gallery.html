@@ -4,9 +4,57 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="/public/css/gallery.css">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <!-- jquery plugin -->
+    <script src="https://code.jquery.com/jquery-1.12.4.min.js" 
+    integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ=" crossorigin="anonymous"></script>
+
     <title>Document</title>
 </head>
 <body>
+    <header>
+        <nav>
+            <div class="header-nav-mobile">
+                <a href="/" class="logo">
+                    <img src="/public/images/LOGO  new.png">
+                </a>
+
+                <i id="open-menu"  class="fa-solid fa-bars" 
+                style="font-size:30px;cursor:pointer;color: white;">
+                </i>
+            </div>
+            
+
+            <div id="mySidenav" class="sidenav close-menu">
+                <i id="close-menu" class="fa-solid fa-xmark" 
+                style="font-size:30px;cursor:pointer;
+                color: black;">
+                </i>
+            
+                <ul>
+                    <li><a href="/#Home">Home</a></li>
+                    <li><a href="/#About">About Us</a></li>
+                    <li><a href="/#Menu">Menu</a></li>
+                    <li><a href="/gallery">Gallery</a></li>
+                    <!-- <li><a href="#Order">Order</a></li> -->
+                    <li><a href="/#Review">Review</a></li>
+                    <li><a href="/contact">Contact Us</a></li>
+                </ul>
+
+                <div class="icons-in-hamburger" id="headerReservation-div">
+                    <a href="#Reservationer">Make Reservation</a>   
+                </div>
+            </div>
+            <div id="mySidenav" class="sidenav icons-login">
+                <div class="icon" id="headerReservation-div">
+                    <a href="#Reservation">Make Reservation</a>
+                </div>
+            </div>
+        </nav>
+    </header>
+
     <div class="background" id="background">
         <div class="centering">
             <div class="articles">
@@ -130,7 +178,7 @@
         <img src="" alt="Lightbox Image" id="lightbox-image">
     </div>
 
-
+    <script type="application/javascript" src="/public/js/script.js"></script>
     <script>
         const lightbox = document.getElementById("lightbox");
         const closeButton = document.getElementById("close-button");
@@ -165,8 +213,6 @@
                 closeLightbox();
             }
         });
-
-
     </script>
 </body>
 </html>

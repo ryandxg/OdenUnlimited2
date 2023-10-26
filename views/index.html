@@ -36,23 +36,21 @@
             
                 <ul>
                     <li><a href="#Home">Home</a></li>
-                    <li><a href="#About">About</a></li>
+                    <li><a href="#About">About Us</a></li>
                     <li><a href="#Menu">Menu</a></li>
                     <li><a href="#Gallery">Gallery</a></li>
-                    <li><a href="#Order">Order</a></li>
+                    <!-- <li><a href="#Order">Order</a></li> -->
                     <li><a href="#Review">Review</a></li>
-                    <li><a href="/contact">Contact</a></li>
+                    <li><a href="/contact">Contact Us</a></li>
                 </ul>
 
-                <div class="icons-in-hamburger">
-                    <i class="fa-solid fa-magnifying-glass"></i>
-                    <i class="fa-solid fa-cart-shopping"></i>
+                <div class="icons-in-hamburger" id="headerReservation-div">
+                    <a href="#Reservationer">Make Reservation</a>   
                 </div>
             </div>
             <div id="mySidenav" class="sidenav icons-login">
-                <div class="icon">
-                    <i class="fa-solid fa-magnifying-glass"></i>
-                    <i class="fa-solid fa-cart-shopping"></i>
+                <div class="icon" id="headerReservation-div">
+                    <a href="#Reservation">Make Reservation</a>
                 </div>
             </div>
         </nav>
@@ -77,7 +75,7 @@
                 </p>
 
                 <div class="main_btn">
-                    <a href="#">Order Now</a>
+                    <a href="#Reservation">Make Reservation</a>
                     <i class="fa-solid fa-angle-right"></i>
                 </div>
             </div>
@@ -309,7 +307,7 @@
     </div>
 
     <!--Order-->
-    <div class="order" id="Order">
+    <div class="order" id="Reservation">
         <h1><span>Book a</span>Reservation</h1>
 
         <div class="order_main">
@@ -554,9 +552,9 @@
             <div class="footer_tag">
                 <ul>
                     <li><a href="/#Home">Home</a></li><br>
-                    <li><a href="/#About">About</a></li><br>
+                    <li><a href="/#About">About Us</a></li><br>
                     <li><a href="/#Menu">Menu</a></li><br>
-                    <li><a href="/#Order">Order</a></li><br>
+                    <li><a href="/#Reservation">Reservation</a></li><br>
                 </ul>
             </div>
 
@@ -591,7 +589,7 @@
 
     <script type="application/javascript" src="/public/js/script.js"></script>    
     <script>
-        // Handle form 1 submission
+        // Handle Reservation submission
         document.getElementById("myForm1").addEventListener("submit", async function (event) {
         event.preventDefault();
 
@@ -602,12 +600,10 @@
             reservationDate: document.getElementById("reservationDate").value,
             reservationPhoneNumber: document.getElementById("reservationPhoneNumber").value,
             reservationEmail: document.getElementById("reservationEmail").value,
-            // Serialize form 1 data
+            // Serialize Reservation data
             // ...
         };
        
-
-
         const jsonString = JSON.stringify(formData);
 
         try {
@@ -624,18 +620,18 @@
                 const notification = document.getElementById("notification");
                 notification.textContent = "Reservation submitted!";
                 await showNotification();
-            // Handle success for form 1
+                // Handle success for Reservation
             } else {
                 console.log('Error:', response.status);
-            // Handle error for form 1
+                // Handle error for Reservation
             }
         } catch (error) {
             console.error('Network error:', error);
-            // Handle network error for form 1
+            // Handle network error for Reservation
         }
         });
 
-        // Handle form 2 submission
+        // Handle Review submission
         document.getElementById("myForm2").addEventListener("submit", async function (event) {
         event.preventDefault();
 

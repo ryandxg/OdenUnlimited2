@@ -91,7 +91,18 @@ header nav .icon i{
     cursor: pointer;
     transition: 0.3s;
 }
-
+#headerReservation-div a{
+    color: #fff;
+    text-decoration: none;
+    background: #90323d;
+    border-radius: 5px;
+    width: 170px;
+    cursor: pointer;
+    padding: 12px 10px;
+}
+#headerReservation-div a:hover{
+    border-radius: 20px;
+}
 
 
 section .main{
@@ -140,11 +151,10 @@ section p{
 section .main_btn{
     background: #90323d;
     position: relative;
-    /* left: 123px;
-    bottom: 30px; */
-    width: 150px;
+    border-radius: 5px;
+    width: 170px;
     cursor: pointer;
-    padding: 12px 25px;
+    padding: 12px 10px;
 }
 section .main_btn:hover{
     border-radius: 20px;
@@ -566,7 +576,8 @@ section .main_btn:hover i{
     border: 2px solid #90323d;
 }
 
-.order .order_main form .order_btn{
+#myForm1 .order_btn{
+    cursor: pointer;
     padding: 5px;
     background: #90323d;
     color: white;
@@ -576,7 +587,7 @@ section .main_btn:hover i{
     text-decoration: none;
     border-radius: 5px;
 }
-.order .order_main form .order_btn:hover {
+#myForm1 .order_btn:hover {
     border-radius: 20px;
 }
 

@@ -79,6 +79,18 @@ header nav .icon i{
     cursor: pointer;
     transition: 0.3s;
 }
+#headerReservation-div a{
+    color: #fff;
+    text-decoration: none;
+    background: #90323d;
+    border-radius: 5px;
+    width: 170px;
+    cursor: pointer;
+    padding: 12px 10px;
+}
+#headerReservation-div a:hover{
+    border-radius: 20px;
+}
 
 
 .contactUs{

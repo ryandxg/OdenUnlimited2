@@ -55,6 +55,7 @@ const homePage = require ('./models/homePage.js');
 const contactPage = require ('./models/contactPage.js');
 const pricelistPage = require ('./models/pricelistPage.js');
 const addPricelistPage = require ("./models/addPricelistPage.js")
+const galleryPage = require("./models/galleryPage.js")
 
 
 //MIME
@@ -69,6 +70,10 @@ app.get("/public/css/pricelist.css", (req, res) => {
 app.get("/public/css/contact.css", (req, res) => {
 res.setHeader("Content-Type", "text/css");
 res.sendFile(path.join(__dirname, "public/css/contact.css"));
+});
+app.get("/public/css/gallery.css", (req, res) => {
+  res.setHeader("Content-Type", "text/css");
+  res.sendFile(path.join(__dirname, "public/css/gallery.css"));
 });
 app.get("/public/js/script.js", (req, res) => {
 res.setHeader("Content-Type", "application/javascript");
@@ -104,6 +109,8 @@ app.get("/", homePage);
 app.get("/contact", contactPage);
 
 app.get("/pricelist", pricelistPage);
+
+app.get("/gallery", galleryPage);
 
 app.get("/addPricelist", addPricelistPage);
 

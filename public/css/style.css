@@ -398,27 +398,29 @@ section .main_btn:hover i{
 }
 
 
-/*Gallary*/
+/*Gallery*/
 
-.gallary{
+.gallery-div{
     width: 100%;
     padding-bottom: 7vw;
+    display: flex;
+    flex-direction: column;
 }
 
-.gallary h1{
+.gallery-div h1{
     font-size: 55px;
     display: flex;
     align-items: center;
     justify-content: center;
 }
 
-.gallary h1 span{
+.gallery-div h1 span{
     margin-left: 15px;
     color: #90323d;
     font-family: mv boli;
 }
 
-.gallary h1 span::after{
+.gallery-div h1 span::after{
     content: '';
     width: 100%;
     height: 2px;
@@ -427,8 +429,44 @@ section .main_btn:hover i{
     position: relative;
     bottom: 15px;
 }
+.background {
+    background-color: var(--background);
+    display: grid;
+    place-items: center;
+    /* height: 100vh; */
+}
 
-.gallary .gallary_image_box{
+.gallery {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+    max-width: 800px;
+}
+
+.card {
+    position: relative;
+    left: 0px;
+    width: 80px;
+    border-radius: 16px;
+    height: 360px;
+    overflow: hidden;
+    background-color: var(--background);
+    transition: 0.4s ease-in-out;
+    box-shadow: 0 5px 12px rgba(0, 0, 0, 0.5);
+    flex: 0.25;
+}
+
+.card img {
+    height: 360px;
+}
+
+.card:hover {
+    flex: 2;
+    font-weight: bold;
+    cursor: pointer;
+    border-radius: 8px;
+}
+/* .gallary .gallary_image_box{
     width: 100%;
     margin: 10px auto;
     padding: 0 7vw;
@@ -502,7 +540,7 @@ section .main_btn:hover i{
 .gallary .gallary_image_box .gallary_image:hover .gallary_btn{
     opacity: 1;
     transform: translateY(0);
-}
+} */
 
 /*Order*/
 

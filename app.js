@@ -2,12 +2,47 @@ const express = require("express");
 const path = require("path");
 const bodyParser = require("body-parser");
 const mongoose = require('mongoose');
+const cloudinary = require('cloudinary').v2;
+const fs = require('fs');
+require('dotenv').config();
+
 // const format = require('date-fns/format');
 
 
 const app = express();
 const port = 3000;
 
+// Configure Cloudinary (as shown in previous responses)
+cloudinary.config({
+  cloud_name: process.env.CLOUD_NAME,
+  api_key: process.env.API_KEY,
+  api_secret: process.env.API_SECRET
+});
+console.log(cloudinary.config());
+// Define the local path to your image folder
+const localImagePath = "./public/images";
+
+// Read the files in the local folder
+fs.readdir(localImagePath, (err, files) => {
+    if (err) {
+        console.error('Error reading the local folder:', err);
+        return;
+    }
+
+    // Iterate through the files and upload them to Cloudinary
+    files.forEach(file => {
+        const imagePath = path.join(localImagePath, file);
+
+        cloudinary.uploader.upload(imagePath, (error, result) => {
+            if (error) {
+                console.error(`Error uploading ${file}:`, error);
+            } else {
+                console.log(`Uploaded ${file}: ${result.url}`);
+                // Here, you can store the `result.url` in your database or perform other actions.
+            }
+        });
+    });
+});
 
 // Define the connection URL for your local MongoDB
 const dbURL = 'mongodb://127.0.0.1:27017/odenDB'; // Replace 'your-database-name' with your database name

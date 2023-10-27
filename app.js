@@ -12,37 +12,42 @@ require('dotenv').config();
 const app = express();
 const port = 3000;
 
+app.use(express.urlencoded({ extended: true }));
+app.use(express.json());
+app.set('view engine', 'ejs'); // Set the view engine to EJS
+app.use(express.static('public')); // Serve static files 
+
 // Configure Cloudinary (as shown in previous responses)
 cloudinary.config({
   cloud_name: process.env.CLOUD_NAME,
   api_key: process.env.API_KEY,
   api_secret: process.env.API_SECRET
 });
-console.log(cloudinary.config());
+// console.log(cloudinary.config());
 // Define the local path to your image folder
 const localImagePath = "./public/images";
 
-// Read the files in the local folder
-fs.readdir(localImagePath, (err, files) => {
-    if (err) {
-        console.error('Error reading the local folder:', err);
-        return;
-    }
+// // Read the files in the local folder
+// fs.readdir(localImagePath, (err, files) => {
+//     if (err) {
+//         console.error('Error reading the local folder:', err);
+//         return;
+//     }
 
-    // Iterate through the files and upload them to Cloudinary
-    files.forEach(file => {
-        const imagePath = path.join(localImagePath, file);
+//     // Iterate through the files and upload them to Cloudinary
+//     files.forEach(file => {
+//         const imagePath = path.join(localImagePath, file);
 
-        cloudinary.uploader.upload(imagePath, (error, result) => {
-            if (error) {
-                console.error(`Error uploading ${file}:`, error);
-            } else {
-                console.log(`Uploaded ${file}: ${result.url}`);
-                // Here, you can store the `result.url` in your database or perform other actions.
-            }
-        });
-    });
-});
+//         cloudinary.uploader.upload(imagePath, (error, result) => {
+//             if (error) {
+//                 console.error(`Error uploading ${file}:`, error);
+//             } else {
+//                 console.log(`Uploaded ${file}: ${result.url}`);
+//                 // Here, you can store the `result.url` in your database or perform other actions.
+//             }
+//         });
+//     });
+// });
 
 // Define the connection URL for your local MongoDB
 const dbURL = 'mongodb://127.0.0.1:27017/odenDB'; // Replace 'your-database-name' with your database name
@@ -82,7 +87,7 @@ app.use(bodyParser.urlencoded({ extended: true}));
 const contactPost = require ('./controllers/contactPost.js');
 const reservationPost = require ('./controllers/reservationPost.js');
 const reviewPost = require ('./controllers/reviewPost.js');
-const addPricelist = require ("./controllers/addPricelist.js");
+const addPricelistPost = require ("./controllers/addPricelistPost.js");
 
 
 //importantation from models 
@@ -91,6 +96,8 @@ const contactPage = require ('./models/contactPage.js');
 const pricelistPage = require ('./models/pricelistPage.js');
 const addPricelistPage = require ("./models/addPricelistPage.js")
 const galleryPage = require("./models/galleryPage.js")
+//admin importantation from models 
+const adminPage = require ("./models/adminPage.js")
 
 
 //MIME
@@ -140,18 +147,18 @@ res.sendFile(path.join(__dirname, "public/images", imageName));
 
 //methods
 app.get("/", homePage);
-
 app.get("/contact", contactPage);
-
 app.get("/pricelist", pricelistPage);
-
 app.get("/gallery", galleryPage);
-
 app.get("/addPricelist", addPricelistPage);
-
+//admin Get
+app.get("/admin", adminPage);
 app.post("/submitReservation", reservationPost);
 app.post("/submitReview", reviewPost);
 app.post("/contact", contactPost);
+
+//admin
+app.post("/addNewPricelist", addPricelistPost);
 
 app.listen(port, () => {
   console.log(`Server is running on port ${port}`);

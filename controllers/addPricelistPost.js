@@ -1,22 +1,22 @@
 const Pricelist = require ("../models/pricelist");
 
-async function addPricelist (req, res){
+async function addPricelistPost (req, res){
     try{
-        const name = req.body.title;
+        const name = req.body.name;
         const price = req.body.price;
 
         const newItem = new Pricelist({
-            foodName: name,
+            name: name,
             price: price,
         });
        
         const savedItem = await newItem.save();
 
         console.log('Price saved:', savedItem);
-        res.redirect("/");
+        res.redirect("/pricelist"); //addPricelist
     } catch(err) {
         console.error(err);
     }
 }
 
-module.exports = addPricelist; 
+module.exports = addPricelistPost; 

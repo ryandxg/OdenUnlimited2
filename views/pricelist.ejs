@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Price list</title>
+    <link rel="stylesheet" href="/public/css/pricelist.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <!-- jquery plugin -->
+    <script src="https://code.jquery.com/jquery-1.12.4.min.js" 
+    integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ=" crossorigin="anonymous"></script>
+    
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="header-nav-mobile">
+                <a href="/" class="logo">
+                    <img src="/public/images/LOGO  new.png">
+                </a>
+
+                <i id="open-menu"  class="fa-solid fa-bars" 
+                style="font-size:30px;cursor:pointer;color: white;">
+                </i>
+            </div>
+            
+
+            <div id="mySidenav" class="sidenav close-menu">
+                <i id="close-menu" class="fa-solid fa-xmark" 
+                style="font-size:30px;cursor:pointer;
+                color: black;">
+                </i>
+            
+                <ul>
+                    <li><a href="/">Home</a></li>
+                    <li><a href="/#About">About</a></li>
+                    <li><a href="/#Menu">Menu</a></li>
+                    <li><a href="/#Gallery">Gallery</a></li>
+                    <li><a href="/#Order">Order</a></li>
+                    <li><a href="/#Review">Review</a></li>
+                    <li><a href="/contact">Contact</a></li>
+                </ul>
+
+                <div class="icons-in-hamburger">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                    <i class="fa-solid fa-cart-shopping"></i>
+                </div>
+            </div>
+            <div id="mySidenav" class="sidenav icons-login">
+                <div class="icon">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                    <i class="fa-solid fa-cart-shopping"></i>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    
+    <div class="list">
+        <ul>
+            <% pricelist.forEach(function(pricelist){ %>
+            <li>
+                <!-- <span class="number">1</span> -->
+                <span class="name"> <%= pricelist.name %> </span>
+                <span class="price">$<%= pricelist.price %> </span>
+                <!-- <span class="number"><a href="#" class="menu_btn">Order Now</a></span> -->
+            </li>
+            <% }); %>
+            <li>
+                <!-- <span class="number">2</span> -->
+                <span class="name">Ofada rice</span>
+                <span class="price">$20.00</span>
+                <!-- <span class="number"><a href="#" class="menu_btn">Order Now</a></span> -->
+            </li>
+            <li>
+                <!-- <span class="number">3</span> -->
+                <span class="name">Pounded yam</span>
+                <span class="price">$20.00</span>
+                <!-- <span class="number"><a href="#" class="menu_btn">Order Now</a></span> -->
+            </li>
+            <li>
+                <!-- <span class="number">4</span> -->
+                <span class="name">Stir fry spag</span>
+                <span class="price">$20.00</span>
+                <!-- <span class="number"><a href="#" class="menu_btn">Order Now</a></span> -->
+            </li>
+            <li>
+                <!-- <span class="number">5</span> -->
+                <span class="name">Semo</span>
+                <span class="price">$20.00</span>
+                <!-- <span class="number"><a href="#" class="menu_btn">Order Now</a></span> -->
+            </li>
+            <li>
+                <!-- <span class="number">6</span> -->
+                <span class="name">Ice cream</span>
+                <span class="price">$20.00</span>
+                <!-- <span class="number"><a href="#" class="menu_btn">Order Now</a></span> -->
+            </li>
+            <li>
+                <!-- <span class="number">7</span> -->
+                <span class="name">Fried rice</span>
+                <span class="price">$20.00</span>
+                <!-- <span class="number"><a href="#" class="menu_btn">Order Now</a></span> -->
+            </li>
+            <li>
+                <!-- <span class="number">8</span> -->
+                <span class="name">Egusi</span>
+                <span class="price">$20.00</span>
+                <!-- <span class="number"><a href="#" class="menu_btn">Order Now</a></span> -->
+            </li>
+        </ul> 
+    </div>
+    <script type="application/javascript" src="/public/js/script.js"></script>
+</body>
+</html>

@@ -1,7 +1,14 @@
 const path = require("path");
+const Pricelist = require("./pricelist")
 
-function pricelistPage(req,res) {
-    res.sendFile(path.join(__dirname, "../views/pricelist.html"));
+async function pricelistPage(req,res) {
+    try {
+        const pricelist = await Pricelist.find({});
+        res.render("pricelist" , { pricelist: pricelist})
+    } catch (error) {
+        console.log(error);
+    }
+    
 }
 
 module.exports = pricelistPage;

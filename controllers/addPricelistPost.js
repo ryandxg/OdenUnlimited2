@@ -13,7 +13,7 @@ async function addPricelistPost (req, res){
         const savedItem = await newItem.save();
 
         console.log('Price saved:', savedItem);
-        res.redirect("/pricelist"); //addPricelist
+        res.redirect("/admin/addPricelist"); //addPricelist
     } catch(err) {
         console.error(err);
     }

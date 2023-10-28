@@ -99,6 +99,7 @@ const addPricelistPage = require ("./models/addPricelistPage.js")
 const galleryPage = require("./models/galleryPage.js")
 //admin importantation from models 
 const adminPage = require ("./models/adminPage.js")
+const adminMenuPage = require ("./models/adminMenuPage.js")
 
 
 //MIME
@@ -151,9 +152,11 @@ app.get("/", homePage);
 app.get("/contact", contactPage);
 app.get("/pricelist", pricelistPage);
 app.get("/gallery", galleryPage);
-app.get("/addPricelist", addPricelistPage);
+
 //admin Get
 app.get("/admin", adminPage);
+app.get("/admin/menu", adminMenuPage);
+app.get("/admin/addPricelist", addPricelistPage);
 //
 
 //posts methods

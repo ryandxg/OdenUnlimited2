@@ -12,27 +12,76 @@
     <script src="https://code.jquery.com/jquery-1.12.4.min.js" 
     integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ=" crossorigin="anonymous"></script>
     
+    <style>
+        .modal {
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.8);
+        }
+
+        .modal-content {
+        background-color: #fff;
+        margin: 10% auto;
+        padding: 20px;
+        border: 1px solid #888;
+        width: 50%;
+        }
+
+        .close {
+        position: absolute;
+        right: 10px;
+        top: 10px;
+        font-size: 20px;
+        cursor: pointer;
+        }
+
+    </style>
 </head>
 <body id="body">
 
+    <div style="padding-top: 100px;"><button id="openModalButton">Add New Menu</button></div>
+    
+    <section id="myModal" class="modal">
+        <form  class="modal-content" action="/addnewmenu" method="POST">
+            <span class="close" id="closeModalButton" style="color: white;">close &times;</span>
+
+            <label for="image">Image URL:</label><br>
+            <input type="text" id="image" name="image"><br>
+
+            <label for="name">Food Name:</label><br>
+            <input type="text" id="name" name="name"><br>
+
+            <label for="paragraph">Food Details:</label><br>
+            <input type="text" id="paragraph" name="paragraph"><br>
+
+            <label for="price">Price:</label><br>
+            <input type="text" id="price" name="price"><br>
+            <input type="submit" value="Submit">
+        </form>
+    </section>
+
     <div class="menu" id="Menu">
         <h1>Our<span>Menu</span></h1>
-
-        <div class="menu_box">           
-            <div class="menu_card">
-                <div class="menu_image">
-                     <img src="/public/images/Moi Moi.jpeg"> <!--https://res.cloudinary.com/dmnaedwo6/image/upload/v1698417515/xnkjjflr0g130xf209mj.jpg -->
-                </div>
-                <div class="menu_info">
-                    <h2>Moi Moi</h2>
-                    <p>
-                        Lorem, ipsum dolor sit amet consectetur adipisicing elit. Laborum assumenda voluptates
-                    </p>
-                    <h3>$20.00</h3>
-                </div>
-            </div> 
-
-            <!-- <div class="menu_card">
+        <div class="menu_box">
+            <% menu.forEach(function(menu){ %>
+                <div class="menu_card">
+                    <div class="menu_image">
+                        <img src="<%= menu.image %>">
+                    </div>
+                    <div class="menu_info">
+                        <h2><%= menu.name %></h2>
+                        <p>
+                            <%= menu.paragraph %>
+                        </p>
+                        <h3>$<%= menu.price %></h3>
+                    </div>
+                </div> 
+            <% }); %>
+             <div class="menu_card">
                 <div class="menu_image">
                     <img src="/public/images/Jollof up.jpeg">
                 </div>
@@ -43,39 +92,45 @@
                     </p>
                     <h3>$20.00</h3>
                 </div>
-            </div> 
-
-            <div class="menu_card">
-                <div class="menu_image">
-                    <img src="/public/images/offada up.jpeg">
-                </div>
-                <div class="menu_info">
-                    <h2>Offada rice</h2>
-                    <p>
-                        Lorem, ipsum dolor sit amet consectetur adipisicing elit. Laborum assumenda voluptates
-                    </p>
-                    <h3>$20.00</h3>
-                </div>
-            </div> 
-
-            <div class="menu_card">
-                <div class="menu_image">
-                    <img src="/public/images/pounded Yam.jpeg">
-                </div>
-                <div class="menu_info">
-                    <h2>Pounded Yam</h2>
-                    <p>
-                        Lorem, ipsum dolor sit amet consectetur adipisicing elit. Laborum assumenda voluptates
-                    </p>
-                    <h3>$20.00</h3>
-                </div>
-            </div>  -->
-        </div>
-
-        <div class="newbtn">
-            <a href="/pricelist" class="new_btn">View Menu Pricelist</a>
+             </div>
         </div>
     </div> 
 
+
+    <script>
+
+        const openModalButton = document.getElementById('openModalButton');
+        const closeModalButton = document.getElementById('closeModalButton');
+        const modal = document.getElementById('myModal');
+
+        // Show the modal
+        openModalButton.addEventListener('click', () => {
+        modal.style.display = 'block';
+        });
+
+        // Close the modal
+        closeModalButton.addEventListener('click', () => {
+        modal.style.display = 'none';
+        });
+
+        // Close the modal when clicking outside of it
+        window.addEventListener('click', (event) => {
+        if (event.target === modal) {
+            modal.style.display = 'none';
+        }
+        });
+
+        const submitButton = document.getElementById('submitButton');
+        const inputField = document.getElementById('inputField');
+
+        submitButton.addEventListener('click', () => {
+        const inputData = inputField.value;
+        // Process the input data as needed
+        console.log('Input Data:', inputData);
+        // You can also send the data to the server here
+        modal.style.display = 'none'; // Close the modal
+        });
+
+    </script>
 </body>
 </html>

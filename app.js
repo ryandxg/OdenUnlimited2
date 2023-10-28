@@ -88,7 +88,8 @@ const contactPost = require ('./controllers/contactPost.js');
 const reservationPost = require ('./controllers/reservationPost.js');
 const reviewPost = require ('./controllers/reviewPost.js');
 const addPricelistPost = require ("./controllers/addPricelistPost.js");
-
+//admin importantation from controllers 
+const menuPost = require ("./controllers/menuPost.js");
 
 //importantation from models 
 const homePage = require ('./models/homePage.js');
@@ -145,7 +146,7 @@ res.sendFile(path.join(__dirname, "public/images", imageName));
 });
 
 
-//methods
+//get methods
 app.get("/", homePage);
 app.get("/contact", contactPage);
 app.get("/pricelist", pricelistPage);
@@ -153,12 +154,16 @@ app.get("/gallery", galleryPage);
 app.get("/addPricelist", addPricelistPage);
 //admin Get
 app.get("/admin", adminPage);
+//
+
+//posts methods
 app.post("/submitReservation", reservationPost);
 app.post("/submitReview", reviewPost);
 app.post("/contact", contactPost);
 
 //admin
 app.post("/addNewPricelist", addPricelistPost);
+app.post("/addnewmenu", menuPost)
 
 app.listen(port, () => {
   console.log(`Server is running on port ${port}`);

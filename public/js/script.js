@@ -29,43 +29,24 @@ function showNotification() {
 }
 
 
-
-// const sendBtn = document.getElementById("sendBtn");
-
-// sendBtn.addEventListener("click", () => {
-//     // Your review submission logic goes here
-//     // Assuming you have successfully submitted the review, show the notification
-//     showNotification();
-// });
-// const myForm = document.getElementById("myForm"); // Get your form by its ID
-
-// myForm.addEventListener("submit", async function (event) {
-//     event.preventDefault();
-//  // Check if all required fields are valid
-//  if (myForm.checkValidity()) {
-//     // Construct the data to be sent to the server
-//     const formData = new FormData(myForm); // This captures all form data
-
-//     // Send the form data to the server using the fetch API
-//     try {
-//         const response = await fetch('/contact', {
-//             method: 'POST',
-//             body: formData,
-//         });
-
-//         if (response.ok) {
-//             // Handle a successful response, e.g., show success notification
-//             showNotification();
-//         } else {
-//             // Handle a non-successful response, e.g., show an error notification
-//             console.log('Error:', response.status);
-//         }
-//     } catch (error) {
-//         // Handle any network or server-related errors
-//         console.error('Network error:', error);
-//     }
-// } else {
-//     console.log("not working");
-// }
-// });
-
+$(document).ready(function(){
+  $('.owl-carousel').owlCarousel({
+      loop:true,
+      margin:10,
+      autoplay: true,
+      autoplayHoverPause: true,
+      // nav:true,
+      // navText: ['<i class="fa fa-chevron-left"></i>', '<i class="fa fa-chevron-right"></i>'],
+      responsive:{
+          0:{
+              items:1
+          },
+          600:{
+              items:3
+          },
+          1000:{
+              items:3
+          }
+      }
+  })
+});

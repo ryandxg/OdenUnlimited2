@@ -304,17 +304,6 @@ section .main_btn:hover i{
     transform: scale(1.1);
 }
 
-/* .menu .menu_box .menu_card .small_card{
-    width: 45px;
-    height: 45px;
-    float: right;
-    position: relative;
-    top: -240px;
-    right: -8px;
-    opacity: 0;
-    border-radius: 7px;
-    transition: 0.3s;
-}
 
 .menu .menu_box .menu_card:hover .small_card{
     position: relative;
@@ -476,81 +465,44 @@ section .main_btn:hover i{
     cursor: pointer;
     border-radius: 8px;
 }
-/* .gallary .gallary_image_box{
+
+/*Review showing / carousel */
+/* article {
+    /* max-width: 320px; 
+    height: auto;
+    cursor: pointer;
+    position: relative;
+    display: block;
+    transition: all 0.4s ease-in-out;
+    overflow: hidden;
+    border-radius: 16px;
+}
+article figure {
     width: 100%;
-    margin: 10px auto;
-    padding: 0 7vw;
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    grid-gap: 30px;
-}
-
-.gallary .gallary_image_box .gallary_image{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background: black;
-}
-
-.gallary .gallary_image_box .gallary_image img{
-    width: 100%;
-    transition: .3s;
-}
-
-.gallary .gallary_image_box .gallary_image:hover img{
-    opacity: 0.4;
-}
-
-.gallary .gallary_image_box .gallary_image h3{
-    position: absolute;
-    font-size: 35px;
-    margin-bottom: 130px;
-    color: #90323d;
-    font-family: polo;
-    z-index: 5;
-    opacity: 0;
-    transition: 0.3s;
-}
-
-.gallary .gallary_image_box .gallary_image:hover h3{
-    opacity: 1;
-}
-
-.gallary .gallary_image_box .gallary_image p{
-    position: absolute;
-    width: 100%; max-width: 20rem;
-    margin-top: 30px;
-    text-align: center;
-    color: white;
-    line-height: 22px;
-    opacity: 0;
-    z-index: 5;
-    transition: 0.3s;
-}
-
-.gallary .gallary_image_box .gallary_image:hover p{
-    opacity: 1;
-}
-
-.gallary .gallary_image_box .gallary_image .gallary_btn{
-    position: absolute;
-    margin-top: 180px;
-    color: #fff;
-    background: #90323d;
-    padding: 7px 25px;
-    text-decoration: none;
-    opacity: 0;
-    transform: translateY(45px);
-    z-index: 5;
-    transition: 0.3s;
-}
-.gallary .gallary_image_box .gallary_image .gallary_btn:hover{
-    border-radius: 20px;
-}
-.gallary .gallary_image_box .gallary_image:hover .gallary_btn{
-    opacity: 1;
-    transform: translateY(0);
+    height: 100%;
 } */
+
+.review-card {
+    max-width: 400px;
+    width: 100%;
+    margin: auto;
+    background-color: #fff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    overflow: hidden;
+  }
+
+  .review-header {
+    padding: 16px;
+    background-color: #90323d;
+    color: #fff;
+    text-align: center;
+  }
+
+  .review-content,
+  .review-author {
+    padding: 16px;
+  }
 
 /*Order*/
 

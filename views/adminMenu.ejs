@@ -1,48 +1,6 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Oden Unlimited</title>
-    <link rel="stylesheet" type="text/css" href="/public/css/style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+<%- include('partials/adminSidenav') %>
 
-    <!-- jquery plugin -->
-    <script src="https://code.jquery.com/jquery-1.12.4.min.js" 
-    integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ=" crossorigin="anonymous"></script>
-    
-    <style>
-        .modal {
-        display: none;
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background-color: rgba(0, 0, 0, 0.8);
-        }
-
-        .modal-content {
-        background-color: #fff;
-        margin: 10% auto;
-        padding: 20px;
-        border: 1px solid #888;
-        width: 50%;
-        }
-
-        .close {
-        position: absolute;
-        right: 10px;
-        top: 10px;
-        font-size: 20px;
-        cursor: pointer;
-        }
-
-    </style>
-</head>
-<body id="body">
-
+<main>
     <div style="padding-top: 100px;"><button id="openModalButton">Add New Menu</button></div>
     
     <section id="myModal" class="modal">
@@ -95,8 +53,10 @@
              </div>
         </div>
     </div> 
+    
+</main>
 
-
+    <%- include('partials/adminSidenavJS') %>
     <script>
 
         const openModalButton = document.getElementById('openModalButton');

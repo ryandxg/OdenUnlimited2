@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="/public/css/style.css">
+    <link rel="stylesheet" href="/public/css/pricelist.css">
+    <link rel="stylesheet" href="/public/css/adminReservation.css">
+    <!-- jquery plugin -->
+    <script src="https://code.jquery.com/jquery-1.12.4.min.js" 
+    integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ=" crossorigin="anonymous"></script>
+    
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=Mulish&display=swap');
+
+      :root {
+          --primary-color: #625BFE;
+          --primary-color-dark: #7771F6;    
+          --button-color: #5433FF;
+          --button-color-shadow: #5433FF30;
+          --text-color: white;
+      }
+
+      * {
+          margin: 0;
+          padding: 0;
+          box-sizing: border-box;
+          font-family: Mulish;
+      }
+
+      .background {
+          content: "";
+          position: absolute;
+          height: 100vh;
+          width: 100vw;
+          display: grid;
+          place-items: center;
+          opacity: 0.5;
+          background-size: 100%;
+          background-repeat: no-repeat;
+          background-size: auto;
+      }
+
+      nav {
+          position: fixed;
+          top: 0;
+          left: 0;
+          height: 100vh;
+          background-color: var(--primary-color);
+          width: 18rem;
+          padding: 1.8rem 0.85rem;
+          color: var(--text-color);
+          display: flex;
+          flex-direction: column;
+          transition: width 0.5s ease-in-out;
+      }
+
+      main {
+        position: absolute;top: 5vh;
+        margin-left: 20rem;
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+      }
+
+      /* @media (max-width: 35rem){
+        main {
+        position: absolute;top: 5vh;
+        margin-left: 20rem;
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        }
+      } */
+
+      .sidebar-top {
+        position: relative;
+        display: flex;
+        align-items: center;
+        margin-bottom: 32px;
+      }
+
+      .sidebar-top .logo {
+        position: relative;
+        width: 54px;
+        margin-right: 1.45rem;
+        left: -1px;
+      }
+
+      .sidebar-top h3 {
+        padding-left: 0.5rem;
+        font-weight: 600;
+        font-size: 1.4rem;
+      }
+
+      .expand-btn {
+        position: absolute;
+        top: 50%;
+        width: 45px;
+        height: 45px;
+        display: grid;
+        place-items: center;
+        background-color: var(--button-color);
+        border-radius: 6px;
+        cursor: pointer;
+        box-shadow: 0 3px 10px -3px var(--button-color-shadow);
+        right: -3rem;
+        transform: translateY(-50%) translateX(-8px);
+        opacity: 0;
+        pointer-events: none;
+        transition: 0.3s;
+      }
+
+
+      nav:hover .expand-btn,
+      .expand-btn.hovered {
+        transform: translateY(-50%) translateX(0px);
+        opacity: 1;
+        pointer-events: all;
+      }
+
+      .sidebar-links ul {
+        list-style-type: none;
+        position: relative;
+      
+      }
+
+      .sidebar-links li {
+        position: relative;
+      }
+
+      .sidebar-links a:hover {
+        color: black;
+      }
+
+      .sidebar-links li a {
+        padding: 12px;
+        color: var(--text-color);
+        font-size: 1.25rem;
+        display: flex;
+        align-items: center;
+        height: 56px;
+        text-decoration: none;
+        color: #fff;
+      }
+
+      .sidebar-links .link {
+        margin-left: 40px;
+      }
+
+      .sidebar-links .active {
+        width: 100%;
+        text-decoration: none;
+        background-color: var(--primary-color-dark);
+        transition: all 100ms ease-in;
+        border-radius: 10px;
+      }
+
+      body.collapsed nav {
+        width: 80px;
+      }
+      body.collapsed main {
+        /* width: 60%; */
+        margin-left: 8rem;
+      }
+
+      body.collapsed .hide {
+        opacity: 0;
+        pointer-events: none;
+        transition-delay: 0s;
+      }
+
+      body.collapsed .expand-btn i {
+        transform: rotate(-180deg);
+      }
+
+      /*menu styles*/
+      .modal {
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.8);
+        }
+
+        .modal-content {
+        background-color: #fff;
+        margin: 10% auto;
+        padding: 20px;
+        border: 1px solid #888;
+        width: 50%;
+        }
+
+        .close {
+        position: absolute;
+        right: 10px;
+        top: 10px;
+        font-size: 20px;
+        cursor: pointer;
+        }
+
+        .menu .menu_box{
+        width: 100%;
+        margin: 0 auto;
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr; /*changd frm repeat(auto-fill, minmax(300px, 1fr))*/
+        grid-gap: 15px;
+        }
+
+    </style>
+    <title>Oden Admin</title>
+</head>
+<body>
+
+  <nav>
+    <div class="sidebar-top">
+      <span class="expand-btn">
+        <i class="fas fa-chevron-left"></i>
+      </span>
+      <img
+        src="/public/images/LOGO  new.png"
+        class="logo"
+        alt="Oden Logo"
+      >
+      <h3 class="hide">Oden</h3>
+    </div>
+    <div class="sidebar-links">
+      <ul>
+        <li>
+          <a href="/admin/menu" title="menu link">
+            <span class="link hide">Menu</span>
+          </a>
+        </li>
+        <li>
+          <a href="/admin/addPricelist" title="Pricelist link">
+            <span class="link hide">Pricelist</span>
+          </a>
+        </li>
+        <li>
+          <a href="/admin/reservations" title="Performance link">
+            <span class="link hide">Reservations</span>
+          </a>
+        </li>
+        <li>
+          <a href="#" title="Reports Link">
+            <span class="link hide">Reviews</span>
+          </a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+  

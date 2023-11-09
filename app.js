@@ -87,8 +87,9 @@ app.use(bodyParser.urlencoded({ extended: true}));
 const contactPost = require ('./controllers/contactPost.js');
 const reservationPost = require ('./controllers/reservationPost.js');
 const reviewPost = require ('./controllers/reviewPost.js');
-const addPricelistPost = require ("./controllers/addPricelistPost.js");
+
 //admin importantation from controllers 
+const addPricelistPost = require ("./controllers/addPricelistPost.js");
 const menuPost = require ("./controllers/menuPost.js");
 
 //importantation from models 
@@ -97,9 +98,11 @@ const contactPage = require ('./models/contactPage.js');
 const pricelistPage = require ('./models/pricelistPage.js');
 const addPricelistPage = require ("./models/addPricelistPage.js")
 const galleryPage = require("./models/galleryPage.js")
+
 //admin importantation from models 
 const adminPage = require ("./models/adminPage.js")
 const adminMenuPage = require ("./models/adminMenuPage.js")
+const reservationPage = require ("./models/reservationPage.js")
 
 
 //MIME
@@ -157,6 +160,7 @@ app.get("/gallery", galleryPage);
 app.get("/admin", adminPage);
 app.get("/admin/menu", adminMenuPage);
 app.get("/admin/addPricelist", addPricelistPage);
+app.get("/admin/reservations", reservationPage);
 //
 
 //posts methods

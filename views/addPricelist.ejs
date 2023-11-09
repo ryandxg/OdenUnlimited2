@@ -1,13 +1,6 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/public/css/pricelist.css">
-    <title>addPricelist</title>
-</head>
-<body>
-    <main>
+<%- include('partials/adminSidenav') %>
+
+    <main style="width: 60%;">
         <section style="margin-top: 70px;">
             <form action="/addNewPricelist" method="POST">
                 <label for="title">Food Name:</label><br>
@@ -22,57 +15,42 @@
             <ul>
                 <% pricelist.forEach(function(pricelist){ %>
                 <li>
-                    <!-- <span class="number">1</span> -->
                     <span class="name"> <%= pricelist.name %> </span>
                     <span class="price">$<%= pricelist.price %> </span>
-                    <!-- <span class="number"><a href="#" class="menu_btn">Order Now</a></span> -->
                 </li>
                 <% }); %>
-                <li>
-                    <!-- <span class="number">2</span> -->
+                <!-- <li>
                     <span class="name">Ofada rice</span>
                     <span class="price">$20.00</span>
-                    <!-- <span class="number"><a href="#" class="menu_btn">Order Now</a></span> -->
                 </li>
                 <li>
-                    <!-- <span class="number">3</span> -->
                     <span class="name">Pounded yam</span>
                     <span class="price">$20.00</span>
-                    <!-- <span class="number"><a href="#" class="menu_btn">Order Now</a></span> -->
                 </li>
                 <li>
-                    <!-- <span class="number">4</span> -->
                     <span class="name">Stir fry spag</span>
                     <span class="price">$20.00</span>
-                    <!-- <span class="number"><a href="#" class="menu_btn">Order Now</a></span> -->
                 </li>
                 <li>
-                    <!-- <span class="number">5</span> -->
                     <span class="name">Semo</span>
                     <span class="price">$20.00</span>
-                    <!-- <span class="number"><a href="#" class="menu_btn">Order Now</a></span> -->
                 </li>
                 <li>
-                    <!-- <span class="number">6</span> -->
                     <span class="name">Ice cream</span>
                     <span class="price">$20.00</span>
-                    <!-- <span class="number"><a href="#" class="menu_btn">Order Now</a></span> -->
                 </li>
                 <li>
-                    <!-- <span class="number">7</span> -->
                     <span class="name">Fried rice</span>
                     <span class="price">$20.00</span>
-                    <!-- <span class="number"><a href="#" class="menu_btn">Order Now</a></span> -->
                 </li>
                 <li>
-                    <!-- <span class="number">8</span> -->
                     <span class="name">Egusi</span>
                     <span class="price">$20.00</span>
-                    <!-- <span class="number"><a href="#" class="menu_btn">Order Now</a></span> -->
-                </li>
+                </li> -->
             </ul> 
         </div>
     </main>
     
+    <%- include('partials/adminSidenavJS') %>
 </body>
 </html>

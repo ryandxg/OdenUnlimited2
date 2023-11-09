@@ -120,20 +120,6 @@ header nav .icon i{
     background: #37371f;
     color: white;
 }
-.list .menu_btn{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-decoration: none;
-    color: white;
-    background: #000;
-    padding: 8px 10px;
-    margin: 0 80px;
-    transition: 0.3s;
-}
-.list .menu_btn:hover{
-    border-radius: 20px;
-}
 
 
 @media (max-width: 35rem) {
@@ -205,11 +191,5 @@ header nav .icon i{
     header nav{
     display: flex;
     height: 60px;  /*height of nav*/
-    }
-    .signup-mobile{
-        display: flex;
-    }
-    .login-mobile{
-        display: flex;
     }
 }

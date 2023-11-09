@@ -1,0 +1,19 @@
+<%- include('partials/adminSidenav') %>
+
+<main>
+    <div>
+        <ul>
+            <% reservations.forEach(function (reservations) {%>
+                <li>
+                    <h1>Name: <%= reservations.reservationName %> </h1>
+                    <h2>Email: <%= reservations.reservationEmail %> </h2>
+                    <h2>Phone Number: <%= reservations.reservationPhoneNumber %> </h2>
+                    <h2>Reserved Date: <%= reservations.reservationDate %> </h2>
+                    <h2>Reservation Time: <%= reservations.reservationTime %> </h2>                   
+                    <h2>Number of People: <%= reservations.reservationNumberOfPeople %> </h2>
+                </li>
+            <% }); %>   
+        </ul>
+    </div>
+</main>
+<%- include('partials/adminSidenavJS') %>

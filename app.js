@@ -103,6 +103,8 @@ const galleryPage = require("./models/galleryPage.js")
 const adminPage = require ("./models/adminPage.js")
 const adminMenuPage = require ("./models/adminMenuPage.js")
 const reservationPage = require ("./models/reservationPage.js")
+const reviewsPage = require ("./models/reviewsPage.js")
+const searchReservations = require ("./models/searchReservations.js")
 
 
 //MIME
@@ -161,6 +163,8 @@ app.get("/admin", adminPage);
 app.get("/admin/menu", adminMenuPage);
 app.get("/admin/addPricelist", addPricelistPage);
 app.get("/admin/reservations", reservationPage);
+app.get("/admin/reviews", reviewsPage);
+app.get("/searchReservations", searchReservations);
 //
 
 //posts methods

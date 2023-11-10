@@ -1,0 +1,17 @@
+<%- include('partials/adminSidenav') %>
+
+<main>
+    <div class="reservationContainer reservationBody">
+        <ul>
+            <% reviews.forEach(function (reviews) {%>
+                <li>
+                    <h1>Name: <%= reviews.name %> </h1>
+                    <h2>Email: <%= reviews.email %> </h2>
+                    <p>Message: <%= reviews.message %> </p>
+                </li>
+            <% }); %>   
+        </ul>
+    </div>
+</main>
+
+<%- include('partials/adminSidenavJS') %>

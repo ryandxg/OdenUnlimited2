@@ -1,19 +1,60 @@
 <%- include('partials/adminSidenav') %>
 
 <main>
-    <div>
+
+    <div style="padding: 20px 0;"><button id="openModalButton">Search Reservation</button></div>
+
+    <section id="myModal" class="modal">
+        <form  class="modal-content" action="/searchReservations" method="GET">
+            <span class="close" id="closeModalButton" style="color: white;">close &times;</span>
+
+            <label for="email">Email used for Reservation:</label><br>
+            <input type="text" id="email" name="email"><br>
+
+            <input type="submit" value="SEARCH">
+        </form>
+    </section>
+
+    <div class="reservationContainer reservationBody">
         <ul>
             <% reservations.forEach(function (reservations) {%>
                 <li>
                     <h1>Name: <%= reservations.reservationName %> </h1>
                     <h2>Email: <%= reservations.reservationEmail %> </h2>
-                    <h2>Phone Number: <%= reservations.reservationPhoneNumber %> </h2>
-                    <h2>Reserved Date: <%= reservations.reservationDate %> </h2>
-                    <h2>Reservation Time: <%= reservations.reservationTime %> </h2>                   
-                    <h2>Number of People: <%= reservations.reservationNumberOfPeople %> </h2>
+                    <p>Phone Number: <%= reservations.reservationPhoneNumber %> </p>
+                    <p>Reserved Date: <%= reservations.reservationDate %> </p>
+                    <p>Reservation Time: <%= reservations.reservationTime %> </p>                   
+                    <p>Number of People: <%= reservations.reservationNumberOfPeople %> </p>
                 </li>
             <% }); %>   
         </ul>
     </div>
 </main>
 <%- include('partials/adminSidenavJS') %>
+
+<script>
+
+    const openModalButton = document.getElementById('openModalButton');
+    const closeModalButton = document.getElementById('closeModalButton');
+    const modal = document.getElementById('myModal');
+
+    // Show the modal
+    openModalButton.addEventListener('click', () => {
+    modal.style.display = 'block';
+    });
+
+    // Close the modal
+    closeModalButton.addEventListener('click', () => {
+    modal.style.display = 'none';
+    });
+
+    // Close the modal when clicking outside of it
+    window.addEventListener('click', (event) => {
+    if (event.target === modal) {
+        modal.style.display = 'none';
+    }
+    });
+
+</script>
+</body>
+</html>

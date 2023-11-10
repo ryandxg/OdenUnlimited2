@@ -210,6 +210,51 @@
         grid-gap: 15px;
         }
 
+        /*reservation styles*/
+
+
+        .reservationContainer {
+          max-width: 800px;
+          margin: 20px auto;
+          padding: 0 20px;
+        }
+
+        .reservationContainer h1, h2, p {
+          margin-bottom: 15px;
+        }
+
+        .reservationContainer h1 {
+          font-size: 1.2em;
+          color: #333;
+        }
+
+        .reservationContainer h2 {
+          font-size: 1em;
+          color: #555;
+        }
+
+        .reservationContainer p {
+          font-size: 1em;
+          color: #777;
+        }
+
+        /* Additional styles for the list if needed */
+        .reservationContainer ul {
+          list-style-type: square;
+        }
+
+        .reservationContainer li {
+          margin-bottom: 8px;
+          list-style: decimal;
+        }
+        .reservationBody {
+        font-family: 'Arial', sans-serif;
+        line-height: 1.6;
+        margin: 0;
+        padding: 0;
+        }
+
+
     </style>
     <title>Oden Admin</title>
 </head>
@@ -240,12 +285,12 @@
           </a>
         </li>
         <li>
-          <a href="/admin/reservations" title="Performance link">
+          <a href="/admin/reservations" title="Reservations link">
             <span class="link hide">Reservations</span>
           </a>
         </li>
         <li>
-          <a href="#" title="Reports Link">
+          <a href="/admin/reviews" title="Reviews Link">
             <span class="link hide">Reviews</span>
           </a>
         </li>

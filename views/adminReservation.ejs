@@ -2,7 +2,12 @@
 
 <main>
 
-    <div style="padding: 20px 0;"><button id="openModalButton">Search Reservation</button></div>
+    <div style="padding: 20px 0;">
+        <button id="openModalButton" 
+            style="background-color: blueviolet; color: white; padding: 10px; 
+            border: none; border-radius: 10px; cursor: pointer;">Search Reservation
+        </button>
+    </div>
 
     <section id="myModal" class="modal">
         <form  class="modal-content" action="/searchReservations" method="GET">
@@ -16,18 +21,43 @@
     </section>
 
     <div class="reservationContainer reservationBody">
+        <% if (error) { %>
+            <p><%= error %></p>
+            <a href="/admin/reservations">
+                <button 
+                    style="background-color: green; color: white; padding: 10px; 
+                    border: none; border-radius: 10px; cursor: pointer;">View all Reservations
+                </button>
+            </a>
+        <% } else { %>
         <ul>
-            <% reservations.forEach(function (reservations) {%>
-                <li>
-                    <h1>Name: <%= reservations.reservationName %> </h1>
-                    <h2>Email: <%= reservations.reservationEmail %> </h2>
-                    <p>Phone Number: <%= reservations.reservationPhoneNumber %> </p>
-                    <p>Reserved Date: <%= reservations.reservationDate %> </p>
-                    <p>Reservation Time: <%= reservations.reservationTime %> </p>                   
-                    <p>Number of People: <%= reservations.reservationNumberOfPeople %> </p>
-                </li>
-            <% }); %>   
+        <% const displayReservations = foundReservations.length > 0 ? foundReservations : reservations; %>
+        <% if (foundReservations.length > 0) { %>
+            <a href="/admin/reservations">
+                <button 
+                    style="background-color: green; color: white; padding: 10px; 
+                    border: none; border-radius: 10px; cursor: pointer;">Go back to all Reservations
+                </button>
+            </a>
+            <% } %>
+         
+        <% displayReservations.forEach(function (reservation) { %>
+            <li>
+                <div class="reservationCard" style="border: 1px solid #ccc; border-radius: 8px; padding: 16px; margin: 16px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); background-color: #fff;">
+                    <h1>Name: <%= reservation.reservationName %> </h1>
+                    <h2>Email: <%= reservation.reservationEmail %> </h2>
+                    <p>Phone Number: <%= reservation.reservationPhoneNumber %> </p>
+                    <p>Reserved Date: <%= reservation.reservationDate %> </p>
+                    <p>Reservation Time: <%= reservation.reservationTime %> </p>
+                    <p>Number of People: <%= reservation.reservationNumberOfPeople %> </p>
+                </div>
+            </li>
+        <% }); %>
         </ul>
+        
+        <% } %>
+        
+       
     </div>
 </main>
 <%- include('partials/adminSidenavJS') %>

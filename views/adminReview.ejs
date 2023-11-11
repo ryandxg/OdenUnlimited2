@@ -4,7 +4,7 @@
     <div class="reservationContainer reservationBody">
         <ul>
             <% reviews.forEach(function (reviews) {%>
-                <li>
+                <li style="border: 1px solid #ccc; border-radius: 8px; padding: 16px; margin: 16px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); background-color: #fff;">
                     <h1>Name: <%= reviews.name %> </h1>
                     <h2>Email: <%= reviews.email %> </h2>
                     <p>Message: <%= reviews.message %> </p>

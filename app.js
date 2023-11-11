@@ -164,7 +164,7 @@ app.get("/admin/menu", adminMenuPage);
 app.get("/admin/addPricelist", addPricelistPage);
 app.get("/admin/reservations", reservationPage);
 app.get("/admin/reviews", reviewsPage);
-app.get("/searchReservations", searchReservations);
+app.get("/searchReservations", reservationPage);
 //
 
 //posts methods

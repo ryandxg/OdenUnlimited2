@@ -91,6 +91,7 @@ const reviewPost = require ('./controllers/reviewPost.js');
 //admin importantation from controllers 
 const addPricelistPost = require ("./controllers/addPricelistPost.js");
 const menuPost = require ("./controllers/menuPost.js");
+const editPost = require ("./controllers/editPost.js")
 
 //importantation from models 
 const homePage = require ('./models/homePage.js');
@@ -104,7 +105,8 @@ const adminPage = require ("./models/adminPage.js")
 const adminMenuPage = require ("./models/adminMenuPage.js")
 const reservationPage = require ("./models/reservationPage.js")
 const reviewsPage = require ("./models/reviewsPage.js")
-const searchReservations = require ("./models/searchReservations.js")
+const editPage = require ("./models/editPage.js")
+// const searchReservations = require ("./models/searchReservations.js")
 
 
 //MIME
@@ -165,6 +167,7 @@ app.get("/admin/addPricelist", addPricelistPage);
 app.get("/admin/reservations", reservationPage);
 app.get("/admin/reviews", reviewsPage);
 app.get("/searchReservations", reservationPage);
+app.get("/edit-reservation/:id", editPage)
 //
 
 //posts methods
@@ -172,9 +175,10 @@ app.post("/submitReservation", reservationPost);
 app.post("/submitReview", reviewPost);
 app.post("/contact", contactPost);
 
-//admin
+//admin Post
 app.post("/addNewPricelist", addPricelistPost);
 app.post("/addnewmenu", menuPost)
+app.post("/edit-reservation/:id", editPost)
 
 app.listen(port, () => {
   console.log(`Server is running on port ${port}`);

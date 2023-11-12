@@ -51,6 +51,7 @@
                     <p>Reservation Time: <%= reservation.reservationTime %> </p>
                     <p>Number of People: <%= reservation.reservationNumberOfPeople %> </p>
                 </div>
+                <a href="/edit-reservation/<%= reservation._id %>">Edit</a>
             </li>
         <% }); %>
         </ul>

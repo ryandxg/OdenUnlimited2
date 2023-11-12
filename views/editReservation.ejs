@@ -1,0 +1,18 @@
+<%- include('partials/adminSidenav') %>
+
+<main>
+    <!-- Edit Reservation Form -->
+    <form action="/edit-reservation/<%= reservation._id %>" method="post">
+        <!-- Include input fields for editing reservation details -->
+        <label for="reservationName">Name:</label>
+        <input type="text" id="reservationName" name="reservationName" value="<%= reservation.reservationName %>" required>
+    
+        <!-- Add other input fields for reservation details -->
+    
+        <!-- Submit button for editing -->
+        <button type="submit">Save Changes</button>
+    </form>
+  
+</main>
+
+<%- include('partials/adminSidenavJS') %>

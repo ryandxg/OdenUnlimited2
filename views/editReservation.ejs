@@ -1,17 +1,31 @@
 <%- include('partials/adminSidenav') %>
 
 <main>
-    <!-- Edit Reservation Form -->
+    <div style="border: 1px solid #ccc; border-radius: 8px; padding: 16px; margin: 16px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); background-color: #fff;">
     <form action="/edit-reservation/<%= reservation._id %>" method="post">
         <!-- Include input fields for editing reservation details -->
         <label for="reservationName">Name:</label>
-        <input type="text" id="reservationName" name="reservationName" value="<%= reservation.reservationName %>" required>
-    
+        <input style="margin-top: 15px;" type="text" id="reservationName" name="reservationName" value="<%= reservation.reservationName %>" required> <br>
+
+        <label for="reservationPhoneNumber">Phone Number:</label>
+        <input style="margin-top: 15px;" type="text" id="reservationPhoneNumber" name="reservationPhoneNumber" value="<%= reservation.reservationPhoneNumber %>" required> <br>
+
+        <label for="reservationDate">Reservation Date:</label>
+        <input style="margin-top: 15px;" type="date" id="reservationDate" name="reservationDate" value="<%= reservation.reservationDate %>" required> <br>
+
+        <label for="reservationTime">Reservation Time:</label>
+        <input style="margin-top: 15px;" type="time" id="reservationTime" name="reservationTime" value="<%= reservation.reservationTime %>" required> <br>
+
+        <label for="reservationNumberOfPeople">Number of People:</label>
+        <input style="margin-top: 15px;" type="text" id="reservationNumberOfPeople" name="reservationNumberOfPeople" value="<%= reservation.reservationNumberOfPeople %>" required> <br>
+        
         <!-- Add other input fields for reservation details -->
     
         <!-- Submit button for editing -->
-        <button type="submit">Save Changes</button>
+        <button style="background-color: green; color: white; padding: 10px; 
+        border: none; border-radius: 10px; cursor: pointer; margin-top: 15px;" type="submit">Save Changes</button>
     </form>
+</div>
   
 </main>
 

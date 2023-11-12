@@ -50,8 +50,12 @@
                     <p>Reserved Date: <%= reservation.reservationDate %> </p>
                     <p>Reservation Time: <%= reservation.reservationTime %> </p>
                     <p>Number of People: <%= reservation.reservationNumberOfPeople %> </p>
+                    <a style="background-color: blueviolet; color: white; padding: 5px 10px; border: none; 
+                        border-radius: 10px; cursor: pointer; text-decoration: none;" href="/edit-reservation/<%= reservation._id %>">
+                        Edit Reservation
+                    </a>
                 </div>
-                <a href="/edit-reservation/<%= reservation._id %>">Edit</a>
+                
             </li>
         <% }); %>
         </ul>

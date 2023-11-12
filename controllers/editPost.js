@@ -3,8 +3,6 @@ const Reservation = require ("../models/reservations");
 async function editPost (req, res) {
     try {
         const updatedReservation = await Reservation.findByIdAndUpdate(req.params.id, { $set: req.body });
-       
-
         console.log(updatedReservation);
         res.redirect("/admin/reservations");
     } catch (error) {

@@ -1,6 +1,6 @@
 const Reservation = require ("../models/reservations");
 
-async function editPost (req, res) {
+async function editReservationPost (req, res) {
     try {
         const updatedReservation = await Reservation.findByIdAndUpdate(req.params.id, { $set: req.body });
         console.log(updatedReservation);
@@ -11,4 +11,4 @@ async function editPost (req, res) {
     }
 }
 
-module.exports = editPost
+module.exports = editReservationPost

@@ -1,6 +1,6 @@
 const Reservation = require("./reservations");
 
-async function editPage( req, res) {
+async function editReservationPage( req, res) {
     try {
        const reservation = await Reservation.findById(req.params.id);
     //    console.log(reservation._id);
@@ -11,4 +11,4 @@ async function editPage( req, res) {
     }
 }
 
-module.exports = editPage
+module.exports = editReservationPage

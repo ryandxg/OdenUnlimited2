@@ -196,8 +196,18 @@ app.delete("/delete-reservation/:id", async (req,res) => {
     console.error(error);
     res.status(500).send('Internal Server Error');
   }
-})
-app.delete("/delete-menu/:id")
+});
+app.delete("/delete-menu/:id", async (req,res) => {
+  const Menu = require("./models/menu.js");
+  try {
+    const DeletedMenu = await Menu.findByIdAndDelete(req.params.id);
+    console.log(DeletedMenu);
+    res.redirect("/admin/menu")
+  } catch (error) {
+    console.error(error);
+    res.status(500).send('Internal Server Error');
+  }
+});
 
 app.listen(port, () => {
   console.log(`Server is running on port ${port}`);

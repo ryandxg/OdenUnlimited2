@@ -41,22 +41,14 @@
                     </div>
                     <a style="background-color: blueviolet; color: white; padding: 5px 10px; border: none; 
                         border-radius: 10px; cursor: pointer; text-decoration: none;" href="/edit-menu/<%= menu._id %>">
-                        Edit Reservation
+                        Edit Menu
                     </a>
+                    <button style="background-color: red; color: white; padding: 5px 10px; border: none; 
+                        border-radius: 10px; cursor: pointer; text-decoration: none; margin-left: 10px;" 
+                        onclick="deleteMenu('<%= menu._id %>')">Delete 
+                    </button>
                 </div> 
             <% }); %>
-             <!-- <div class="menu_card">
-                <div class="menu_image">
-                    <img src="/public/images/Jollof up.jpeg">
-                </div>
-                <div class="menu_info">
-                    <h2>Jollof rice</h2>
-                    <p>
-                        Lorem, ipsum dolor sit amet consectetur adipisicing elit. Laborum assumenda voluptates
-                    </p>
-                    <h3>$20.00</h3>
-                </div>
-             </div> -->
         </div>
     </div> 
     
@@ -85,6 +77,21 @@
             modal.style.display = 'none';
         }
         });
+
+        const deleteMenu = async (id) => {
+            try {
+                if (confirm('Are you sure you want to delete this menu?')) {
+                    const response = await fetch(`/delete-menu/${id}`, { method: 'DELETE' });
+                    if (response) {
+                        window.location.reload(); // Reload the page
+                    } else {
+                        console.error('Failed to delete reservation');
+                    }
+                }
+            } catch (error) {
+                console.error('Error:', error);
+            }
+        };
 
     </script>
 </body>

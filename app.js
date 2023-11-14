@@ -184,6 +184,21 @@ app.post("/addnewmenu", menuPost)
 app.post("/edit-reservation/:id", editReservationPost)
 app.post("/edit-menu/:id", editMenuPost)
 
+
+//admin DELETE methods
+app.delete("/delete-reservation/:id", async (req,res) => {
+  const Reservation = require("./reservations");
+  try {
+    const DeletedReservation = await Reservation.findByIdAndDelete(req.params.id);
+    console.log(DeletedReservation);
+    res.redirect("/admin/reservations")
+  } catch (error) {
+    console.error(error);
+    res.status(500).send('Internal Server Error');
+  }
+})
+app.delete("/delete-menu/:id")
+
 app.listen(port, () => {
   console.log(`Server is running on port ${port}`);
 });

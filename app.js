@@ -5,13 +5,13 @@ const mongoose = require('mongoose');
 const cloudinary = require('cloudinary').v2;
 const fs = require('fs');
 require('dotenv').config();
-
-// const format = require('date-fns/format');
+const methodOverride = require('method-override');
 
 
 const app = express();
 const port = 3000;
 
+app.use(methodOverride('_method'));
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 app.set('view engine', 'ejs'); // Set the view engine to EJS
@@ -187,7 +187,7 @@ app.post("/edit-menu/:id", editMenuPost)
 
 //admin DELETE methods
 app.delete("/delete-reservation/:id", async (req,res) => {
-  const Reservation = require("./reservations");
+  const Reservation = require("./models/reservations.js");
   try {
     const DeletedReservation = await Reservation.findByIdAndDelete(req.params.id);
     console.log(DeletedReservation);

@@ -98,6 +98,7 @@ const adminLoginPost = require ("./controllers/adminLoginPost.js");
 const adminRegisterPost = require ("./controllers/adminRegisterPost.js");
 const addPricelistPost = require ("./controllers/addPricelistPost.js");
 const menuPost = require ("./controllers/menuPost.js");
+const galleryPost = require ("./controllers/galleryPost.js")
 const editReservationPost = require ("./controllers/editReservationPost.js");
 const editMenuPost = require ("./controllers/editMenuPost.js");
 const editPricePost = require ("./controllers/editPricePost.js");
@@ -117,6 +118,7 @@ const adminMenuPage = require ("./models/adminMenuPage.js");
 const reservationPage = require ("./models/reservationPage.js");
 const reviewsPage = require ("./models/reviewsPage.js");
 const adminContactPage = require ("./models/adminContact.js");
+const adminGalleryPage = require ("./models/adminGalleryPage.js");
 const editReservationPage = require ("./models/editReservationPage.js");
 const editMenuPage = require ("./models/editMenuPage.js");
 const editPricePage = require ("./models/editPricePage.js");
@@ -125,6 +127,7 @@ const editPricePage = require ("./models/editPricePage.js");
 const deleteReservation = require ("./models/deleteReservation.js")
 const deleteMenu = require ("./models/deleteMenu.js")
 const deletePrice = require ("./models/deletePrice.js")
+const deleteGallery = require ("./models/deleteGallery.js")
 
 //MIME
 app.get("/public/css/style.css", (req, res) => {
@@ -185,6 +188,7 @@ app.get("/admin/addPricelist",isAdminLoggedIn, addPricelistPage);
 app.get("/admin/reservations",isAdminLoggedIn, reservationPage);
 app.get("/admin/reviews",isAdminLoggedIn, reviewsPage);
 app.get("/admin/contact",isAdminLoggedIn, adminContactPage);
+app.get("/admin/gallery",isAdminLoggedIn, adminGalleryPage);
 app.get("/searchReservations",isAdminLoggedIn, reservationPage);
 app.get("/edit-reservation/:id",isAdminLoggedIn, editReservationPage);
 app.get("/edit-menu/:id",isAdminLoggedIn, editMenuPage);
@@ -203,6 +207,7 @@ app.post("/contact", contactPost);
 //admin Post
 app.post("/addNewPricelist",isAdminLoggedIn, addPricelistPost);
 app.post("/addnewmenu",isAdminLoggedIn, menuPost);
+app.post("/add-new-gallery-picture", isAdminLoggedIn, galleryPost)
 app.post("/edit-reservation/:id",isAdminLoggedIn, editReservationPost);
 app.post("/edit-menu/:id",isAdminLoggedIn, editMenuPost);
 app.post("/edit-price/:id",isAdminLoggedIn, editPricePost);
@@ -217,6 +222,7 @@ app.post('/admin-register', adminRegisterPost);
 app.delete("/delete-reservation/:id",isAdminLoggedIn, deleteReservation);
 app.delete("/delete-menu/:id",isAdminLoggedIn, deleteMenu);
 app.delete("/delete-price/:id",isAdminLoggedIn, deletePrice);
+app.delete("/delete-gallery/:id",isAdminLoggedIn, deleteGallery);
 
 app.listen(port, () => {
   console.log(`Server is running on port ${port}`);

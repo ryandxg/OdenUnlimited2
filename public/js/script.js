@@ -21,11 +21,11 @@ function showNotification() {
     setTimeout(function() {
         notification.style.display = "none";
 
-        // Reload the page after 5 seconds
+        // Reload the page after 3 seconds
         setTimeout(function() {
           window.location.reload();
         }, 5);
-      }, 3000); console.log("Notification shown"); // 3000 milliseconds (3 seconds) in this example
+      }, 3000); console.log("Notification shown");
 }
 
 

@@ -121,9 +121,10 @@ const editReservationPage = require ("./models/editReservationPage.js");
 const editMenuPage = require ("./models/editMenuPage.js");
 const editPricePage = require ("./models/editPricePage.js");
 
-const Admin = require ("./models/admin.js")
-// const searchReservations = require ("./models/searchReservations.js")
-
+//admin delete
+const deleteReservation = require ("./models/deleteReservation.js")
+const deleteMenu = require ("./models/deleteMenu.js")
+const deletePrice = require ("./models/deletePrice.js")
 
 //MIME
 app.get("/public/css/style.css", (req, res) => {
@@ -176,17 +177,7 @@ app.get("/contact", contactPage);
 app.get("/pricelist", pricelistPage);
 app.get("/gallery", galleryPage);
 
-//login an admin
-app.get("/admin-login", adminLogin)
 
-// Register an admin
-app.post('/admin-register', adminRegisterPost);
-
-//login an admin
-app.post('/admin-login', adminLoginPost);
-
-//logout an admin
-app.get('/admin/logout', adminLogout);
 //admin Get
 app.get("/admin",isAdminLoggedIn, adminPage);
 app.get("/admin/menu",isAdminLoggedIn, adminMenuPage);
@@ -198,6 +189,10 @@ app.get("/searchReservations",isAdminLoggedIn, reservationPage);
 app.get("/edit-reservation/:id",isAdminLoggedIn, editReservationPage);
 app.get("/edit-menu/:id",isAdminLoggedIn, editMenuPage);
 app.get("/edit-price/:id",isAdminLoggedIn, editPricePage);
+//login an admin
+app.get("/admin-login", adminLogin)
+//logout an admin
+app.get('/admin/logout', adminLogout);
 //
 
 //posts methods
@@ -211,42 +206,17 @@ app.post("/addnewmenu",isAdminLoggedIn, menuPost);
 app.post("/edit-reservation/:id",isAdminLoggedIn, editReservationPost);
 app.post("/edit-menu/:id",isAdminLoggedIn, editMenuPost);
 app.post("/edit-price/:id",isAdminLoggedIn, editPricePost);
+//login an admin
+app.post('/admin-login', adminLoginPost);
+// Register an admin
+app.post('/admin-register', adminRegisterPost);
+
 
 
 //admin DELETE methods
-app.delete("/delete-reservation/:id",isAdminLoggedIn, async (req,res) => {
-  const Reservation = require("./models/reservations.js");
-  try {
-    const DeletedReservation = await Reservation.findByIdAndDelete(req.params.id);
-    console.log(DeletedReservation);
-    res.redirect("/admin/reservations")
-  } catch (error) {
-    console.error(error);
-    res.status(500).send('Internal Server Error');
-  }
-});
-app.delete("/delete-menu/:id",isAdminLoggedIn, async (req,res) => {
-  const Menu = require("./models/menu.js");
-  try {
-    const DeletedMenu = await Menu.findByIdAndDelete(req.params.id);
-    console.log(DeletedMenu);
-    res.redirect("/admin/menu")
-  } catch (error) {
-    console.error(error);
-    res.status(500).send('Internal Server Error');
-  }
-});
-app.delete("/delete-price/:id",isAdminLoggedIn, async (req,res) => {
-  const Pricelist = require("./models/pricelist.js");
-  try {
-    const DeletedPrice = await Pricelist.findByIdAndDelete(req.params.id);
-    console.log(DeletedPrice);
-    res.redirect("/admin/addPricelist")
-  } catch (error) {
-    console.error(error);
-    res.status(500).send('Internal Server Error');
-  }
-});
+app.delete("/delete-reservation/:id",isAdminLoggedIn, deleteReservation);
+app.delete("/delete-menu/:id",isAdminLoggedIn, deleteMenu);
+app.delete("/delete-price/:id",isAdminLoggedIn, deletePrice);
 
 app.listen(port, () => {
   console.log(`Server is running on port ${port}`);

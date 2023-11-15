@@ -1,0 +1,20 @@
+<%- include('partials/adminSidenav') %>
+<main>
+    
+    <div style="border: 1px solid #ccc; border-radius: 8px; padding: 16px; margin: 16px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); background-color: #fff;">
+        <form action="/edit-price/<%= price._id %>" method="post">
+            <!-- Include input fields for editing reservation details -->
+            <label for="name">Name of Food:</label>
+            <input style="margin-top: 15px;" type="text" id="name" name="name" value="<%= price.name %>" required> <br>
+
+            <label for="price">Price:</label>
+            <input style="margin-top: 15px;" type="text" id="price" name="price" value="<%= price.price %>" required> <br>
+        
+            <!-- Submit button for editing -->
+            <button style="background-color: green; color: white; padding: 10px; 
+            border: none; border-radius: 10px; cursor: pointer; margin-top: 15px;" type="submit">Save Changes</button>
+        </form>
+    </div>
+  
+</main>
+<%- include('partials/adminSidenavJS') %>

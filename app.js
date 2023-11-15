@@ -92,22 +92,24 @@ const reviewPost = require ('./controllers/reviewPost.js');
 const addPricelistPost = require ("./controllers/addPricelistPost.js");
 const menuPost = require ("./controllers/menuPost.js");
 const editReservationPost = require ("./controllers/editReservationPost.js");
-const editMenuPost = require ("./controllers/editMenuPost.js")
+const editMenuPost = require ("./controllers/editMenuPost.js");
+const editPricePost = require ("./controllers/editPricePost.js");
 
 //importantation from models 
 const homePage = require ('./models/homePage.js');
 const contactPage = require ('./models/contactPage.js');
 const pricelistPage = require ('./models/pricelistPage.js');
-const addPricelistPage = require ("./models/addPricelistPage.js")
-const galleryPage = require("./models/galleryPage.js")
+const addPricelistPage = require ("./models/addPricelistPage.js");
+const galleryPage = require("./models/galleryPage.js");
 
 //admin importantation from models 
-const adminPage = require ("./models/adminPage.js")
-const adminMenuPage = require ("./models/adminMenuPage.js")
-const reservationPage = require ("./models/reservationPage.js")
-const reviewsPage = require ("./models/reviewsPage.js")
-const editReservationPage = require ("./models/editReservationPage.js")
-const editMenuPage = require ("./models/editMenuPage.js")
+const adminPage = require ("./models/adminPage.js");
+const adminMenuPage = require ("./models/adminMenuPage.js");
+const reservationPage = require ("./models/reservationPage.js");
+const reviewsPage = require ("./models/reviewsPage.js");
+const editReservationPage = require ("./models/editReservationPage.js");
+const editMenuPage = require ("./models/editMenuPage.js");
+const editPricePage = require ("./models/editPricePage.js");
 // const searchReservations = require ("./models/searchReservations.js")
 
 
@@ -169,8 +171,9 @@ app.get("/admin/addPricelist", addPricelistPage);
 app.get("/admin/reservations", reservationPage);
 app.get("/admin/reviews", reviewsPage);
 app.get("/searchReservations", reservationPage);
-app.get("/edit-reservation/:id", editReservationPage)
-app.get("/edit-menu/:id", editMenuPage)
+app.get("/edit-reservation/:id", editReservationPage);
+app.get("/edit-menu/:id", editMenuPage);
+app.get("/edit-price/:id", editPricePage);
 //
 
 //posts methods
@@ -180,9 +183,10 @@ app.post("/contact", contactPost);
 
 //admin Post
 app.post("/addNewPricelist", addPricelistPost);
-app.post("/addnewmenu", menuPost)
-app.post("/edit-reservation/:id", editReservationPost)
-app.post("/edit-menu/:id", editMenuPost)
+app.post("/addnewmenu", menuPost);
+app.post("/edit-reservation/:id", editReservationPost);
+app.post("/edit-menu/:id", editMenuPost);
+app.post("/edit-price/:id", editPricePost);
 
 
 //admin DELETE methods

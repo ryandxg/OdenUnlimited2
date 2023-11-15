@@ -6,12 +6,17 @@ const cloudinary = require('cloudinary').v2;
 const fs = require('fs');
 require('dotenv').config();
 const methodOverride = require('method-override');
+const bcrypt = require('bcryptjs');
+const session = require('express-session');
+
+const isAdminLoggedIn = require("./middleware.js");
 
 
 const app = express();
 const port = 3000;
 
 app.use(methodOverride('_method'));
+app.use(session({ secret: 'secret', resave: false, saveUninitialized: false }));
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 app.set('view engine', 'ejs'); // Set the view engine to EJS
@@ -89,6 +94,8 @@ const reservationPost = require ('./controllers/reservationPost.js');
 const reviewPost = require ('./controllers/reviewPost.js');
 
 //admin importantation from controllers 
+const adminLoginPost = require ("./controllers/adminLoginPost.js");
+const adminRegisterPost = require ("./controllers/adminRegisterPost.js");
 const addPricelistPost = require ("./controllers/addPricelistPost.js");
 const menuPost = require ("./controllers/menuPost.js");
 const editReservationPost = require ("./controllers/editReservationPost.js");
@@ -103,6 +110,8 @@ const addPricelistPage = require ("./models/addPricelistPage.js");
 const galleryPage = require("./models/galleryPage.js");
 
 //admin importantation from models 
+const adminLogin = require ("./models/adminLoginPage.js");
+const adminLogout = require ("./models/adminLogoutPage.js");
 const adminPage = require ("./models/adminPage.js");
 const adminMenuPage = require ("./models/adminMenuPage.js");
 const reservationPage = require ("./models/reservationPage.js");
@@ -111,6 +120,8 @@ const adminContactPage = require ("./models/adminContact.js");
 const editReservationPage = require ("./models/editReservationPage.js");
 const editMenuPage = require ("./models/editMenuPage.js");
 const editPricePage = require ("./models/editPricePage.js");
+
+const Admin = require ("./models/admin.js")
 // const searchReservations = require ("./models/searchReservations.js")
 
 
@@ -165,17 +176,28 @@ app.get("/contact", contactPage);
 app.get("/pricelist", pricelistPage);
 app.get("/gallery", galleryPage);
 
+//login an admin
+app.get("/admin-login", adminLogin)
+
+// Register an admin
+app.post('/admin-register', adminRegisterPost);
+
+//login an admin
+app.post('/admin-login', adminLoginPost);
+
+//logout an admin
+app.get('/admin/logout', adminLogout);
 //admin Get
-app.get("/admin", adminPage);
-app.get("/admin/menu", adminMenuPage);
-app.get("/admin/addPricelist", addPricelistPage);
-app.get("/admin/reservations", reservationPage);
-app.get("/admin/reviews", reviewsPage);
-app.get("/admin/contact", adminContactPage);
-app.get("/searchReservations", reservationPage);
-app.get("/edit-reservation/:id", editReservationPage);
-app.get("/edit-menu/:id", editMenuPage);
-app.get("/edit-price/:id", editPricePage);
+app.get("/admin",isAdminLoggedIn, adminPage);
+app.get("/admin/menu",isAdminLoggedIn, adminMenuPage);
+app.get("/admin/addPricelist",isAdminLoggedIn, addPricelistPage);
+app.get("/admin/reservations",isAdminLoggedIn, reservationPage);
+app.get("/admin/reviews",isAdminLoggedIn, reviewsPage);
+app.get("/admin/contact",isAdminLoggedIn, adminContactPage);
+app.get("/searchReservations",isAdminLoggedIn, reservationPage);
+app.get("/edit-reservation/:id",isAdminLoggedIn, editReservationPage);
+app.get("/edit-menu/:id",isAdminLoggedIn, editMenuPage);
+app.get("/edit-price/:id",isAdminLoggedIn, editPricePage);
 //
 
 //posts methods
@@ -184,15 +206,15 @@ app.post("/submitReview", reviewPost);
 app.post("/contact", contactPost);
 
 //admin Post
-app.post("/addNewPricelist", addPricelistPost);
-app.post("/addnewmenu", menuPost);
-app.post("/edit-reservation/:id", editReservationPost);
-app.post("/edit-menu/:id", editMenuPost);
-app.post("/edit-price/:id", editPricePost);
+app.post("/addNewPricelist",isAdminLoggedIn, addPricelistPost);
+app.post("/addnewmenu",isAdminLoggedIn, menuPost);
+app.post("/edit-reservation/:id",isAdminLoggedIn, editReservationPost);
+app.post("/edit-menu/:id",isAdminLoggedIn, editMenuPost);
+app.post("/edit-price/:id",isAdminLoggedIn, editPricePost);
 
 
 //admin DELETE methods
-app.delete("/delete-reservation/:id", async (req,res) => {
+app.delete("/delete-reservation/:id",isAdminLoggedIn, async (req,res) => {
   const Reservation = require("./models/reservations.js");
   try {
     const DeletedReservation = await Reservation.findByIdAndDelete(req.params.id);
@@ -203,7 +225,7 @@ app.delete("/delete-reservation/:id", async (req,res) => {
     res.status(500).send('Internal Server Error');
   }
 });
-app.delete("/delete-menu/:id", async (req,res) => {
+app.delete("/delete-menu/:id",isAdminLoggedIn, async (req,res) => {
   const Menu = require("./models/menu.js");
   try {
     const DeletedMenu = await Menu.findByIdAndDelete(req.params.id);
@@ -214,7 +236,7 @@ app.delete("/delete-menu/:id", async (req,res) => {
     res.status(500).send('Internal Server Error');
   }
 });
-app.delete("/delete-price/:id", async (req,res) => {
+app.delete("/delete-price/:id",isAdminLoggedIn, async (req,res) => {
   const Pricelist = require("./models/pricelist.js");
   try {
     const DeletedPrice = await Pricelist.findByIdAndDelete(req.params.id);

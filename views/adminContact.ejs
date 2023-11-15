@@ -1,0 +1,19 @@
+<%- include('partials/adminSidenav') %>
+
+<main>
+    <div class="reservationContainer reservationBody">
+        <ul>
+            <% contact.forEach(function (contact) {%>
+                <li style="border: 1px solid #ccc; border-radius: 8px; padding: 16px; margin: 16px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); background-color: #fff;">
+                    <h1>First Name: <%= contact.fname %> </h1>
+                    <h2>Last Name: <%= contact.lname %> </h2>
+                    <h2>Email: <%= contact.email %> </h2>
+                    <h2>Phone Number: <%= contact.phoneNumber %> </h2>
+                    <p>Message: <%= contact.message %> </p>
+                </li>
+            <% }); %>   
+        </ul>
+    </div>
+</main>
+
+<%- include('partials/adminSidenavJS') %>

@@ -1,7 +1,7 @@
 <%- include('partials/adminSidenav') %>
 
 <main>
-    <div style="padding-top: 50px;">
+    <div style="padding: 20px 0;">
         <button style="background-color: blueviolet; color: white; padding: 10px 10px; border: none; 
         border-radius: 10px; cursor: pointer; text-decoration: none; font-size: 20px;" id="openModalButton">
             Add New Menu
@@ -28,7 +28,6 @@
     </section>
 
     <div class="menu" id="Menu">
-        <h1>Our<span>Menu</span></h1>
         <div class="menu_box">
             <% menu.forEach(function(menu){ %>
                 <div class="menu_card">
@@ -39,7 +38,8 @@
                         <h2><%= menu.name %></h2>
                         <h3>$<%= menu.price %></h3>
                     </div>
-                    <a style="background-color: blueviolet; color: white; padding: 5px 10px; border: none; 
+                    <div style="display: flex; justify-content: center;">
+                        <a style="background-color: blueviolet; color: white; padding: 5px 10px; border: none; 
                         border-radius: 10px; cursor: pointer; text-decoration: none;" href="/edit-menu/<%= menu._id %>">
                         Edit Menu
                     </a>
@@ -47,6 +47,8 @@
                         border-radius: 10px; cursor: pointer; text-decoration: none; margin-left: 10px;" 
                         onclick="deleteMenu('<%= menu._id %>')">Delete 
                     </button>
+                    </div>
+                    
                 </div> 
             <% }); %>
         </div>

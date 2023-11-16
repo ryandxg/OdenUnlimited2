@@ -141,25 +141,6 @@
         transform: rotate(-180deg);
       }
 
-      /* navbar responsiveness */
-      @media (max-width: 35rem){
-          nav{
-            width: 10rem;
-            padding: 1rem 0.4rem;
-          }
-          main {
-            margin-left: 13rem;
-          }
-          body.collapsed nav {
-            width: 0;
-          }
-          .expand-btn {
-            position: absolute;
-            right: -3rem;
-            opacity: 1;
-          } 
-      }
-
       /*menu styles*/
       .modal {
         display: none;
@@ -195,6 +176,28 @@
         grid-gap: 15px;
         }
 
+        /* Responsiveness */
+      @media (max-width: 35rem){
+          nav{
+            width: 10rem;
+            padding: 1rem 0.4rem;
+          }
+          main {
+            margin-left: 13rem;
+          }
+          body.collapsed nav {
+            width: 0;
+          }
+          .expand-btn {
+            position: absolute;
+            right: -3rem;
+            opacity: 1;
+          } 
+          .menu .menu_box{
+            display: flex;
+            flex-direction: column;
+          }
+      }
         /*reservation styles*/
 
         .reservationContainer {

@@ -58,16 +58,18 @@
     <div class="background" id="background">
         <div class="centering">
             <div class="articles">
-                <article>
-                    <figure>
-                        <img
-                            src="../public/images/image0.jpeg"
-                            alt="Preview"
-                            class="lightbox-trigger"
-                        >
-                    </figure>
-                </article>
-                <article>            
+                <% gallery.forEach(function(gallery) { %>
+                    <article>
+                        <figure>
+                            <img
+                                src="<%= gallery.image %>"
+                                alt="Preview"
+                                class="lightbox-trigger"
+                            >
+                        </figure>
+                    </article>
+                <% }); %>
+                <!-- <article>            
                     <figure>
                         <img
                             src="../public/images/image1.jpeg"
@@ -156,13 +158,13 @@
                             class="lightbox-trigger"
                         >
                     </figure>
-                </article>
+                </article> -->
             </div>        
         </div>
         
     </div>
-    <div class="lightbox" id="lightbox">
-        <span class="close-button" id="close-button">&times;</span>
+    <div class="lightbox" id="lightbox" style="padding-top: 5rem;">
+        <span class="close-button" id="close-button" style="padding-top: 5rem; color: red; font-size: 50px; font-weight: 600;">&times;</span>
         <img src="" alt="Lightbox Image" id="lightbox-image">
     </div>
 

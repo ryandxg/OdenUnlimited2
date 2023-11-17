@@ -1,7 +1,12 @@
-const path = require("path");
+const Gallery = require("./gallery");
 
-function galleryPage(req,res){
-    res.sendFile(path.join(__dirname, "../views/gallery.html"));
+async function galleryPage(req,res){
+    try {
+        const gallery = await Gallery.find({});
+        res.render("gallery" , { gallery: gallery})
+    } catch (error) {
+        console.log(error);
+    }
 }
 
 module.exports = galleryPage;

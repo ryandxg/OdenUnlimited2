@@ -93,7 +93,7 @@ header nav .icon i{
     background: rgba(225, 225, 225, .1);
     padding: 10px 20px;
     color: #000;
-    margin: 25px 0;
+    margin: 10px 0;
     transition: .5s;
 }
 .list ul li:nth-child(1){

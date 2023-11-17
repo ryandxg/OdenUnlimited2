@@ -1,7 +1,14 @@
-const path = require("path");
+const Menu = require ("./menu");
+const Review = require ("./reviews");
 
-function homePage(req,res){
-    res.sendFile(path.join(__dirname, "../views/index.html"));
+async function homePage(req,res){
+    try {
+        const menu = await Menu.find({});
+        const review = await Review.find({});
+        res.render("index" , { menu: menu, review: review})
+    } catch (error) {
+        console.log(error);
+    }
 }
 
 module.exports = homePage;

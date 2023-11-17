@@ -132,22 +132,25 @@
     </div>
 
     <!--Menu-->
+    <% if(menu.length > 0) {%>
     <div class="menu" id="Menu">
         <h1>Our<span>Menu</span></h1>
 
-        <div class="menu_box">           
-            <div class="menu_card">
-                <div class="menu_image">
-                    <img src="/public/images/Moi Moi.jpeg">
-                </div>
-                <div class="menu_info">
-                    <h2>Moi Moi</h2>
-                    
-                    <h3>£0.00</h3>
-                </div>
-            </div> 
+        <div class="menu_box">   
+            <% menu.forEach(function(menu) { %>        
+                <div class="menu_card">
+                    <div class="menu_image">
+                        <img src="<%= menu.image %>">
+                    </div>
+                    <div class="menu_info">
+                        <h2><%= menu.name %></h2>
+                        
+                        <h3>£ <%= menu.price %></h3>
+                    </div>
+                </div> 
+            <% }); %>
 
-            <div class="menu_card">
+            <!-- <div class="menu_card">
                 <div class="menu_image">
                     <img src="/public/images/Jollof up.jpeg">
                 </div>
@@ -178,7 +181,7 @@
                     
                     <h3>£0.00</h3>
                 </div>
-            </div> 
+            </div>  -->
             
         </div>
 
@@ -186,6 +189,7 @@
             <a href="/pricelist" class="new_btn">View Menu Pricelist</a>
         </div>
     </div>  
+    <% } %>
          
     <!--Gallery-->
     <div class="gallery-div" id="Gallery">
@@ -231,7 +235,7 @@
     </div>
 
     <!--Reviews-->
-
+    <% if(review.length > 0) {%>
     <div class="" style="padding: 5rem 0;">
         <div class="owl-carousel owl-theme owl-loaded">
           <div class="owl-stage-outer">
@@ -239,22 +243,24 @@
                 <h1>Customer <span>Review</span></h1>
             </div>
             <div class="owl-stage">
-              <article class="owl-item" style="border-radius: 10px;">
-                <figure>
-                    <div class="review-card">
-                        <div class="review-content">
-                          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-                        </div>
-                        <div class="review-author d-flex align-items-center">
-                          <div>
-                            <div class="font-weight-bold">John Doe</div>
-                          </div>
-                        </div>
-                    </div>          
-                </figure>
-              </article>
+                <% review.forEach(function(review) { %>
+                    <article class="owl-item" style="border-radius: 10px;">
+                        <figure>
+                            <div class="review-card">
+                                <div class="review-content">
+                                <p><%= review.message %></p>
+                                </div>
+                                <div class="review-author d-flex align-items-center">
+                                <div>
+                                    <div class="font-weight-bold"><%= review.name %></div>
+                                </div>
+                                </div>
+                            </div>          
+                        </figure>
+                    </article>
+                <% }); %>
     
-              <article class="owl-item" style="border-radius: 10px;">
+              <!-- <article class="owl-item" style="border-radius: 10px;">
                 <figure>
                     <div class="review-card">
                         <div class="review-content">
@@ -327,11 +333,12 @@
                         </div>
                     </div>  
                 </figure>
-              </article>
+              </article> -->
             </div>
           </div>
         </div>
     </div>
+    <% } %>
 
     <!-- Reservation -->
     <div class="order" id="Reservation">

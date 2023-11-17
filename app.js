@@ -8,8 +8,11 @@ require('dotenv').config();
 const methodOverride = require('method-override');
 const bcrypt = require('bcryptjs');
 const session = require('express-session');
+const nodemailer = require('nodemailer');
 
 const isAdminLoggedIn = require("./middleware.js");
+
+const secretKey = process.env.SECRET_KEY;
 
 
 const app = express();
@@ -54,10 +57,9 @@ const localImagePath = "./public/images";
 //     });
 // });
 
-// Define the connection URL for your local MongoDB
-const dbURL = 'mongodb://127.0.0.1:27017/odenDB'; // Replace 'your-database-name' with your database name
-
 // Connect to the MongoDB database
+const dbURL = `mongodb+srv://${secretKey}@cluster0.gu0hzci.mongodb.net/odenDB`;
+
 mongoose.connect(dbURL, {
   useNewUrlParser: true,
   useUnifiedTopology: true,

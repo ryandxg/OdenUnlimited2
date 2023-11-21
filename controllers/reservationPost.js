@@ -5,6 +5,8 @@ const Mailgen = require('mailgen');
 
 const userKey = process.env.USER_KEY;
 const userPass = process.env.USER_PASS;
+const userKey2 = process.env.USER_KEY2;
+const userPass2 = process.env.USER_PASS2;
 
 const transporter = nodemailer.createTransport({
   service: 'gmail',
@@ -13,7 +15,13 @@ const transporter = nodemailer.createTransport({
       pass: userPass,
   }
 });
-
+const transporterToAdmin = nodemailer.createTransport({
+  service: 'gmail',
+  auth: {
+      user: userKey2,
+      pass: userPass2,
+  }
+});
 async function  reservationPost(req, res) {
     try {
         const {
@@ -39,10 +47,20 @@ async function  reservationPost(req, res) {
 
         console.log('Reservation saved:', savedReservation);
 
+        //TO CUSTOMER EMAIL
         const mailGenerator = new Mailgen({
           theme: 'default',
           product: {
             name: 'Oden Unlimited',
+            link: 'https://mailgen.com/',
+            logo: 'https://res.cloudinary.com/dmnaedwo6/image/upload/v1698424734/dyhdibug52dtvb4g405f.png',
+          },
+        });
+        //TO ADMIN EMAIL
+        const toAdminMailGenerator = new Mailgen({
+          theme: 'default',
+          product: {
+            name: 'Oden Reservations',
             link: 'https://mailgen.com/',
             logo: 'https://res.cloudinary.com/dmnaedwo6/image/upload/v1698424734/dyhdibug52dtvb4g405f.png',
           },
@@ -61,13 +79,6 @@ async function  reservationPost(req, res) {
             intro: 'Thank you for making a reservation!',
             table: {
               data: reservationDetails,
-              // options: {
-              //   columns: {
-              //     // To hide the headers, set the display property to false for each column
-              //     label: { display: false },
-              //     value: { display: false },
-              //   },
-              // },
             },
             outro: 'We look forward to having you. If you have any questions, feel free to contact us.',
           },
@@ -75,17 +86,45 @@ async function  reservationPost(req, res) {
         const emailTemplate = mailGenerator.generate(email);
 
         const mailOptions = {
-          from: 'Peter <onojapeter90@gmail.com>',
+          from: 'ODEN Unlimited <opeodenunlimited@gmail.com>',
           to: req.body.reservationEmail,
           subject: 'Reservation Details',
           html: emailTemplate,   
         };
     
+        const reservationDetailsToAdmin = [
+          { reservation: "Name", details: reservationName },
+          { reservation: "Reservation Date", details: reservationDate },
+          { reservation: "Reservation Time", details: reservationTime },
+          { reservation: "Number of People", details: reservationNumberOfPeople },
+          { reservation: "Email", details: reservationEmail },
+        ];
+
+        // Generate an email template
+        const emailToAdmin = {
+          body: {
+            name: "Admin",
+            intro: 'A Reservation was made!',
+            table: {
+              data: reservationDetailsToAdmin,
+            },
+          },
+        };
+        const toAdminEmailTemplate = toAdminMailGenerator.generate(emailToAdmin);
+
+        const toAdminMailOptions = {
+          from: 'Oden Unlimited <odenreservations@gmail.com>',
+          to: userKey,
+          subject: 'New Reservation Details',
+          html: toAdminEmailTemplate,   
+        };
         
         try {
           res.status(200).json({ message: "Reservation Submitted" });
           const info = await transporter.sendMail(mailOptions);
+          const toAdminInfo = await transporterToAdmin.sendMail(toAdminMailOptions);
           console.log('Email sent: ' + info.response);
+          console.log('Email sent: ' + toAdminInfo.response);
           
         } catch (error) {
             console.error(error);

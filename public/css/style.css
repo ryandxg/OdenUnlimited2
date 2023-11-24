@@ -10,8 +10,7 @@ html{
 }
 body{
     overflow-x: hidden;
-    max-width: 1700px;
-    margin: auto;
+    max-width: 1500px;
 }
 .notification {
     background-color: #4CAF50;
@@ -137,11 +136,8 @@ section .main .main_image img{
 }
 
 section p{
-    /* width: 650px; */
     text-align: justify;
     position: relative;
-    /* left: 123px;
-    bottom: 120px; */
     top: -4vh;
     line-height: 22px;
     font-family:'Gill Sans';
@@ -471,21 +467,6 @@ section .main_btn:hover i{
     border-radius: 8px;
 }
 
-/*Review showing / carousel */
-/* article {
-    /* max-width: 320px; 
-    height: auto;
-    cursor: pointer;
-    position: relative;
-    display: block;
-    transition: all 0.4s ease-in-out;
-    overflow: hidden;
-    border-radius: 16px;
-}
-article figure {
-    width: 100%;
-    height: 100%;
-} */
 
 .review-header h1{
     display: flex;
@@ -508,12 +489,6 @@ article figure {
     border-radius: 8px;
     overflow: hidden;
   }
-
-  /* .review-header {
-    padding: 16px;
-    color: #fff;
-    text-align: center;
-  } */
 
   .review-content,
   .review-author {
@@ -575,7 +550,7 @@ article figure {
 }
 
 .order .order_main form .input{
-    margin: 5px;
+    margin: 5px 0;
 }
 
 .order .order_main form .input input{
@@ -819,9 +794,9 @@ footer .end span{
     display:none;
  }
 
+ 
 
-@media (max-width: 35rem) {
-    /*header*/
+ @media (max-width: 480px) {
     #open-menu{
 		display: block;
         margin-top: 2.8125rem;
@@ -896,9 +871,6 @@ footer .end span{
     .login-mobile{
         display: flex;
     }
-    
-
-
     /*main section*/
     section .main{
         display: flex;
@@ -1072,5 +1044,224 @@ footer .end span{
     }
     .footer-margin {
         margin-bottom: 30px;
+    }
+}
+
+@media (min-width:481px) and (max-width: 834px) {
+    /*header*/
+    #open-menu{
+		display: block;
+        margin-top: 2.8125rem;
+	}
+    .close-menu{
+        display: block;
+    }
+    .icons-in-hamburger{
+        display: flex;
+        justify-content: center;
+        gap: 10px;
+        margin-top:30px;
+        cursor: pointer;
+        color: black;
+    }
+    .icons-in-hamburger i:hover{
+        color: #90323d;
+    }
+    #close-menu{
+		position: absolute;
+		top: 0.6rem;
+		right: 20px;
+		display: block;
+		margin-left: 2.3rem;
+	}
+    .sidenav{
+		height: 100%;
+		width: 0;
+		position: fixed;
+		z-index: 5;
+		top: 0;
+		right: 0;
+		background-color:rgba(0, 0, 0, 0.8);/*#37371f*/
+        backdrop-filter: blur(10px);
+        -webkit-backdrop-filter: blur(20px);
+        box-shadow: 0 0 10px rgba(0, 0, 0, 1);
+		overflow-x: hidden;
+		transition: 0.5s;
+		padding-top: 60px;
+	}
+    .sidenav{
+        background-color: rgba(255, 255, 255, 1);
+    }
+    .header-nav-mobile{
+        display: flex;
+        flex-direction: row;
+        width: 100%;
+        padding: 0;
+        justify-content: space-between;
+        padding: 0 3vw;
+    }
+    header nav ul{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    header nav ul li{
+        margin: 10px 0;
+    }
+    header nav ul li a{
+        color: #000;
+        font-weight: 500;
+        font-size: 30px;
+    }
+    header nav{
+        display: flex;
+        height: 60px;  /*height of nav*/
+    }
+    .signup-mobile{
+        display: flex;
+    }
+    .login-mobile{
+        display: flex;
+    }
+
+
+    /* main section */
+    section .main{
+        top: 15vh; 
+        /* height: 100vh; */
+        gap: 3rem;
+    }
+    section .main .main_image img{
+       display: none;
+    }
+
+    .about{
+        padding:  7vw;
+        /* position: relative; */
+        margin-top: 10rem;
+    }
+    .about h1{
+        top: 0;
+    }
+    .about .about_main .image img{
+        display: none;
+    }
+
+    /* review */
+    .review{
+        padding: 7vw;
+    }
+
+    /* gallery */
+    .gallery-div{
+        padding: 7vw;
+    }
+
+    /* reservation */
+    .order h1{
+        font-size: 45px;
+    }
+    
+    .order .order_main{    
+        flex-direction: column;
+    }
+    .order .order_main .order_image img{
+        display: none;
+    }
+    .order .order_main form{
+        display: flex;
+        flex-direction: column;
+    }
+    .order .order_main form .input input{
+        width: 400px;
+    }
+
+     /*write-review section*/
+     .review .review_box{
+        padding: 0 7vw;
+        width: 100%;
+        margin: 70px auto;
+        display: flex;
+        flex-wrap: wrap;
+    }
+    .review .review_box .review_card{
+        width: 100%;
+        height: 100%;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.5);
+        border-radius: 8px;
+        padding: 8px 20px;
+        margin: 0 8px;
+        margin-bottom: 3vh;
+    }
+
+    .formBox .row50{
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+    }
+    .inputbox{
+        display: flex;
+        flex-direction: column;
+        margin-bottom: 10px;
+        width: 100%;
+       
+    }
+
+     /*footer section*/
+     footer .footer_main{
+        display: flex; flex-wrap: wrap;
+        /* flex-direction: column;
+        align-items: center; */
+    }
+    footer .logo{
+        width: 130px;
+        height: 130px;
+        display: flex;
+        justify-content: center;
+    }
+    footer .logo img{
+        cursor: pointer;
+        margin: 7px 0;
+        height: 130px;
+        width: 130px;
+    }
+    footer ul {
+        display: none ;
+    }
+    .footer-margin {
+        margin-bottom: 30px;
+    }
+}
+
+@media (min-width: 835px) and (max-width: 1050px) {
+    section .main{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-between;
+        margin-left: 7vw;
+        margin-right: 7vw;
+        gap: 5rem;
+        position: relative;
+        top: 20vh;
+    }
+    section .main .main_image img{
+        display: none;
+    }
+
+    .about{
+        padding:  7vw;
+        /* position: relative; */
+        margin-top: 7rem;
+    }
+    .about h1{
+        top: 0;
+    }
+    .about .about_main .image img{
+        display: none;
+    }
+
+    .order .order_main .order_image img{
+        width: 400px;
     }
 }

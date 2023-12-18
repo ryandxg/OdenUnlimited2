@@ -42,17 +42,17 @@ async function  reservationPost(req, res) {
           reservationEmail,
          });
     
-        // Save the review to the database
+        // Save the reservation to the database
         const savedReservation = await newReservation.save();
 
-        console.log('Reservation saved:', savedReservation);
+        // console.log('Reservation saved:', savedReservation);
 
         //TO CUSTOMER EMAIL
         const mailGenerator = new Mailgen({
           theme: 'default',
           product: {
             name: 'Oden Unlimited',
-            link: 'https://mailgen.com/',
+            link: 'https://odenlounge.co.uk',
             logo: 'https://res.cloudinary.com/dmnaedwo6/image/upload/v1698424734/dyhdibug52dtvb4g405f.png',
           },
         });
@@ -61,7 +61,7 @@ async function  reservationPost(req, res) {
           theme: 'default',
           product: {
             name: 'Oden Reservations',
-            link: 'https://mailgen.com/',
+            link: 'https://odenlounge.co.uk',
             logo: 'https://res.cloudinary.com/dmnaedwo6/image/upload/v1698424734/dyhdibug52dtvb4g405f.png',
           },
         });
@@ -123,8 +123,8 @@ async function  reservationPost(req, res) {
           res.status(200).json({ message: "Reservation Submitted" });
           const info = await transporter.sendMail(mailOptions);
           const toAdminInfo = await transporterToAdmin.sendMail(toAdminMailOptions);
-          console.log('Email sent: ' + info.response);
-          console.log('Email sent: ' + toAdminInfo.response);
+          // console.log('Email sent: ' + info.response);
+          // console.log('Email sent: ' + toAdminInfo.response);
           
         } catch (error) {
             console.error(error);

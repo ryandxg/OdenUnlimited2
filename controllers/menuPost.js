@@ -17,10 +17,10 @@ async function menuPost (req, res){
        
         const savedMenu = await newMenu.save();
 
-        console.log('Menu saved:', savedMenu);
+        // console.log('Menu saved:', savedMenu);
         res.redirect("/admin/menu"); //addPricelist
     } catch(err) {
-        console.error(err);
+        // console.error(err);
     }
 }
 

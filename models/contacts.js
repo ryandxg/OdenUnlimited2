@@ -10,9 +10,5 @@ const contactSchema = new mongoose.Schema({
 
 
 const Contact = mongoose.model('Contact', contactSchema);
-// const reviews = [
-//     { email: "peter@gmail.com", password: "Password1" },
-//     { email: "ryan@gmail.com", password: "Password1" }
-// ];
 
 module.exports = Contact;

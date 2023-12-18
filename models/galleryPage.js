@@ -5,7 +5,7 @@ async function galleryPage(req,res){
         const gallery = await Gallery.find({});
         res.render("gallery" , { gallery: gallery})
     } catch (error) {
-        console.log(error);
+        // console.log(error);
     }
 }
 

@@ -6,7 +6,7 @@ async function pricelistPage(req,res) {
         const pricelist = await Pricelist.find({});
         res.render("pricelist" , { pricelist: pricelist})
     } catch (error) {
-        console.log(error);
+        // console.log(error);
     }
     
 }

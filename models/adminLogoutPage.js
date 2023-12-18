@@ -3,7 +3,7 @@ async function adminLogout (req, res) {
         req.session.isAdminLoggedIn = false;
         res.redirect('/admin-login');
     } catch (error) {
-        console.error(error)
+        // console.error(error)
     }
 }
 

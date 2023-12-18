@@ -21,7 +21,7 @@ function showNotification() {
     setTimeout(function() {
         notification.style.display = "none";
 
-        // Reload the page after 3 seconds
+        // Reload the page after 5 seconds
         setTimeout(function() {
           window.location.reload();
         }, 5);

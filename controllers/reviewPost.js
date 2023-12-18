@@ -14,7 +14,7 @@ async function reviewPost (req, res) {
         // Save the review to the database
         const savedReview = await newReview.save();
 
-        console.log('Review saved:', savedReview);
+        // console.log('Review saved:', savedReview);
         res.status(200).json({ message: 'Review submitted successfully' });
 
         
@@ -25,7 +25,7 @@ async function reviewPost (req, res) {
 
         // res.redirect("/")
     } catch (error) {
-        console.log(error);
+        // console.log(error);
     }
 }
 

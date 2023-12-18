@@ -5,7 +5,7 @@ async function adminGalleryPage(req,res) {
         const gallery = await Gallery.find({});
         res.render("adminGallery" , { gallery: gallery})
     } catch (error) {
-        console.log(error);
+        // console.log(error);
     }
     
 }

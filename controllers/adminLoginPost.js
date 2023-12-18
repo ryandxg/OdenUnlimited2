@@ -14,8 +14,7 @@ async function adminLoginPost (req, res) {
     const passwordMatch = await bcrypt.compare(password, admin.password);
   
     if (passwordMatch) {
-      req.session.isAdminLoggedIn = true; // Set a session variable to indicate admin is logged in
-      // res.send('Logged in as admin');
+      req.session.isAdminLoggedIn = true; //session variable to indicate admin is logged in
       res.redirect("/admin")
     } else {
       res.send('Invalid username or password');

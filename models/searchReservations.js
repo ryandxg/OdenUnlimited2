@@ -15,7 +15,7 @@ async function searchReservations(req,res) {
             res.status(404).json({ error: "Reservation not found"});
         }
     } catch (error) {
-        console.error("Error find reservation:", error);
+        // console.error("Error find reservation:", error);
         res.status(500).json({ error: "Internal Sever Error"});
     }
     

@@ -10,10 +10,10 @@ async function galleryPost (req, res){
        
         const savedGallery = await newGallery.save();
 
-        console.log('Gallery saved:', savedGallery);
+        // console.log('Gallery saved:', savedGallery);
         res.redirect("/admin/gallery");
     } catch(err) {
-        console.error(err);
+        // console.error(err);
     }
 }
 

@@ -25,7 +25,7 @@ async function reservationPage(req,res) {
         res.render("adminReservation", { reservations: reservations, foundReservations: foundReservationArray, error: error });
 
     } catch (error) {
-        console.log(error);
+        // console.log(error);
     }
     
 }

@@ -70,7 +70,7 @@ const db = mongoose.connection;
 // Handle MongoDB connection events
 db.on('error', console.error.bind(console, 'MongoDB connection error:'));
 db.once('open', () => {
-  console.log('Connected to the MongoDB database');
+  // console.log('Connected to the MongoDB database');
 });
 
 
@@ -165,10 +165,9 @@ if (imageName.endsWith(".png")) {
 } else {
     // You may need to add more MIME types for other image formats
     // For example, for GIF, you can add: else if (imageName.endsWith(".gif")) contentType = "image/gif";
-    // Make sure to include the appropriate MIME types for the image formats you're serving
 }
 
-// Set the Content-Type header based on the determined MIME type
+//Content-Type header based on the determined MIME type
 res.setHeader("Content-Type", contentType);
 
 // Serve the image file

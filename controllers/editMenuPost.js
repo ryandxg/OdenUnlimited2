@@ -6,7 +6,7 @@ async function editMenuPost (req, res) {
         console.log(updatedMenu);
         res.redirect("/admin/menu");
     } catch (error) {
-        console.error(error);
+        // console.error(error);
         res.status(500).send('Internal Server Error');
     }
 }

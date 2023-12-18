@@ -7,7 +7,7 @@ async function homePage(req,res){
         const review = await Review.find({});
         res.render("index" , { menu: menu, review: review})
     } catch (error) {
-        console.log(error);
+        // console.log(error);
     }
 }
 

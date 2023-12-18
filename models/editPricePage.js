@@ -6,7 +6,7 @@ async function editPricePage( req, res) {
     //    console.log(reservation._id);
        res.render("editPricePage", {price})
     } catch (error) {
-        console.error(error);
+        // console.error(error);
         res.status(500).send('Internal Server Error');
     }
 }

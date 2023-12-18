@@ -5,7 +5,7 @@ async function reviewsPage(req,res) {
         const reviews = await Review.find({});
         res.render("adminReview" , { reviews: reviews})
     } catch (error) {
-        console.log(error);
+        // console.log(error);
     }
     
 }

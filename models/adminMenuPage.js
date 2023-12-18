@@ -6,7 +6,7 @@ async function adminMenuPage(req,res) {
         const menu = await Menu.find({});
         res.render("adminMenu" , { menu: menu})
     } catch (error) {
-        console.log(error);
+        // console.log(error);
     }
     
 }

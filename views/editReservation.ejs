@@ -4,7 +4,7 @@
     
     <div style="border: 1px solid #ccc; border-radius: 8px; padding: 16px; margin: 16px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); background-color: #fff;">
     <form action="/edit-reservation/<%= reservation._id %>" method="post">
-        <!-- Include input fields for editing reservation details -->
+        <!-- input fields for editing reservation details -->
         <label for="reservationName">Name:</label>
         <input style="margin-top: 15px;" type="text" id="reservationName" name="reservationName" value="<%= reservation.reservationName %>" required> <br>
 
@@ -19,8 +19,6 @@
 
         <label for="reservationNumberOfPeople">Number of People:</label>
         <input style="margin-top: 15px;" type="text" id="reservationNumberOfPeople" name="reservationNumberOfPeople" value="<%= reservation.reservationNumberOfPeople %>" required> <br>
-        
-        <!-- Add other input fields for reservation details -->
     
         <!-- Submit button for editing -->
         <button style="background-color: green; color: white; padding: 10px; 

@@ -61,7 +61,7 @@ async function  reservationPost(req, res) {
           theme: 'default',
           product: {
             name: 'Oden Reservations',
-            link: 'https://odenlounge.co.uk',
+            link: 'https://odenlounge.co.uk/admin',
             logo: 'https://res.cloudinary.com/dmnaedwo6/image/upload/v1698424734/dyhdibug52dtvb4g405f.png',
           },
         });
@@ -86,7 +86,7 @@ async function  reservationPost(req, res) {
         const emailTemplate = mailGenerator.generate(email);
 
         const mailOptions = {
-          from: 'ODEN Unlimited <opeodenunlimited@gmail.com>',
+          from: 'ODEN Unlimited <odenloungecrewe@gmail.com>',
           to: req.body.reservationEmail,
           subject: 'Reservation Details',
           html: emailTemplate,   
@@ -127,10 +127,10 @@ async function  reservationPost(req, res) {
           // console.log('Email sent: ' + toAdminInfo.response);
           
         } catch (error) {
-            console.error(error);
+            // console.error(error);
         }
     } catch (error) {
-        console.log(error)
+        // console.log(error)
     }
 }  
 

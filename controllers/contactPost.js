@@ -68,7 +68,7 @@ async function contactPost (req,res) {
         const toAdminEmailTemplate = toAdminMailGenerator.generate(emailToAdmin);
 
         const toAdminMailOptions = {
-            from: 'Oden Unlimited <odenreservations@gmail.com>',
+            from: 'Oden Unlimited <odenunlimited@gmail.com>',
             to: userKey,
             subject: 'New Contacts',
             html: toAdminEmailTemplate,   

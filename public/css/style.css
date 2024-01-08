@@ -510,7 +510,7 @@ section .main_btn:hover i{
     align-items: center;
     justify-content: center;
     color: #000;
-    font-size: 55px;
+    font-size: 50px;
 }
 
 .order h1 span{
@@ -561,6 +561,7 @@ section .main_btn:hover i{
     background: #eeeeee;
     outline: none;
     border-radius: 3px;
+    -webkit-appearance: none;
 }
 
 .order .order_main form .input input:focus{

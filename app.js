@@ -12,7 +12,7 @@ const nodemailer = require('nodemailer');
 
 const isAdminLoggedIn = require("./middleware.js");
 
-const secretKey = process.env.SECRET_KEY;
+// const secretKey = process.env.SECRET_KEY;
 
 
 const app = express();
@@ -58,19 +58,23 @@ const localImagePath = "./public/images";
 // });
 
 // Connect to the MongoDB database
-const dbURL = `mongodb+srv://${secretKey}@cluster0.gu0hzci.mongodb.net/odenDB`;
 
-mongoose.connect(dbURL, {
-  useNewUrlParser: true,
-  useUnifiedTopology: true,
-});
+// const dbURL = `mongodb+srv://${secretKey}@cluster0.gu0hzci.mongodb.net/odenDB`;
+
+// mongoose.connect(dbURL, {
+//   useNewUrlParser: true,
+//   useUnifiedTopology: true,
+// });
+
+const uri = process.env.MONGODB_URI;
+mongoose.connect(uri);
 
 const db = mongoose.connection;
 
-// Handle MongoDB connection events
+// Event listeners for connection status
 db.on('error', console.error.bind(console, 'MongoDB connection error:'));
 db.once('open', () => {
-  // console.log('Connected to the MongoDB database');
+  console.log('Connected to MongoDB successfully!');
 });
 
 

@@ -51,7 +51,7 @@ async function  reservationPost(req, res) {
         const mailGenerator = new Mailgen({
           theme: 'default',
           product: {
-            name: 'Oden Unlimited',
+            name: 'Oden Lounge',
             link: 'https://odenlounge.co.uk',
             logo: 'https://res.cloudinary.com/dmnaedwo6/image/upload/v1698424734/dyhdibug52dtvb4g405f.png',
           },
@@ -86,7 +86,7 @@ async function  reservationPost(req, res) {
         const emailTemplate = mailGenerator.generate(email);
 
         const mailOptions = {
-          from: 'ODEN Unlimited <odenloungecrewe@gmail.com>',
+          from: 'Oden Lounge <odenloungecrewe@gmail.com>',
           to: req.body.reservationEmail,
           subject: 'Reservation Details',
           html: emailTemplate,   
@@ -113,7 +113,7 @@ async function  reservationPost(req, res) {
         const toAdminEmailTemplate = toAdminMailGenerator.generate(emailToAdmin);
 
         const toAdminMailOptions = {
-          from: 'Oden Unlimited <odenunlimited@gmail.com>',
+          from: 'Oden Lounge <odenreservations@gmail.com>',
           to: userKey,
           subject: 'New Reservation Details',
           html: toAdminEmailTemplate,   

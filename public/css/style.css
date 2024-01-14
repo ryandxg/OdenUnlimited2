@@ -898,6 +898,11 @@ footer .end span{
     .about .about_btn{
         display: none;
     }
+    .about h1 span{
+        color: #90323d;
+        margin-right: 15px;
+        font-family: mv boli;
+    }
 
     /*menu section*/
 
@@ -907,6 +912,11 @@ footer .end span{
         display: flex;
         flex-direction: column;
         align-items: center;
+    }
+    .menu h1 span{
+        color: #90323d;
+        margin-left: 15px;
+        font-family: mv boli;
     }
 
     /*gallery section*/ 
@@ -928,6 +938,11 @@ footer .end span{
         margin-top: 0;
         line-height: 15px;
     }
+    .gallery-div h1 span{
+        margin-left: 15px;
+        color: #90323d;
+        font-family: mv boli;
+    }
 
     
 
@@ -938,6 +953,11 @@ footer .end span{
     .review h1 span{
         margin-left: 10px;
         color: #90323d;
+        font-family: mv boli;
+    }
+    .review-header h1 span{
+        color: #90323d;
+        margin-left: 15px;
         font-family: mv boli;
     }
 
@@ -960,6 +980,11 @@ footer .end span{
     .order .order_main form .input input{
         width: 350px;
     }
+    .order h1 span{
+        color: #90323d;
+        margin-right: 15px;
+        font-family: mv boli;
+    }
 
      /*review section*/
      .review .review_box{
@@ -968,6 +993,11 @@ footer .end span{
         margin: 70px auto;
         display: flex;
         flex-wrap: wrap;
+    }
+    .write-review h1 span{
+        margin-left: 15px;
+        color: #90323d;
+        font-family: mv boli;
     }
     .review .review_box .review_card{
         width: 100%;

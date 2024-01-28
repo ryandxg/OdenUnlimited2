@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="order" id="Reservation">
+        <h1><span>Make a</span>Reservation</h1>
+
+        <div class="order_main">
+
+            <div class="order_image">
+                <img loading="lazy" src="/images/order_image.png">
+            </div>
+
+            <form id="myForm1" action="/submitReservation" class="myForm" method="post">
+
+                <div class="input">
+                    <p>Your name</p>
+                    <input id="reservationName" name="name" type="text" placeholder="Input your name" required>
+                </div>
+
+                <div class="input">
+                    <p>Number of people</p>
+                    <input id="reservationNumberOfPeople" name="numberOfPeople" type="number" min=1 oninput="validity.valid||(value='');" placeholder="Table of" required>
+                </div>
+
+                <div class="input">
+                    <p>Time</p>
+                    <input id="reservationTime" name="time" type="text"  placeholder="Time of Arrival" required>
+
+                </div>
+
+                <div class="input">
+                    <p>Date</p>
+                    <input id="reservationDate" name="date" type="date"  placeholder="Scheduled Date" required>
+                   
+                </div>
+                
+
+
+                <div class="input">
+                    <p>Phone number</p>
+                    <input id="reservationPhoneNumber" name="phoneNumber" type="tel" placeholder="Input Mobile">
+                </div>
+
+                <div class="input">
+                    <p>Email</p>
+                    <input id="reservationEmail" name="email" type="email" placeholder="Input Email." required>
+                </div>
+
+                
+
+                <input type="submit" class="order_btn"></input>
+
+            </form>
+
+        </div>
+
+    </div>
+</body>
+</html>
